@@ -1,0 +1,19 @@
+
+============================================================
+Session: 2026-03-22T23:17:09.583964+00:00
+  - OVERCONFIDENT buckets (markets resolve 'yes' less than implied): [{'bucket_low': 0.0, 'bucket_high': 0.1, 'calibration_error': -0.0623}, {'bucket_low': 0.1, 'bucket_high': 0.2, 'calibration_error': -0.147}, {'bucket_low': 0.2, 'bucket_high': 0.3, 'calibration_error': -0.261}, {'bucket_low': 0.3, 'bucket_high': 0.4, 'calibration_error': -0.3764}, {'bucket_low': 0.6, 'bucket_high': 0.7, 'calibration_error': -0.6187}]
+  - UNDERCONFIDENT buckets (markets resolve 'yes' more than implied): [{'bucket_low': 0.7, 'bucket_high': 0.8, 'calibration_error': 0.2419}, {'bucket_low': 0.8, 'bucket_high': 0.9, 'calibration_error': 0.1745}, {'bucket_low': 0.9, 'bucket_high': 1.0, 'calibration_error': 0.0878}]
+  - MISPRICE (UNDERPRICED): KXHIGHCHI-26MAR22-T45 - implied 26.7% vs historical 56.7% (CHI, strike 45.0F)
+  - MISPRICE (UNDERPRICED): KXHIGHCHI-26MAR22-T45 - implied 28.0% vs historical 56.7% (CHI, strike 45.0F)
+  - MISPRICE (UNDERPRICED): KXHIGHMI-26MAR22-T72 - implied 69.2% vs historical 96.7% (MI, strike 72.0F)
+  - MISPRICE (OVERPRICED): KXHIGHMI-26MAR22-T84 - implied 36.0% vs historical 10.0% (MI, strike 84.0F)
+  - MISPRICE (UNDERPRICED): KXHIGHCHI-26MAR22-T45 - implied 31.1% vs historical 56.7% (CHI, strike 45.0F)
+  - MISPRICE (UNDERPRICED): KXHIGHCHI-26MAR22-T45 - implied 31.3% vs historical 56.7% (CHI, strike 45.0F)
+  - MISPRICE (OVERPRICED): KXHIGHMI-26MAR22-T84 - implied 35.3% vs historical 10.0% (MI, strike 84.0F)
+  - MISPRICE (UNDERPRICED): KXHIGHMI-26MAR22-T72 - implied 72.0% vs historical 96.7% (MI, strike 72.0F)
+  - MISPRICE (UNDERPRICED): KXHIGHCHI-26MAR22-T50 - implied 2.3% vs historical 26.7% (CHI, strike 50.0F)
+  - MISPRICE (OVERPRICED): KXHIGHMI-26MAR22-T88 - implied 24.0% vs historical 0.0% (MI, strike 88.0F)
+  - BIAS in source_kalshi: -0.0561 (overestimates 'yes' probability)
+  - BIAS in source_polymarket: -0.1338 (overestimates 'yes' probability)
+  - BIAS in series_KXHIGHMI: -0.2108 (overestimates 'yes' probability)
+  - BIAS in series_KXHIGHNY: +0.0818 (underestimates 'yes' probability)
