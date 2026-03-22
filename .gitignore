@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env
+session.log
+*.egg-info/
+.venv/
+venv/
