@@ -1,0 +1,136 @@
+{
+  "timestamp": "2026-03-22T17:19:45.371926+00:00",
+  "data_summary": {
+    "total_snapshots": 2535,
+    "unique_markets": 845,
+    "resolved_markets": 840,
+    "weather_rows": 120,
+    "sources": {
+      "kalshi": 2520,
+      "polymarket": 15
+    }
+  },
+  "calibration": [
+    {
+      "prob_bucket": "(-0.001, 0.1]",
+      "count": 280,
+      "mean_implied_prob": 0.035573214285714284,
+      "actual_frequency": 0.0,
+      "calibration_error": -0.035573214285714284
+    },
+    {
+      "prob_bucket": "(0.1, 0.2]",
+      "count": 65,
+      "mean_implied_prob": 0.14520307692307693,
+      "actual_frequency": 0.0,
+      "calibration_error": -0.14520307692307693
+    },
+    {
+      "prob_bucket": "(0.2, 0.3]",
+      "count": 33,
+      "mean_implied_prob": 0.24835757575757578,
+      "actual_frequency": 0.0,
+      "calibration_error": -0.24835757575757578
+    },
+    {
+      "prob_bucket": "(0.3, 0.4]",
+      "count": 34,
+      "mean_implied_prob": 0.36053235294117647,
+      "actual_frequency": 0.029411764705882353,
+      "calibration_error": -0.3311205882352941
+    },
+    {
+      "prob_bucket": "(0.4, 0.5]",
+      "count": 22,
+      "mean_implied_prob": 0.45599545454545454,
+      "actual_frequency": 0.22727272727272727,
+      "calibration_error": -0.22872272727272727
+    },
+    {
+      "prob_bucket": "(0.5, 0.6]",
+      "count": 21,
+      "mean_implied_prob": 0.5415904761904762,
+      "actual_frequency": 0.9047619047619048,
+      "calibration_error": 0.3631714285714286
+    },
+    {
+      "prob_bucket": "(0.6, 0.7]",
+      "count": 34,
+      "mean_implied_prob": 0.6524852941176471,
+      "actual_frequency": 1.0,
+      "calibration_error": 0.3475147058823529
+    },
+    {
+      "prob_bucket": "(0.7, 0.8]",
+      "count": 38,
+      "mean_implied_prob": 0.758621052631579,
+      "actual_frequency": 1.0,
+      "calibration_error": 0.24137894736842103
+    },
+    {
+      "prob_bucket": "(0.8, 0.9]",
+      "count": 47,
+      "mean_implied_prob": 0.8536893617021276,
+      "actual_frequency": 1.0,
+      "calibration_error": 0.1463106382978724
+    },
+    {
+      "prob_bucket": "(0.9, 1.0]",
+      "count": 266,
+      "mean_implied_prob": 0.9644819548872179,
+      "actual_frequency": 1.0,
+      "calibration_error": 0.035518045112782115
+    }
+  ],
+  "forecast_errors": {
+    "n_markets": 840,
+    "mean_brier_score": 0.0307,
+    "mean_log_loss": 0.1365,
+    "brier_by_series": {
+      "KXHIGHCHI": 0.0291,
+      "KXHIGHLAX": 0.0303,
+      "KXHIGHMI": 0.0311,
+      "KXHIGHNY": 0.0322
+    }
+  },
+  "mispriced_markets": [],
+  "slow_reactions": [],
+  "regional_biases": {
+    "CHI": {
+      "n_markets": 210,
+      "mean_brier": 0.0291,
+      "mean_bias": -0.0095,
+      "bias_direction": "well-calibrated"
+    },
+    "LAX": {
+      "n_markets": 210,
+      "mean_brier": 0.0303,
+      "mean_bias": 0.0069,
+      "bias_direction": "well-calibrated"
+    },
+    "MIA": {
+      "n_markets": 210,
+      "mean_brier": 0.0311,
+      "mean_bias": -0.0009,
+      "bias_direction": "well-calibrated"
+    },
+    "NYC": {
+      "n_markets": 210,
+      "mean_brier": 0.0322,
+      "mean_bias": -0.0016,
+      "bias_direction": "well-calibrated"
+    }
+  },
+  "seasonal_biases": {
+    "Feb": {
+      "n_markets": 252,
+      "mean_brier": 0.0294,
+      "mean_bias": -0.0035
+    },
+    "Mar": {
+      "n_markets": 588,
+      "mean_brier": 0.0312,
+      "mean_bias": -0.0003
+    }
+  }
+}
