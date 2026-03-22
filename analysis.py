@@ -2,7 +2,6 @@
 
 import json
 import logging
-import re
 import numpy as np
 import pandas as pd
 from datetime import datetime, timezone
@@ -184,6 +183,8 @@ def detect_cross_platform_divergences(markets_df: pd.DataFrame) -> list[dict]:
     if active.empty:
         return []
 
+    # Group by similar questions (fuzzy match on city + date patterns)
+    import re
     divergences = []
 
     poly = active[active["source"] == "polymarket"]

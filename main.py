@@ -41,11 +41,11 @@ def run_session():
     logger.info("Session started at %s", session_start.isoformat())
     logger.info("=" * 60)
 
-    # -- Step 0: Seed data if empty --
+    # ── Step 0: Seed data if empty ──
     print("\n[0/6] Checking dataset...")
     seed_data.seed_if_empty()
 
-    # -- Step 1: Fetch latest market data --
+    # ── Step 1: Fetch latest market data ──
     print("\n[1/6] Fetching weather prediction markets...")
     new_markets = fetch_markets.fetch_all_weather_markets()
     if new_markets.empty:
@@ -56,7 +56,7 @@ def run_session():
         new_markets_count = len(new_markets)
         print(f"  -> Fetched {new_markets_count} weather markets")
 
-    # -- Step 2: Update persistent market dataset --
+    # ── Step 2: Update persistent market dataset ──
     print("\n[2/6] Updating market dataset...")
     if not new_markets.empty:
         markets_df = dataset.update_markets(new_markets)
@@ -64,7 +64,7 @@ def run_session():
         markets_df = dataset.load_markets()
     print(f"  -> Total markets in dataset: {len(markets_df) if not markets_df.empty else 0}")
 
-    # -- Step 3: Append price snapshots --
+    # ── Step 3: Append price snapshots ──
     print("\n[3/6] Recording price snapshots...")
     if not new_markets.empty:
         snapshots_df = dataset.append_price_snapshots(new_markets)
@@ -73,18 +73,18 @@ def run_session():
         snapshots_df = dataset.load_snapshots()
         print(f"  -> Using existing snapshots: {len(snapshots_df) if not snapshots_df.empty else 0}")
 
-    # -- Step 4: Fetch weather outcomes for resolved markets --
+    # ── Step 4: Fetch weather outcomes for resolved markets ──
     print("\n[4/6] Fetching actual weather outcomes for resolved markets...")
     outcomes_list = fetch_weather.fetch_outcomes_for_markets(markets_df)
     outcomes_df = dataset.update_outcomes(outcomes_list)
     print(f"  -> New outcomes fetched: {len(outcomes_list)}")
     print(f"  -> Total outcomes in dataset: {len(outcomes_df) if not outcomes_df.empty else 0}")
 
-    # -- Step 5: Run analysis --
+    # ── Step 5: Run analysis ──
     print("\n[5/6] Running analysis...")
     results = analysis.run_full_analysis(markets_df, snapshots_df, outcomes_df)
 
-    # -- Step 6: Output summary --
+    # ── Step 6: Output summary ──
     print("\n[6/6] Session Summary")
     print("=" * 60)
     _print_summary(results)
@@ -168,7 +168,7 @@ def _print_summary(results: dict):
         for d in divs[:3]:
             if d["spread"] >= 0.02:
                 opportunities.append(
-                    f"  * ARBITRAGE: {d['city'].title()} Mar {d['date']} -- "
+                    f"  * ARBITRAGE: {d['city'].title()} Mar {d['date']} — "
                     f"buy {'Kalshi' if d['direction'] == 'Polymarket higher' else 'Polymarket'} Yes @ "
                     f"{min(d['polymarket_yes'], d['kalshi_yes']):.3f}, "
                     f"sell {'Polymarket' if d['direction'] == 'Polymarket higher' else 'Kalshi'} Yes @ "

@@ -1,0 +1,300 @@
+{
+  "timestamp": "2026-03-22T12:16:02.501876+00:00",
+  "market_counts": {
+    "total": 29,
+    "active": 15,
+    "resolved": 14,
+    "by_source": {
+      "polymarket": 18,
+      "kalshi": 11
+    }
+  },
+  "calibration": {
+    "buckets": [
+      {
+        "range": "0.3-0.4",
+        "midpoint": 0.35,
+        "count": 3,
+        "implied_prob_avg": 0.36000000000000004,
+        "actual_rate": 0.3333333333333333,
+        "calibration_error": 0.026666666666666727
+      },
+      {
+        "range": "0.4-0.5",
+        "midpoint": 0.45,
+        "count": 1,
+        "implied_prob_avg": 0.41,
+        "actual_rate": 0.0,
+        "calibration_error": 0.41
+      },
+      {
+        "range": "0.5-0.6",
+        "midpoint": 0.55,
+        "count": 1,
+        "implied_prob_avg": 0.52,
+        "actual_rate": 1.0,
+        "calibration_error": 0.48
+      },
+      {
+        "range": "0.6-0.7",
+        "midpoint": 0.6499999999999999,
+        "count": 1,
+        "implied_prob_avg": 0.69,
+        "actual_rate": 1.0,
+        "calibration_error": 0.31000000000000005
+      },
+      {
+        "range": "0.7-0.8",
+        "midpoint": 0.75,
+        "count": 3,
+        "implied_prob_avg": 0.7366666666666667,
+        "actual_rate": 1.0,
+        "calibration_error": 0.2633333333333333
+      },
+      {
+        "range": "0.8-0.9",
+        "midpoint": 0.8500000000000001,
+        "count": 4,
+        "implied_prob_avg": 0.8524999999999999,
+        "actual_rate": 1.0,
+        "calibration_error": 0.14750000000000008
+      },
+      {
+        "range": "0.9-1.0",
+        "midpoint": 0.9550000000000001,
+        "count": 1,
+        "implied_prob_avg": 0.91,
+        "actual_rate": 1.0,
+        "calibration_error": 0.08999999999999997
+      }
+    ],
+    "mean_calibration_error": 0.2467857142857143,
+    "total_resolved_markets": 14
+  },
+  "forecast_errors": {
+    "count": 14,
+    "mean_absolute_error": 0.28928571428571426,
+    "mean_squared_error": 0.10649285714285715,
+    "brier_score": 0.10649285714285715,
+    "mean_bias": -0.12642857142857142,
+    "median_absolute_error": 0.28
+  },
+  "mispriced_markets": [
+    {
+      "source": "polymarket",
+      "market_id": "pm-temp-seoul-20260322",
+      "question": "Highest temperature in Seoul on March 22?",
+      "current_yes_price": 0.74,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=4.4"
+        }
+      ]
+    },
+    {
+      "source": "polymarket",
+      "market_id": "pm-temp-tokyo-20260322",
+      "question": "Highest temperature in Tokyo on March 22?",
+      "current_yes_price": 0.56,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=3.8"
+        }
+      ]
+    },
+    {
+      "source": "polymarket",
+      "market_id": "pm-temp-nyc-20260322",
+      "question": "Highest temperature in New York on March 22?",
+      "current_yes_price": 0.62,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=4.1"
+        }
+      ]
+    },
+    {
+      "source": "polymarket",
+      "market_id": "pm-temp-la-20260322",
+      "question": "Highest temperature in Los Angeles on March 22?",
+      "current_yes_price": 0.81,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=4.1"
+        }
+      ]
+    },
+    {
+      "source": "polymarket",
+      "market_id": "pm-temp-chicago-20260322",
+      "question": "Highest temperature in Chicago on March 22?",
+      "current_yes_price": 0.45,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=4.8"
+        }
+      ]
+    },
+    {
+      "source": "polymarket",
+      "market_id": "pm-temp-miami-20260322",
+      "question": "Highest temperature in Miami on March 22?",
+      "current_yes_price": 0.68,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=4.0"
+        }
+      ]
+    },
+    {
+      "source": "polymarket",
+      "market_id": "pm-hottest-year-2026",
+      "question": "Where will 2026 rank among the hottest years on record?",
+      "current_yes_price": 0.42,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=4.1"
+        }
+      ]
+    },
+    {
+      "source": "polymarket",
+      "market_id": "pm-hurricane-may-2026",
+      "question": "Will a hurricane form by May 31, 2026?",
+      "current_yes_price": 0.18,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=3.8"
+        }
+      ]
+    },
+    {
+      "source": "polymarket",
+      "market_id": "pm-precip-nyc-march-2026",
+      "question": "Total precipitation in NYC in March 2026 above 4 inches?",
+      "current_yes_price": 0.53,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=4.1"
+        }
+      ]
+    },
+    {
+      "source": "kalshi",
+      "market_id": "KXHIGHNY-26MAR22-T55",
+      "question": "Will NYC high reach 55\u00b0F on March 22, 2026?",
+      "current_yes_price": 0.6,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=4.3"
+        }
+      ]
+    },
+    {
+      "source": "kalshi",
+      "market_id": "KXHIGHCHI-26MAR22-T50",
+      "question": "Will Chicago high reach 50\u00b0F on March 22, 2026?",
+      "current_yes_price": 0.43,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=4.5"
+        }
+      ]
+    },
+    {
+      "source": "kalshi",
+      "market_id": "KXHIGHMIA-26MAR22-T85",
+      "question": "Will Miami high reach 85\u00b0F on March 22, 2026?",
+      "current_yes_price": 0.65,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=4.3"
+        }
+      ]
+    },
+    {
+      "source": "kalshi",
+      "market_id": "KXHIGHLA-26MAR22-T75",
+      "question": "Will LA high reach 75\u00b0F on March 22, 2026?",
+      "current_yes_price": 0.78,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=4.4"
+        }
+      ]
+    },
+    {
+      "source": "kalshi",
+      "market_id": "KXHURR-26-NAMED-15PLUS",
+      "question": "15+ named storms in 2026 Atlantic hurricane season?",
+      "current_yes_price": 0.58,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=3.9"
+        }
+      ]
+    },
+    {
+      "source": "kalshi",
+      "market_id": "KXHURR-26-MAJOR-4PLUS",
+      "question": "4+ major hurricanes (Cat 3+) in 2026 Atlantic season?",
+      "current_yes_price": 0.39,
+      "signals": [
+        {
+          "type": "thin_liquidity",
+          "detail": "Volume/Liquidity=3.9"
+        }
+      ]
+    }
+  ],
+  "biases": {
+    "region_chicago": {
+      "count": 3,
+      "mean_error": 0.13999999999999999,
+      "direction": "overestimates yes"
+    },
+    "category_temperature": {
+      "count": 8,
+      "mean_error": -0.09875,
+      "brier_score": 0.1016125
+    }
+  },
+  "cross_platform_divergences": [
+    {
+      "city": "miami",
+      "date": "22",
+      "polymarket_yes": 0.68,
+      "kalshi_yes": 0.65,
+      "spread": 0.03,
+      "polymarket_question": "Highest temperature in Miami on March 22?",
+      "kalshi_question": "Will Miami high reach 85\u00b0F on March 22, 2026?",
+      "direction": "Polymarket higher"
+    },
+    {
+      "city": "chicago",
+      "date": "22",
+      "polymarket_yes": 0.45,
+      "kalshi_yes": 0.43,
+      "spread": 0.02,
+      "polymarket_question": "Highest temperature in Chicago on March 22?",
+      "kalshi_question": "Will Chicago high reach 50\u00b0F on March 22, 2026?",
+      "direction": "Polymarket higher"
+    }
+  ],
+  "snapshot_count": 174,
+  "outcome_count": 14
+}
