@@ -1,0 +1,5 @@
+market_id,source,title,yes_price,volume,liquidity,signals,analyzed_at
+pm-nyc-temp-mar26-2026,polymarket,Highest temperature in NYC on March 26?,0.835,66200.0,8500.0,momentum_+0.41,2026-03-25T20:20:04.340660+00:00
+pm-2026-hottest-rank,polymarket,Where will 2026 rank among the hottest years on record?,0.43,1800000.0,113000.0,contested_high_volume,2026-03-25T20:20:04.342313+00:00
+pm-hurricane-by-sep30,polymarket,Will a hurricane form by September 30?,0.97,55000.0,15000.0,extreme_price_high_volume,2026-03-25T20:20:04.345475+00:00
+pm-seattle-precip-mar,polymarket,Precipitation in Seattle in March?,0.79,137000.0,21300.0,momentum_+0.27,2026-03-25T20:20:04.346340+00:00

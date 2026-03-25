@@ -1,0 +1,2 @@
+prob_bucket,count,actual_frequency,avg_implied_prob,avg_volume,forecast_error,abs_error
+0.9-1.0,6,1.0,1.0,101483.33333333333,0.0,0.0

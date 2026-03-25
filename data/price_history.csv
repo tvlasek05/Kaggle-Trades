@@ -1,0 +1,37 @@
+timestamp,source,market_id,title,yes_price,no_price,volume,liquidity,resolved
+2026-03-22T10:00:00+00:00,polymarket,pm-nyc-temp-mar26-2026,Highest temperature in NYC on March 26?,0.35,0.65,27748,8500,False
+2026-03-23T10:00:00+00:00,polymarket,pm-nyc-temp-mar26-2026,Highest temperature in NYC on March 26?,0.42,0.58,33298,8500,False
+2026-03-24T10:00:00+00:00,polymarket,pm-nyc-temp-mar26-2026,Highest temperature in NYC on March 26?,0.55,0.45,43604,8500,False
+2026-03-24T22:00:00+00:00,polymarket,pm-nyc-temp-mar26-2026,Highest temperature in NYC on March 26?,0.68,0.32,53911,8500,False
+2026-03-25T10:00:00+00:00,polymarket,pm-nyc-temp-mar26-2026,Highest temperature in NYC on March 26?,0.78,0.22,61839,8500,False
+2026-03-25T20:15:00+00:00,polymarket,pm-nyc-temp-mar26-2026,Highest temperature in NYC on March 26?,0.835,0.165,66200,8500,False
+2026-03-22T10:00:00+00:00,polymarket,pm-2026-hottest-rank,Where will 2026 rank among the hottest years on record?,0.38,0.62,1590697,113000,False
+2026-03-23T10:00:00+00:00,polymarket,pm-2026-hottest-rank,Where will 2026 rank among the hottest years on record?,0.4,0.6,1674418,113000,False
+2026-03-24T10:00:00+00:00,polymarket,pm-2026-hottest-rank,Where will 2026 rank among the hottest years on record?,0.41,0.59,1716279,113000,False
+2026-03-24T22:00:00+00:00,polymarket,pm-2026-hottest-rank,Where will 2026 rank among the hottest years on record?,0.42,0.58,1758139,113000,False
+2026-03-25T10:00:00+00:00,polymarket,pm-2026-hottest-rank,Where will 2026 rank among the hottest years on record?,0.41,0.59,1716279,113000,False
+2026-03-25T20:15:00+00:00,polymarket,pm-2026-hottest-rank,Where will 2026 rank among the hottest years on record?,0.43,0.57,1800000,113000,False
+2026-03-22T10:00:00+00:00,polymarket,pm-natural-disaster-2026,Natural Disaster in 2026?,0.35,0.65,209661,25000,False
+2026-03-23T10:00:00+00:00,polymarket,pm-natural-disaster-2026,Natural Disaster in 2026?,0.34,0.66,203670,25000,False
+2026-03-24T10:00:00+00:00,polymarket,pm-natural-disaster-2026,Natural Disaster in 2026?,0.33,0.67,197680,25000,False
+2026-03-24T22:00:00+00:00,polymarket,pm-natural-disaster-2026,Natural Disaster in 2026?,0.32,0.68,191690,25000,False
+2026-03-25T10:00:00+00:00,polymarket,pm-natural-disaster-2026,Natural Disaster in 2026?,0.31,0.69,185700,25000,False
+2026-03-25T20:15:00+00:00,polymarket,pm-natural-disaster-2026,Natural Disaster in 2026?,0.31,0.69,185700,25000,False
+2026-03-22T10:00:00+00:00,polymarket,pm-seattle-precip-mar,Precipitation in Seattle in March?,0.45,0.55,78037,21300,False
+2026-03-23T10:00:00+00:00,polymarket,pm-seattle-precip-mar,Precipitation in Seattle in March?,0.52,0.48,90177,21300,False
+2026-03-24T10:00:00+00:00,polymarket,pm-seattle-precip-mar,Precipitation in Seattle in March?,0.61,0.39,105784,21300,False
+2026-03-24T22:00:00+00:00,polymarket,pm-seattle-precip-mar,Precipitation in Seattle in March?,0.7,0.3,121392,21300,False
+2026-03-25T10:00:00+00:00,polymarket,pm-seattle-precip-mar,Precipitation in Seattle in March?,0.75,0.25,130063,21300,False
+2026-03-25T20:15:00+00:00,polymarket,pm-seattle-precip-mar,Precipitation in Seattle in March?,0.79,0.21,137000,21300,False
+2026-03-22T10:00:00+00:00,polymarket,pm-named-storm-before-season,Named storm forms before hurricane season?,0.38,0.62,35466,12000,False
+2026-03-23T10:00:00+00:00,polymarket,pm-named-storm-before-season,Named storm forms before hurricane season?,0.42,0.58,39200,12000,False
+2026-03-24T10:00:00+00:00,polymarket,pm-named-storm-before-season,Named storm forms before hurricane season?,0.48,0.52,44800,12000,False
+2026-03-24T22:00:00+00:00,polymarket,pm-named-storm-before-season,Named storm forms before hurricane season?,0.44,0.56,41066,12000,False
+2026-03-25T10:00:00+00:00,polymarket,pm-named-storm-before-season,Named storm forms before hurricane season?,0.46,0.54,42933,12000,False
+2026-03-25T20:15:00+00:00,polymarket,pm-named-storm-before-season,Named storm forms before hurricane season?,0.45,0.55,42000,12000,False
+2026-03-17T10:00:00+00:00,polymarket,pm-nyc-temp-mar21-2026,Highest temperature in NYC on March 21?,0.22,0.78,40436,11700,False
+2026-03-18T10:00:00+00:00,polymarket,pm-nyc-temp-mar21-2026,Highest temperature in NYC on March 21?,0.35,0.65,64329,9750,False
+2026-03-19T10:00:00+00:00,polymarket,pm-nyc-temp-mar21-2026,Highest temperature in NYC on March 21?,0.58,0.42,106603,6300,False
+2026-03-20T10:00:00+00:00,polymarket,pm-nyc-temp-mar21-2026,Highest temperature in NYC on March 21?,0.75,0.25,137850,3750,False
+2026-03-20T22:00:00+00:00,polymarket,pm-nyc-temp-mar21-2026,Highest temperature in NYC on March 21?,0.92,0.08,169096,1199,False
+2026-03-21T20:00:00+00:00,polymarket,pm-nyc-temp-mar21-2026,Highest temperature in NYC on March 21?,1.0,0.0,183800,0,True

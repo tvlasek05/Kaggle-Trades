@@ -1,0 +1,32 @@
+============================================================
+WEATHER PREDICTION MARKET ANALYSIS — 2026-03-25 20:20 UTC
+============================================================
+
+MARKETS: 19 total | 13 active | 6 resolved
+  polymarket: 13 markets
+  kalshi: 6 markets
+
+PRICE HISTORY: 36 total snapshots
+
+CALIBRATION BY PROBABILITY BUCKET:
+  Bucket        Count  Implied   Actual    Error
+  --------------------------------------------
+  0.9-1.0           6    1.000    1.000   +0.000
+  Brier Score: 0.0000
+
+POTENTIAL OPPORTUNITIES (4):
+  [polymarket] Highest temperature in NYC on March 26?
+    Price: 0.83 | Vol: 66,200 | Signals: momentum_+0.41
+  [polymarket] Where will 2026 rank among the hottest years on record?
+    Price: 0.43 | Vol: 1,800,000 | Signals: contested_high_volume
+  [polymarket] Will a hurricane form by September 30?
+    Price: 0.97 | Vol: 55,000 | Signals: extreme_price_high_volume
+  [polymarket] Precipitation in Seattle in March?
+    Price: 0.79 | Vol: 137,000 | Signals: momentum_+0.27
+
+SLOW/STALE MARKETS (1):
+  Natural Disaster in 2026? — price 0.31, stale >12h
+
+BIAS DETECTION:
+
+============================================================
