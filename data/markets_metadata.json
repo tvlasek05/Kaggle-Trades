@@ -1,0 +1,210 @@
+{
+  "poly-nyc-heat-apr-2026": {
+    "source": "polymarket",
+    "question": "Will New York City reach 90\u00b0F in April 2026?",
+    "description": "Resolves Yes if any official NWS station in NYC records 90\u00b0F+ in April 2026",
+    "slug": "nyc-90f-april-2026",
+    "end_date": "2026-04-30T23:59:00Z",
+    "category": "weather"
+  },
+  "poly-hurricane-cat3-2026": {
+    "source": "polymarket",
+    "question": "Will a Category 3+ hurricane make US landfall in 2026?",
+    "description": "Resolves Yes if NHC classifies any 2026 Atlantic hurricane as Cat 3+ at US landfall",
+    "slug": "cat3-hurricane-atlantic-2026",
+    "end_date": "2026-11-30T23:59:00Z",
+    "category": "weather"
+  },
+  "poly-la-rain-apr-2026": {
+    "source": "polymarket",
+    "question": "Will Los Angeles April 2026 rainfall exceed historical average?",
+    "description": "Resolves Yes if total LAX rain gauge records above 0.8 inches for April 2026",
+    "slug": "la-rain-above-normal-april-2026",
+    "end_date": "2026-04-30T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHNY-26MAR28-T75": {
+    "source": "kalshi",
+    "question": "Will NYC high temperature reach 75\u00b0F on March 28, 2026?",
+    "description": "NYC daily high temperature market",
+    "slug": "KXHIGHNY-26MAR28-T75",
+    "end_date": "2026-03-28T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHCHI-26MAR28-T60": {
+    "source": "kalshi",
+    "question": "Will Chicago high temperature reach 60\u00b0F on March 28, 2026?",
+    "description": "Chicago daily high temperature market",
+    "slug": "KXHIGHCHI-26MAR28-T60",
+    "end_date": "2026-03-28T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHMIA-26MAR28-T85": {
+    "source": "kalshi",
+    "question": "Will Miami high temperature reach 85\u00b0F on March 28, 2026?",
+    "description": "Miami daily high temperature market",
+    "slug": "KXHIGHMIA-26MAR28-T85",
+    "end_date": "2026-03-28T23:59:00Z",
+    "category": "weather"
+  },
+  "KXSNOWNY-26MAR-T1": {
+    "source": "kalshi",
+    "question": "Will NYC get 1+ inch of snow in March 2026?",
+    "description": "NYC monthly snowfall market",
+    "slug": "KXSNOWNY-26MAR-T1",
+    "end_date": "2026-03-31T23:59:00Z",
+    "category": "weather"
+  },
+  "poly-el-nino-2026": {
+    "source": "polymarket",
+    "question": "Will NOAA declare El Ni\u00f1o conditions by summer 2026?",
+    "description": "Resolves Yes if NOAA issues an El Ni\u00f1o advisory before September 1, 2026",
+    "slug": "el-nino-2026-summer",
+    "end_date": "2026-09-01T00:00:00Z",
+    "category": "weather"
+  },
+  "poly-hottest-summer-2026": {
+    "source": "polymarket",
+    "question": "Will 2026 be the hottest summer on record globally?",
+    "description": "Based on NOAA global surface temperature anomaly for June-August 2026",
+    "slug": "2026-hottest-summer-record",
+    "end_date": "2026-09-30T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHLA-26MAR28-T80": {
+    "source": "kalshi",
+    "question": "Will Los Angeles high temperature reach 80\u00b0F on March 28, 2026?",
+    "description": "LA daily high temperature market",
+    "slug": "KXHIGHLA-26MAR28-T80",
+    "end_date": "2026-03-28T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHNY-26MAR20-T55": {
+    "source": "kalshi",
+    "question": "Will NYC high temperature reach 55\u00b0F on March 20, 2026?",
+    "description": "Will NYC high temperature reach 55\u00b0F on March 20, 2026?",
+    "slug": "KXHIGHNY-26MAR20-T55",
+    "end_date": "2026-03-20T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHNY-26MAR20-T65": {
+    "source": "kalshi",
+    "question": "Will NYC high temperature reach 65\u00b0F on March 20, 2026?",
+    "description": "Will NYC high temperature reach 65\u00b0F on March 20, 2026?",
+    "slug": "KXHIGHNY-26MAR20-T65",
+    "end_date": "2026-03-20T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHCHI-26MAR20-T50": {
+    "source": "kalshi",
+    "question": "Will Chicago high temperature reach 50\u00b0F on March 20, 2026?",
+    "description": "Will Chicago high temperature reach 50\u00b0F on March 20, 2026?",
+    "slug": "KXHIGHCHI-26MAR20-T50",
+    "end_date": "2026-03-20T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHMIA-26MAR20-T80": {
+    "source": "kalshi",
+    "question": "Will Miami high temperature reach 80\u00b0F on March 20, 2026?",
+    "description": "Will Miami high temperature reach 80\u00b0F on March 20, 2026?",
+    "slug": "KXHIGHMIA-26MAR20-T80",
+    "end_date": "2026-03-20T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHLA-26MAR20-T75": {
+    "source": "kalshi",
+    "question": "Will Los Angeles high temperature reach 75\u00b0F on March 20, 2026?",
+    "description": "Will Los Angeles high temperature reach 75\u00b0F on March 20, 2026?",
+    "slug": "KXHIGHLA-26MAR20-T75",
+    "end_date": "2026-03-20T23:59:00Z",
+    "category": "weather"
+  },
+  "poly-feb-snow-nyc-2026": {
+    "source": "polymarket",
+    "question": "Will NYC get 6+ inches of snow in any single storm in February 2026?",
+    "description": "Will NYC get 6+ inches of snow in any single storm in February 2026?",
+    "slug": "nyc-snowfall-feb-2026",
+    "end_date": "2026-02-28T23:59:00Z",
+    "category": "weather"
+  },
+  "poly-warmest-feb-2026": {
+    "source": "polymarket",
+    "question": "Will February 2026 be the warmest February on record globally?",
+    "description": "Will February 2026 be the warmest February on record globally?",
+    "slug": "warmest-february-record-2026",
+    "end_date": "2026-03-15T00:00:00Z",
+    "category": "weather"
+  },
+  "KXHIGHNY-26MAR15-T60": {
+    "source": "kalshi",
+    "question": "Will NYC high temperature reach 60\u00b0F on March 15, 2026?",
+    "description": "Will NYC high temperature reach 60\u00b0F on March 15, 2026?",
+    "slug": "KXHIGHNY-26MAR15-T60",
+    "end_date": "2026-03-15T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHNY-26MAR15-T50": {
+    "source": "kalshi",
+    "question": "Will NYC high temperature reach 50\u00b0F on March 15, 2026?",
+    "description": "Will NYC high temperature reach 50\u00b0F on March 15, 2026?",
+    "slug": "KXHIGHNY-26MAR15-T50",
+    "end_date": "2026-03-15T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHCHI-26MAR15-T45": {
+    "source": "kalshi",
+    "question": "Will Chicago high temperature reach 45\u00b0F on March 15, 2026?",
+    "description": "Will Chicago high temperature reach 45\u00b0F on March 15, 2026?",
+    "slug": "KXHIGHCHI-26MAR15-T45",
+    "end_date": "2026-03-15T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHMIA-26MAR15-T82": {
+    "source": "kalshi",
+    "question": "Will Miami high temperature reach 82\u00b0F on March 15, 2026?",
+    "description": "Will Miami high temperature reach 82\u00b0F on March 15, 2026?",
+    "slug": "KXHIGHMIA-26MAR15-T82",
+    "end_date": "2026-03-15T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHLA-26MAR15-T70": {
+    "source": "kalshi",
+    "question": "Will Los Angeles high temperature reach 70\u00b0F on March 15, 2026?",
+    "description": "Will Los Angeles high temperature reach 70\u00b0F on March 15, 2026?",
+    "slug": "KXHIGHLA-26MAR15-T70",
+    "end_date": "2026-03-15T23:59:00Z",
+    "category": "weather"
+  },
+  "poly-chicago-blizzard-feb-2026": {
+    "source": "polymarket",
+    "question": "Will Chicago experience a blizzard (8+ inches) in February 2026?",
+    "description": "Will Chicago experience a blizzard (8+ inches) in February 2026?",
+    "slug": "chicago-blizzard-feb-2026",
+    "end_date": "2026-02-28T23:59:00Z",
+    "category": "weather"
+  },
+  "poly-miami-freeze-feb-2026": {
+    "source": "polymarket",
+    "question": "Will Miami experience freezing temperatures in February 2026?",
+    "description": "Will Miami experience freezing temperatures in February 2026?",
+    "slug": "miami-freeze-feb-2026",
+    "end_date": "2026-02-28T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHNY-26MAR10-T55": {
+    "source": "kalshi",
+    "question": "Will NYC high temperature reach 55\u00b0F on March 10, 2026?",
+    "description": "Will NYC high temperature reach 55\u00b0F on March 10, 2026?",
+    "slug": "KXHIGHNY-26MAR10-T55",
+    "end_date": "2026-03-10T23:59:00Z",
+    "category": "weather"
+  },
+  "KXHIGHNY-26MAR10-T45": {
+    "source": "kalshi",
+    "question": "Will NYC high temperature reach 45\u00b0F on March 10, 2026?",
+    "description": "Will NYC high temperature reach 45\u00b0F on March 10, 2026?",
+    "slug": "KXHIGHNY-26MAR10-T45",
+    "end_date": "2026-03-10T23:59:00Z",
+    "category": "weather"
+  }
+}

@@ -1,422 +1,382 @@
 #!/usr/bin/env python3
 """
-Generate seed dataset from known weather prediction market data.
-
-This is used to bootstrap the dataset when live API access is unavailable.
-Based on real market data from Polymarket and Kalshi as of March 2026.
+Generate realistic seed data for the weather prediction market tracker.
+This provides initial data for the pipeline to operate on.
+When run in an environment with network access, live data will supplement this.
 """
 
 import json
+import os
+import random
+from datetime import datetime, timedelta, timezone
+
+import numpy as np
 import pandas as pd
-from datetime import datetime, timezone
 
-import config
+DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+
+random.seed(42)
+np.random.seed(42)
 
 
-def generate_seed_markets() -> list[dict]:
-    """Generate seed market data based on real Polymarket and Kalshi weather markets."""
-    now = datetime.now(timezone.utc).isoformat()
+def generate_seed_markets():
+    """Generate realistic weather prediction market data."""
+    now = datetime.now(timezone.utc)
+    markets = []
 
-    markets = [
-        # ── Polymarket: Daily Temperature Markets ──
+    # --- Active (open) markets ---
+    active_markets = [
         {
-            "source": "polymarket", "market_id": "pm-temp-seoul-20260322",
-            "condition_id": "0x1a2b3c", "question": "Highest temperature in Seoul on March 22?",
-            "description": "This market resolves based on the highest temperature recorded in Seoul on March 22, 2026. 14°C or higher resolves Yes.",
-            "outcome_yes_price": 0.74, "outcome_no_price": 0.26,
-            "volume": 185000, "liquidity": 42000, "end_date": "2026-03-23T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
+            "source": "polymarket", "market_id": "poly-nyc-heat-apr-2026",
+            "slug": "nyc-90f-april-2026",
+            "question": "Will New York City reach 90°F in April 2026?",
+            "description": "Resolves Yes if any official NWS station in NYC records 90°F+ in April 2026",
+            "end_date": "2026-04-30T23:59:00Z", "resolved": False, "resolution": "",
+            "outcome_prices": {"Yes": 0.12, "No": 0.89}, "volume": 45230, "liquidity": 12400,
         },
         {
-            "source": "polymarket", "market_id": "pm-temp-tokyo-20260322",
-            "condition_id": "0x2b3c4d", "question": "Highest temperature in Tokyo on March 22?",
-            "description": "This market resolves based on the highest temperature in Tokyo on March 22, 2026. 18°C or higher resolves Yes.",
-            "outcome_yes_price": 0.56, "outcome_no_price": 0.44,
-            "volume": 210000, "liquidity": 55000, "end_date": "2026-03-23T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
+            "source": "polymarket", "market_id": "poly-hurricane-cat3-2026",
+            "slug": "cat3-hurricane-atlantic-2026",
+            "question": "Will a Category 3+ hurricane make US landfall in 2026?",
+            "description": "Resolves Yes if NHC classifies any 2026 Atlantic hurricane as Cat 3+ at US landfall",
+            "end_date": "2026-11-30T23:59:00Z", "resolved": False, "resolution": "",
+            "outcome_prices": {"Yes": 0.42, "No": 0.59}, "volume": 189500, "liquidity": 67000,
         },
         {
-            "source": "polymarket", "market_id": "pm-temp-nyc-20260322",
-            "condition_id": "0x3c4d5e", "question": "Highest temperature in New York on March 22?",
-            "description": "Will NYC reach 55°F or higher on March 22, 2026? Based on Central Park weather station.",
-            "outcome_yes_price": 0.62, "outcome_no_price": 0.38,
-            "volume": 320000, "liquidity": 78000, "end_date": "2026-03-23T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
+            "source": "polymarket", "market_id": "poly-la-rain-apr-2026",
+            "slug": "la-rain-above-normal-april-2026",
+            "question": "Will Los Angeles April 2026 rainfall exceed historical average?",
+            "description": "Resolves Yes if total LAX rain gauge records above 0.8 inches for April 2026",
+            "end_date": "2026-04-30T23:59:00Z", "resolved": False, "resolution": "",
+            "outcome_prices": {"Yes": 0.31, "No": 0.70}, "volume": 23100, "liquidity": 8900,
         },
         {
-            "source": "polymarket", "market_id": "pm-temp-la-20260322",
-            "condition_id": "0x4d5e6f", "question": "Highest temperature in Los Angeles on March 22?",
-            "description": "Will LA reach 75°F or higher on March 22, 2026?",
-            "outcome_yes_price": 0.81, "outcome_no_price": 0.19,
-            "volume": 145000, "liquidity": 35000, "end_date": "2026-03-23T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
+            "source": "kalshi", "market_id": "KXHIGHNY-26MAR28-T75",
+            "slug": "KXHIGHNY-26MAR28-T75",
+            "question": "Will NYC high temperature reach 75°F on March 28, 2026?",
+            "description": "NYC daily high temperature market",
+            "end_date": "2026-03-28T23:59:00Z", "resolved": False, "resolution": "",
+            "outcome_prices": {"Yes": 0.08, "No": 0.93}, "volume": 8750, "liquidity": 3200,
         },
         {
-            "source": "polymarket", "market_id": "pm-temp-chicago-20260322",
-            "condition_id": "0x5e6f7a", "question": "Highest temperature in Chicago on March 22?",
-            "description": "Will Chicago reach 50°F or higher on March 22, 2026?",
-            "outcome_yes_price": 0.45, "outcome_no_price": 0.55,
-            "volume": 198000, "liquidity": 41000, "end_date": "2026-03-23T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
+            "source": "kalshi", "market_id": "KXHIGHCHI-26MAR28-T60",
+            "slug": "KXHIGHCHI-26MAR28-T60",
+            "question": "Will Chicago high temperature reach 60°F on March 28, 2026?",
+            "description": "Chicago daily high temperature market",
+            "end_date": "2026-03-28T23:59:00Z", "resolved": False, "resolution": "",
+            "outcome_prices": {"Yes": 0.35, "No": 0.66}, "volume": 5420, "liquidity": 2100,
         },
         {
-            "source": "polymarket", "market_id": "pm-temp-miami-20260322",
-            "condition_id": "0x6f7a8b", "question": "Highest temperature in Miami on March 22?",
-            "description": "Will Miami reach 85°F or higher on March 22, 2026?",
-            "outcome_yes_price": 0.68, "outcome_no_price": 0.32,
-            "volume": 112000, "liquidity": 28000, "end_date": "2026-03-23T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
+            "source": "kalshi", "market_id": "KXHIGHMIA-26MAR28-T85",
+            "slug": "KXHIGHMIA-26MAR28-T85",
+            "question": "Will Miami high temperature reach 85°F on March 28, 2026?",
+            "description": "Miami daily high temperature market",
+            "end_date": "2026-03-28T23:59:00Z", "resolved": False, "resolution": "",
+            "outcome_prices": {"Yes": 0.62, "No": 0.39}, "volume": 6100, "liquidity": 2800,
         },
+        {
+            "source": "kalshi", "market_id": "KXSNOWNY-26MAR-T1",
+            "slug": "KXSNOWNY-26MAR-T1",
+            "question": "Will NYC get 1+ inch of snow in March 2026?",
+            "description": "NYC monthly snowfall market",
+            "end_date": "2026-03-31T23:59:00Z", "resolved": False, "resolution": "",
+            "outcome_prices": {"Yes": 0.55, "No": 0.46}, "volume": 11200, "liquidity": 4500,
+        },
+        {
+            "source": "polymarket", "market_id": "poly-el-nino-2026",
+            "slug": "el-nino-2026-summer",
+            "question": "Will NOAA declare El Niño conditions by summer 2026?",
+            "description": "Resolves Yes if NOAA issues an El Niño advisory before September 1, 2026",
+            "end_date": "2026-09-01T00:00:00Z", "resolved": False, "resolution": "",
+            "outcome_prices": {"Yes": 0.28, "No": 0.73}, "volume": 78900, "liquidity": 31000,
+        },
+        {
+            "source": "polymarket", "market_id": "poly-hottest-summer-2026",
+            "slug": "2026-hottest-summer-record",
+            "question": "Will 2026 be the hottest summer on record globally?",
+            "description": "Based on NOAA global surface temperature anomaly for June-August 2026",
+            "end_date": "2026-09-30T23:59:00Z", "resolved": False, "resolution": "",
+            "outcome_prices": {"Yes": 0.38, "No": 0.63}, "volume": 156000, "liquidity": 52000,
+        },
+        {
+            "source": "kalshi", "market_id": "KXHIGHLA-26MAR28-T80",
+            "slug": "KXHIGHLA-26MAR28-T80",
+            "question": "Will Los Angeles high temperature reach 80°F on March 28, 2026?",
+            "description": "LA daily high temperature market",
+            "end_date": "2026-03-28T23:59:00Z", "resolved": False, "resolution": "",
+            "outcome_prices": {"Yes": 0.45, "No": 0.56}, "volume": 4300, "liquidity": 1800,
+        },
+    ]
 
-        # ── Polymarket: Climate/Global Temp Markets ──
+    # --- Resolved markets (for calibration analysis) ---
+    resolved_markets = [
         {
-            "source": "polymarket", "market_id": "pm-hottest-year-2026",
-            "condition_id": "0x7a8b9c", "question": "Where will 2026 rank among the hottest years on record?",
-            "description": "Will 2026 be the #1 or #2 hottest year on record? Resolves based on NASA GISS annual report.",
-            "outcome_yes_price": 0.42, "outcome_no_price": 0.58,
-            "volume": 890000, "liquidity": 215000, "end_date": "2027-02-01T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
+            "source": "kalshi", "market_id": "KXHIGHNY-26MAR20-T55",
+            "slug": "KXHIGHNY-26MAR20-T55",
+            "question": "Will NYC high temperature reach 55°F on March 20, 2026?",
+            "end_date": "2026-03-20T23:59:00Z", "resolved": True, "resolution": "yes",
+            "final_price": 0.72, "actual_outcome": 1,  # It did reach 55
         },
         {
-            "source": "polymarket", "market_id": "pm-hurricane-may-2026",
-            "condition_id": "0x8b9c0d", "question": "Will a hurricane form by May 31, 2026?",
-            "description": "Resolves Yes if any tropical cyclone reaches hurricane strength in the Atlantic basin before June 1, 2026.",
-            "outcome_yes_price": 0.18, "outcome_no_price": 0.82,
-            "volume": 456000, "liquidity": 120000, "end_date": "2026-06-01T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
+            "source": "kalshi", "market_id": "KXHIGHNY-26MAR20-T65",
+            "slug": "KXHIGHNY-26MAR20-T65",
+            "question": "Will NYC high temperature reach 65°F on March 20, 2026?",
+            "end_date": "2026-03-20T23:59:00Z", "resolved": True, "resolution": "no",
+            "final_price": 0.25, "actual_outcome": 0,  # It did NOT reach 65
         },
         {
-            "source": "polymarket", "market_id": "pm-precip-nyc-march-2026",
-            "condition_id": "0x9c0d1e", "question": "Total precipitation in NYC in March 2026 above 4 inches?",
-            "description": "Resolves based on total measured precipitation at Central Park station for March 2026.",
-            "outcome_yes_price": 0.53, "outcome_no_price": 0.47,
-            "volume": 393000, "liquidity": 95000, "end_date": "2026-04-01T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
-        },
-
-        # ── Polymarket: Resolved markets (for calibration analysis) ──
-        {
-            "source": "polymarket", "market_id": "pm-temp-nyc-20260315",
-            "condition_id": "0xa1b2c3", "question": "Highest temperature in New York on March 15?",
-            "description": "Will NYC reach 50°F or higher on March 15, 2026?",
-            "outcome_yes_price": 0.71, "outcome_no_price": 0.29,
-            "volume": 285000, "liquidity": 0, "end_date": "2026-03-16T00:00:00Z",
-            "resolved": True, "resolution": "yes", "fetched_at": now,
+            "source": "kalshi", "market_id": "KXHIGHCHI-26MAR20-T50",
+            "slug": "KXHIGHCHI-26MAR20-T50",
+            "question": "Will Chicago high temperature reach 50°F on March 20, 2026?",
+            "end_date": "2026-03-20T23:59:00Z", "resolved": True, "resolution": "yes",
+            "final_price": 0.58, "actual_outcome": 1,
         },
         {
-            "source": "polymarket", "market_id": "pm-temp-la-20260315",
-            "condition_id": "0xb2c3d4", "question": "Highest temperature in Los Angeles on March 15?",
-            "description": "Will LA reach 72°F or higher on March 15, 2026?",
-            "outcome_yes_price": 0.85, "outcome_no_price": 0.15,
-            "volume": 132000, "liquidity": 0, "end_date": "2026-03-16T00:00:00Z",
-            "resolved": True, "resolution": "yes", "fetched_at": now,
+            "source": "kalshi", "market_id": "KXHIGHMIA-26MAR20-T80",
+            "slug": "KXHIGHMIA-26MAR20-T80",
+            "question": "Will Miami high temperature reach 80°F on March 20, 2026?",
+            "end_date": "2026-03-20T23:59:00Z", "resolved": True, "resolution": "yes",
+            "final_price": 0.85, "actual_outcome": 1,
         },
         {
-            "source": "polymarket", "market_id": "pm-temp-chicago-20260315",
-            "condition_id": "0xc3d4e5", "question": "Highest temperature in Chicago on March 15?",
-            "description": "Will Chicago reach 55°F or higher on March 15, 2026?",
-            "outcome_yes_price": 0.38, "outcome_no_price": 0.62,
-            "volume": 175000, "liquidity": 0, "end_date": "2026-03-16T00:00:00Z",
-            "resolved": True, "resolution": "no", "fetched_at": now,
+            "source": "kalshi", "market_id": "KXHIGHLA-26MAR20-T75",
+            "slug": "KXHIGHLA-26MAR20-T75",
+            "question": "Will Los Angeles high temperature reach 75°F on March 20, 2026?",
+            "end_date": "2026-03-20T23:59:00Z", "resolved": True, "resolution": "no",
+            "final_price": 0.40, "actual_outcome": 0,
         },
         {
-            "source": "polymarket", "market_id": "pm-temp-miami-20260315",
-            "condition_id": "0xd4e5f6", "question": "Highest temperature in Miami on March 15?",
-            "description": "Will Miami reach 82°F or higher on March 15, 2026?",
-            "outcome_yes_price": 0.77, "outcome_no_price": 0.23,
-            "volume": 98000, "liquidity": 0, "end_date": "2026-03-16T00:00:00Z",
-            "resolved": True, "resolution": "yes", "fetched_at": now,
+            "source": "polymarket", "market_id": "poly-feb-snow-nyc-2026",
+            "slug": "nyc-snowfall-feb-2026",
+            "question": "Will NYC get 6+ inches of snow in any single storm in February 2026?",
+            "end_date": "2026-02-28T23:59:00Z", "resolved": True, "resolution": "yes",
+            "final_price": 0.55, "actual_outcome": 1,
         },
         {
-            "source": "polymarket", "market_id": "pm-temp-denver-20260315",
-            "condition_id": "0xe5f6a7", "question": "Highest temperature in Denver on March 15?",
-            "description": "Will Denver reach 60°F or higher on March 15, 2026?",
-            "outcome_yes_price": 0.52, "outcome_no_price": 0.48,
-            "volume": 87000, "liquidity": 0, "end_date": "2026-03-16T00:00:00Z",
-            "resolved": True, "resolution": "yes", "fetched_at": now,
+            "source": "polymarket", "market_id": "poly-warmest-feb-2026",
+            "slug": "warmest-february-record-2026",
+            "question": "Will February 2026 be the warmest February on record globally?",
+            "end_date": "2026-03-15T00:00:00Z", "resolved": True, "resolution": "no",
+            "final_price": 0.30, "actual_outcome": 0,
         },
         {
-            "source": "polymarket", "market_id": "pm-temp-nyc-20260310",
-            "condition_id": "0xf6a7b8", "question": "Highest temperature in New York on March 10?",
-            "description": "Will NYC reach 45°F or higher on March 10, 2026?",
-            "outcome_yes_price": 0.88, "outcome_no_price": 0.12,
-            "volume": 301000, "liquidity": 0, "end_date": "2026-03-11T00:00:00Z",
-            "resolved": True, "resolution": "yes", "fetched_at": now,
+            "source": "kalshi", "market_id": "KXHIGHNY-26MAR15-T60",
+            "slug": "KXHIGHNY-26MAR15-T60",
+            "question": "Will NYC high temperature reach 60°F on March 15, 2026?",
+            "end_date": "2026-03-15T23:59:00Z", "resolved": True, "resolution": "no",
+            "final_price": 0.35, "actual_outcome": 0,
         },
-        {
-            "source": "polymarket", "market_id": "pm-temp-seattle-20260310",
-            "condition_id": "0xa7b8c9", "question": "Highest temperature in Seattle on March 10?",
-            "description": "Will Seattle reach 55°F or higher on March 10, 2026?",
-            "outcome_yes_price": 0.41, "outcome_no_price": 0.59,
-            "volume": 76000, "liquidity": 0, "end_date": "2026-03-11T00:00:00Z",
-            "resolved": True, "resolution": "no", "fetched_at": now,
-        },
-        {
-            "source": "polymarket", "market_id": "pm-temp-chicago-20260310",
-            "condition_id": "0xb8c9d0", "question": "Highest temperature in Chicago on March 10?",
-            "description": "Will Chicago reach 40°F or higher on March 10, 2026?",
-            "outcome_yes_price": 0.69, "outcome_no_price": 0.31,
-            "volume": 162000, "liquidity": 0, "end_date": "2026-03-11T00:00:00Z",
-            "resolved": True, "resolution": "yes", "fetched_at": now,
-        },
-        {
-            "source": "polymarket", "market_id": "pm-snow-boston-march-2026",
-            "condition_id": "0xc9d0e1", "question": "Will Boston get 6+ inches of snow in March 2026?",
-            "description": "Resolves Yes if Boston Logan Airport records 6 or more inches of snowfall in March 2026.",
-            "outcome_yes_price": 0.35, "outcome_no_price": 0.65,
-            "volume": 67000, "liquidity": 0, "end_date": "2026-04-01T00:00:00Z",
-            "resolved": True, "resolution": "yes", "fetched_at": now,
-        },
-
-        # ── Kalshi: Temperature Markets ──
-        {
-            "source": "kalshi", "market_id": "KXHIGHNY-26MAR22-T55",
-            "condition_id": "KXHIGHNY", "question": "Will NYC high reach 55°F on March 22, 2026?",
-            "description": "Based on NWS Daily Climate Report for Central Park station.",
-            "outcome_yes_price": 0.60, "outcome_no_price": 0.40,
-            "volume": 95000, "liquidity": 22000, "end_date": "2026-03-23T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
-        },
-        {
-            "source": "kalshi", "market_id": "KXHIGHCHI-26MAR22-T50",
-            "condition_id": "KXHIGHCHI", "question": "Will Chicago high reach 50°F on March 22, 2026?",
-            "description": "Based on NWS Daily Climate Report for O'Hare station.",
-            "outcome_yes_price": 0.43, "outcome_no_price": 0.57,
-            "volume": 68000, "liquidity": 15000, "end_date": "2026-03-23T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
-        },
-        {
-            "source": "kalshi", "market_id": "KXHIGHMIA-26MAR22-T85",
-            "condition_id": "KXHIGHMIA", "question": "Will Miami high reach 85°F on March 22, 2026?",
-            "description": "Based on NWS Daily Climate Report for Miami International Airport.",
-            "outcome_yes_price": 0.65, "outcome_no_price": 0.35,
-            "volume": 52000, "liquidity": 12000, "end_date": "2026-03-23T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
-        },
-        {
-            "source": "kalshi", "market_id": "KXHIGHLA-26MAR22-T75",
-            "condition_id": "KXHIGHLA", "question": "Will LA high reach 75°F on March 22, 2026?",
-            "description": "Based on NWS Daily Climate Report for LAX station.",
-            "outcome_yes_price": 0.78, "outcome_no_price": 0.22,
-            "volume": 61000, "liquidity": 14000, "end_date": "2026-03-23T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
-        },
-
-        # ── Kalshi: Hurricane / Severe Weather ──
-        {
-            "source": "kalshi", "market_id": "KXHURR-26-NAMED-15PLUS",
-            "condition_id": "KXHURR", "question": "15+ named storms in 2026 Atlantic hurricane season?",
-            "description": "Resolves based on NHC official count of named tropical storms in the 2026 Atlantic season.",
-            "outcome_yes_price": 0.58, "outcome_no_price": 0.42,
-            "volume": 345000, "liquidity": 89000, "end_date": "2026-12-01T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
-        },
-        {
-            "source": "kalshi", "market_id": "KXHURR-26-MAJOR-4PLUS",
-            "condition_id": "KXHURR", "question": "4+ major hurricanes (Cat 3+) in 2026 Atlantic season?",
-            "description": "Resolves based on NHC official count of Category 3+ hurricanes in 2026.",
-            "outcome_yes_price": 0.39, "outcome_no_price": 0.61,
-            "volume": 278000, "liquidity": 72000, "end_date": "2026-12-01T00:00:00Z",
-            "resolved": False, "resolution": "", "fetched_at": now,
-        },
-
-        # ── Kalshi: Resolved markets ──
         {
             "source": "kalshi", "market_id": "KXHIGHNY-26MAR15-T50",
-            "condition_id": "KXHIGHNY", "question": "Will NYC high reach 50°F on March 15, 2026?",
-            "description": "Based on NWS Daily Climate Report.",
-            "outcome_yes_price": 0.73, "outcome_no_price": 0.27,
-            "volume": 88000, "liquidity": 0, "end_date": "2026-03-16T00:00:00Z",
-            "resolved": True, "resolution": "yes", "fetched_at": now,
+            "slug": "KXHIGHNY-26MAR15-T50",
+            "question": "Will NYC high temperature reach 50°F on March 15, 2026?",
+            "end_date": "2026-03-15T23:59:00Z", "resolved": True, "resolution": "yes",
+            "final_price": 0.80, "actual_outcome": 1,
         },
         {
-            "source": "kalshi", "market_id": "KXHIGHCHI-26MAR15-T55",
-            "condition_id": "KXHIGHCHI", "question": "Will Chicago high reach 55°F on March 15, 2026?",
-            "description": "Based on NWS Daily Climate Report.",
-            "outcome_yes_price": 0.35, "outcome_no_price": 0.65,
-            "volume": 62000, "liquidity": 0, "end_date": "2026-03-16T00:00:00Z",
-            "resolved": True, "resolution": "no", "fetched_at": now,
+            "source": "kalshi", "market_id": "KXHIGHCHI-26MAR15-T45",
+            "slug": "KXHIGHCHI-26MAR15-T45",
+            "question": "Will Chicago high temperature reach 45°F on March 15, 2026?",
+            "end_date": "2026-03-15T23:59:00Z", "resolved": True, "resolution": "yes",
+            "final_price": 0.65, "actual_outcome": 1,
         },
         {
-            "source": "kalshi", "market_id": "KXHIGHLA-26MAR15-T72",
-            "condition_id": "KXHIGHLA", "question": "Will LA high reach 72°F on March 15, 2026?",
-            "description": "Based on NWS Daily Climate Report for LAX.",
-            "outcome_yes_price": 0.82, "outcome_no_price": 0.18,
-            "volume": 55000, "liquidity": 0, "end_date": "2026-03-16T00:00:00Z",
-            "resolved": True, "resolution": "yes", "fetched_at": now,
+            "source": "kalshi", "market_id": "KXHIGHMIA-26MAR15-T82",
+            "slug": "KXHIGHMIA-26MAR15-T82",
+            "question": "Will Miami high temperature reach 82°F on March 15, 2026?",
+            "end_date": "2026-03-15T23:59:00Z", "resolved": True, "resolution": "yes",
+            "final_price": 0.70, "actual_outcome": 1,
         },
         {
-            "source": "kalshi", "market_id": "KXHIGHMIA-26MAR10-T80",
-            "condition_id": "KXHIGHMIA", "question": "Will Miami high reach 80°F on March 10, 2026?",
-            "description": "Based on NWS Daily Climate Report.",
-            "outcome_yes_price": 0.91, "outcome_no_price": 0.09,
-            "volume": 47000, "liquidity": 0, "end_date": "2026-03-11T00:00:00Z",
-            "resolved": True, "resolution": "yes", "fetched_at": now,
+            "source": "kalshi", "market_id": "KXHIGHLA-26MAR15-T70",
+            "slug": "KXHIGHLA-26MAR15-T70",
+            "question": "Will Los Angeles high temperature reach 70°F on March 15, 2026?",
+            "end_date": "2026-03-15T23:59:00Z", "resolved": True, "resolution": "yes",
+            "final_price": 0.75, "actual_outcome": 1,
+        },
+        # Some poorly calibrated examples
+        {
+            "source": "polymarket", "market_id": "poly-chicago-blizzard-feb-2026",
+            "slug": "chicago-blizzard-feb-2026",
+            "question": "Will Chicago experience a blizzard (8+ inches) in February 2026?",
+            "end_date": "2026-02-28T23:59:00Z", "resolved": True, "resolution": "yes",
+            "final_price": 0.18, "actual_outcome": 1,  # Market was wrong - underpriced
+        },
+        {
+            "source": "polymarket", "market_id": "poly-miami-freeze-feb-2026",
+            "slug": "miami-freeze-feb-2026",
+            "question": "Will Miami experience freezing temperatures in February 2026?",
+            "end_date": "2026-02-28T23:59:00Z", "resolved": True, "resolution": "no",
+            "final_price": 0.05, "actual_outcome": 0,
+        },
+        {
+            "source": "kalshi", "market_id": "KXHIGHNY-26MAR10-T55",
+            "slug": "KXHIGHNY-26MAR10-T55",
+            "question": "Will NYC high temperature reach 55°F on March 10, 2026?",
+            "end_date": "2026-03-10T23:59:00Z", "resolved": True, "resolution": "no",
+            "final_price": 0.62, "actual_outcome": 0,  # Market overpriced
         },
         {
             "source": "kalshi", "market_id": "KXHIGHNY-26MAR10-T45",
-            "condition_id": "KXHIGHNY", "question": "Will NYC high reach 45°F on March 10, 2026?",
-            "description": "Based on NWS Daily Climate Report.",
-            "outcome_yes_price": 0.86, "outcome_no_price": 0.14,
-            "volume": 91000, "liquidity": 0, "end_date": "2026-03-11T00:00:00Z",
-            "resolved": True, "resolution": "yes", "fetched_at": now,
+            "slug": "KXHIGHNY-26MAR10-T45",
+            "question": "Will NYC high temperature reach 45°F on March 10, 2026?",
+            "end_date": "2026-03-10T23:59:00Z", "resolved": True, "resolution": "yes",
+            "final_price": 0.88, "actual_outcome": 1,
         },
     ]
 
-    return markets
+    return active_markets, resolved_markets
 
 
-def generate_seed_snapshots(markets: list[dict]) -> list[dict]:
-    """Generate historical price snapshots to simulate a rolling time series."""
-    from datetime import timedelta
-    import random
+def generate_price_history(active_markets, resolved_markets):
+    """Generate rolling time series of prices for each market."""
+    rows = []
+    now = datetime.now(timezone.utc)
 
-    random.seed(42)
-    snapshots = []
+    # Active markets: generate 7 days of price history with realistic drift
+    for m in active_markets:
+        yes_price = m["outcome_prices"]["Yes"]
+        no_price = m["outcome_prices"]["No"]
+        for days_ago in range(6, -1, -1):
+            ts = (now - timedelta(days=days_ago)).isoformat()
+            # Add random walk noise
+            drift = np.random.normal(0, 0.02)
+            hist_yes = max(0.01, min(0.99, yes_price + drift * (days_ago / 3)))
+            hist_no = max(0.01, min(0.99, 1.0 - hist_yes + np.random.normal(0, 0.01)))
 
-    for m in markets:
-        base_price = m["outcome_yes_price"]
-        # Generate 5 historical snapshots
-        for days_ago in range(5, 0, -1):
-            ts = datetime.now(timezone.utc) - timedelta(days=days_ago)
-            # Add some realistic price drift
-            noise = random.gauss(0, 0.03)
-            price = max(0.01, min(0.99, base_price + noise * (days_ago / 2)))
-            snapshots.append({
-                "source": m["source"],
-                "market_id": m["market_id"],
-                "question": m["question"],
-                "outcome_yes_price": round(price, 3),
-                "outcome_no_price": round(1 - price, 3),
-                "volume": max(0, m["volume"] - random.randint(10000, 50000) * days_ago),
-                "liquidity": m["liquidity"],
-                "snapshot_time": ts.isoformat(),
+            rows.append({
+                "timestamp": ts, "source": m["source"], "market_id": m["market_id"],
+                "question": m["question"], "outcome": "Yes",
+                "price": round(hist_yes, 4), "volume": int(m["volume"] * (1 - days_ago * 0.08)),
+                "resolved": False, "resolution": "",
+            })
+            rows.append({
+                "timestamp": ts, "source": m["source"], "market_id": m["market_id"],
+                "question": m["question"], "outcome": "No",
+                "price": round(hist_no, 4), "volume": int(m["volume"] * (1 - days_ago * 0.08)),
+                "resolved": False, "resolution": "",
             })
 
-        # Current snapshot
-        snapshots.append({
-            "source": m["source"],
-            "market_id": m["market_id"],
-            "question": m["question"],
-            "outcome_yes_price": m["outcome_yes_price"],
-            "outcome_no_price": m["outcome_no_price"],
-            "volume": m["volume"],
-            "liquidity": m["liquidity"],
-            "snapshot_time": m["fetched_at"],
-        })
+    # Resolved markets: generate price history leading up to resolution
+    for m in resolved_markets:
+        end = datetime.fromisoformat(m["end_date"].replace("Z", "+00:00"))
+        final = m["final_price"]
+        # Generate 10 days of history leading up to resolution
+        for days_before in range(9, -1, -1):
+            ts = (end - timedelta(days=days_before)).isoformat()
+            # Price converges toward final as resolution approaches
+            convergence = 1 - (days_before / 10)
+            base_price = 0.5 + (final - 0.5) * convergence
+            noise = np.random.normal(0, 0.03 * (1 - convergence))
+            hist_yes = max(0.01, min(0.99, base_price + noise))
 
-    return snapshots
+            rows.append({
+                "timestamp": ts, "source": m["source"], "market_id": m["market_id"],
+                "question": m["question"], "outcome": "Yes",
+                "price": round(hist_yes, 4),
+                "volume": int(random.randint(500, 15000)),
+                "resolved": True, "resolution": m["resolution"],
+            })
+            rows.append({
+                "timestamp": ts, "source": m["source"], "market_id": m["market_id"],
+                "question": m["question"], "outcome": "No",
+                "price": round(1 - hist_yes + np.random.normal(0, 0.01), 4),
+                "volume": int(random.randint(500, 15000)),
+                "resolved": True, "resolution": "no" if m["resolution"] == "yes" else "yes",
+            })
 
-
-def generate_seed_outcomes() -> list[dict]:
-    """Generate weather outcome data for resolved markets."""
-    now = datetime.now(timezone.utc).isoformat()
-
-    return [
-        # March 15 outcomes
-        {"market_id": "pm-temp-nyc-20260315", "source": "polymarket", "city": "new york",
-         "date": "2026-03-15", "temp_max_f": 52.3, "temp_min_f": 38.1,
-         "precipitation_mm": 2.1, "snowfall_cm": 0, "wind_max_mph": 15.2,
-         "market_resolution": "yes", "fetched_at": now, "latitude": 40.7128, "longitude": -74.006},
-
-        {"market_id": "pm-temp-la-20260315", "source": "polymarket", "city": "los angeles",
-         "date": "2026-03-15", "temp_max_f": 74.8, "temp_min_f": 56.2,
-         "precipitation_mm": 0, "snowfall_cm": 0, "wind_max_mph": 8.5,
-         "market_resolution": "yes", "fetched_at": now, "latitude": 34.0522, "longitude": -118.2437},
-
-        {"market_id": "pm-temp-chicago-20260315", "source": "polymarket", "city": "chicago",
-         "date": "2026-03-15", "temp_max_f": 47.6, "temp_min_f": 32.4,
-         "precipitation_mm": 5.3, "snowfall_cm": 0.8, "wind_max_mph": 22.1,
-         "market_resolution": "no", "fetched_at": now, "latitude": 41.8781, "longitude": -87.6298},
-
-        {"market_id": "pm-temp-miami-20260315", "source": "polymarket", "city": "miami",
-         "date": "2026-03-15", "temp_max_f": 84.1, "temp_min_f": 72.3,
-         "precipitation_mm": 0.5, "snowfall_cm": 0, "wind_max_mph": 12.7,
-         "market_resolution": "yes", "fetched_at": now, "latitude": 25.7617, "longitude": -80.1918},
-
-        {"market_id": "pm-temp-denver-20260315", "source": "polymarket", "city": "denver",
-         "date": "2026-03-15", "temp_max_f": 63.4, "temp_min_f": 35.8,
-         "precipitation_mm": 0, "snowfall_cm": 0, "wind_max_mph": 18.9,
-         "market_resolution": "yes", "fetched_at": now, "latitude": 39.7392, "longitude": -104.9903},
-
-        # March 10 outcomes
-        {"market_id": "pm-temp-nyc-20260310", "source": "polymarket", "city": "new york",
-         "date": "2026-03-10", "temp_max_f": 48.7, "temp_min_f": 35.2,
-         "precipitation_mm": 8.4, "snowfall_cm": 0, "wind_max_mph": 19.3,
-         "market_resolution": "yes", "fetched_at": now, "latitude": 40.7128, "longitude": -74.006},
-
-        {"market_id": "pm-temp-seattle-20260310", "source": "polymarket", "city": "seattle",
-         "date": "2026-03-10", "temp_max_f": 51.2, "temp_min_f": 40.1,
-         "precipitation_mm": 11.2, "snowfall_cm": 0, "wind_max_mph": 14.6,
-         "market_resolution": "no", "fetched_at": now, "latitude": 47.6062, "longitude": -122.3321},
-
-        {"market_id": "pm-temp-chicago-20260310", "source": "polymarket", "city": "chicago",
-         "date": "2026-03-10", "temp_max_f": 43.9, "temp_min_f": 28.7,
-         "precipitation_mm": 3.1, "snowfall_cm": 1.2, "wind_max_mph": 25.4,
-         "market_resolution": "yes", "fetched_at": now, "latitude": 41.8781, "longitude": -87.6298},
-
-        # Kalshi resolved markets
-        {"market_id": "KXHIGHNY-26MAR15-T50", "source": "kalshi", "city": "new york",
-         "date": "2026-03-15", "temp_max_f": 52.3, "temp_min_f": 38.1,
-         "precipitation_mm": 2.1, "snowfall_cm": 0, "wind_max_mph": 15.2,
-         "market_resolution": "yes", "fetched_at": now, "latitude": 40.7128, "longitude": -74.006},
-
-        {"market_id": "KXHIGHCHI-26MAR15-T55", "source": "kalshi", "city": "chicago",
-         "date": "2026-03-15", "temp_max_f": 47.6, "temp_min_f": 32.4,
-         "precipitation_mm": 5.3, "snowfall_cm": 0.8, "wind_max_mph": 22.1,
-         "market_resolution": "no", "fetched_at": now, "latitude": 41.8781, "longitude": -87.6298},
-
-        {"market_id": "KXHIGHLA-26MAR15-T72", "source": "kalshi", "city": "los angeles",
-         "date": "2026-03-15", "temp_max_f": 74.8, "temp_min_f": 56.2,
-         "precipitation_mm": 0, "snowfall_cm": 0, "wind_max_mph": 8.5,
-         "market_resolution": "yes", "fetched_at": now, "latitude": 34.0522, "longitude": -118.2437},
-
-        {"market_id": "KXHIGHMIA-26MAR10-T80", "source": "kalshi", "city": "miami",
-         "date": "2026-03-10", "temp_max_f": 83.5, "temp_min_f": 71.8,
-         "precipitation_mm": 1.2, "snowfall_cm": 0, "wind_max_mph": 11.3,
-         "market_resolution": "yes", "fetched_at": now, "latitude": 25.7617, "longitude": -80.1918},
-
-        {"market_id": "KXHIGHNY-26MAR10-T45", "source": "kalshi", "city": "new york",
-         "date": "2026-03-10", "temp_max_f": 48.7, "temp_min_f": 35.2,
-         "precipitation_mm": 8.4, "snowfall_cm": 0, "wind_max_mph": 19.3,
-         "market_resolution": "yes", "fetched_at": now, "latitude": 40.7128, "longitude": -74.006},
-
-        # Boston snow
-        {"market_id": "pm-snow-boston-march-2026", "source": "polymarket", "city": "boston",
-         "date": "2026-03-18", "temp_max_f": 33.2, "temp_min_f": 24.6,
-         "precipitation_mm": 22.5, "snowfall_cm": 18.3, "wind_max_mph": 31.2,
-         "market_resolution": "yes", "fetched_at": now, "latitude": 42.3601, "longitude": -71.0589},
-    ]
+    return pd.DataFrame(rows)
 
 
-def seed_if_empty():
-    """Populate dataset with seed data if no data exists."""
-    import dataset
+def generate_weather_actuals():
+    """Generate realistic weather actual data for tracked cities."""
+    rows = []
+    now = datetime.now(timezone.utc)
 
-    existing = dataset.load_markets()
-    if not existing.empty:
-        print("  -> Dataset already has data, skipping seed.")
-        return False
+    # March typical temperatures (°F) and conditions by city
+    city_baselines = {
+        "new_york": {"temp_max": 52, "temp_min": 36, "precip": 0.15, "snow": 0.1},
+        "los_angeles": {"temp_max": 68, "temp_min": 50, "precip": 0.08, "snow": 0.0},
+        "chicago": {"temp_max": 47, "temp_min": 30, "precip": 0.10, "snow": 0.2},
+        "miami": {"temp_max": 81, "temp_min": 67, "precip": 0.12, "snow": 0.0},
+        "houston": {"temp_max": 73, "temp_min": 54, "precip": 0.13, "snow": 0.0},
+        "phoenix": {"temp_max": 78, "temp_min": 52, "precip": 0.03, "snow": 0.0},
+        "boston": {"temp_max": 48, "temp_min": 33, "precip": 0.14, "snow": 0.15},
+        "denver": {"temp_max": 55, "temp_min": 28, "precip": 0.05, "snow": 0.3},
+        "seattle": {"temp_max": 53, "temp_min": 39, "precip": 0.18, "snow": 0.02},
+        "atlanta": {"temp_max": 65, "temp_min": 44, "precip": 0.16, "snow": 0.0},
+        "dallas": {"temp_max": 68, "temp_min": 47, "precip": 0.12, "snow": 0.0},
+        "san_francisco": {"temp_max": 62, "temp_min": 48, "precip": 0.10, "snow": 0.0},
+        "washington_dc": {"temp_max": 57, "temp_min": 38, "precip": 0.13, "snow": 0.05},
+        "minneapolis": {"temp_max": 42, "temp_min": 24, "precip": 0.08, "snow": 0.25},
+    }
 
-    print("  -> No existing data found. Loading seed dataset...")
+    coords = {
+        "new_york": (40.7128, -74.0060), "los_angeles": (34.0522, -118.2437),
+        "chicago": (41.8781, -87.6298), "miami": (25.7617, -80.1918),
+        "houston": (29.7604, -95.3698), "phoenix": (33.4484, -112.0740),
+        "boston": (42.3601, -71.0589), "denver": (39.7392, -104.9903),
+        "seattle": (47.6062, -122.3321), "atlanta": (33.7490, -84.3880),
+        "dallas": (32.7767, -96.7970), "san_francisco": (37.7749, -122.4194),
+        "washington_dc": (38.9072, -77.0369), "minneapolis": (44.9778, -93.2650),
+    }
 
-    markets = generate_seed_markets()
-    markets_df = pd.DataFrame(markets)
-    dataset.save_markets(markets_df)
-    print(f"  -> Seeded {len(markets_df)} markets")
+    for days_ago in range(14, -1, -1):
+        date = (now - timedelta(days=days_ago)).strftime("%Y-%m-%d")
+        for city, baseline in city_baselines.items():
+            lat, lon = coords[city]
+            # Add daily variation
+            temp_var = np.random.normal(0, 5)
+            rows.append({
+                "date": date,
+                "city": city,
+                "lat": lat,
+                "lon": lon,
+                "temp_max_f": round(baseline["temp_max"] + temp_var, 1),
+                "temp_min_f": round(baseline["temp_min"] + temp_var * 0.7, 1),
+                "temp_mean_f": round((baseline["temp_max"] + baseline["temp_min"]) / 2 + temp_var * 0.85, 1),
+                "precip_inches": round(max(0, baseline["precip"] + np.random.normal(0, 0.1)), 2),
+                "snow_inches": round(max(0, baseline["snow"] + np.random.normal(0, 0.15)), 2),
+                "rain_inches": round(max(0, baseline["precip"] + np.random.normal(0, 0.08)), 2),
+                "wind_max_mph": round(max(0, 12 + np.random.normal(0, 5)), 1),
+                "weather_code": random.choice([0, 1, 2, 3, 45, 51, 61, 71, 80]),
+            })
 
-    snapshots = generate_seed_snapshots(markets)
-    snapshots_df = pd.DataFrame(snapshots)
-    dataset.save_snapshots(snapshots_df)
-    print(f"  -> Seeded {len(snapshots_df)} price snapshots")
+    return pd.DataFrame(rows)
 
-    outcomes = generate_seed_outcomes()
-    outcomes_df = pd.DataFrame(outcomes)
-    dataset.save_outcomes(outcomes_df)
-    print(f"  -> Seeded {len(outcomes)} weather outcomes")
 
-    return True
+def seed():
+    """Generate and save all seed data."""
+    os.makedirs(DATA_DIR, exist_ok=True)
+
+    print("Generating seed market data...")
+    active, resolved = generate_seed_markets()
+
+    print("Generating price time series...")
+    prices_df = generate_price_history(active, resolved)
+    prices_df.to_csv(os.path.join(DATA_DIR, "market_prices.csv"), index=False)
+    print(f"  -> {len(prices_df)} price snapshots for {prices_df['market_id'].nunique()} markets")
+
+    print("Generating market metadata...")
+    metadata = {}
+    for m in active + [{**r, "outcome_prices": {"Yes": r["final_price"], "No": 1-r["final_price"]},
+                         "description": r["question"], "liquidity": 0} for r in resolved]:
+        metadata[m["market_id"]] = {
+            "source": m["source"], "question": m["question"],
+            "description": m.get("description", ""), "slug": m["slug"],
+            "end_date": m["end_date"], "category": "weather",
+        }
+    with open(os.path.join(DATA_DIR, "markets_metadata.json"), "w") as f:
+        json.dump(metadata, f, indent=2)
+
+    print("Generating weather actuals...")
+    actuals_df = generate_weather_actuals()
+    actuals_df.to_csv(os.path.join(DATA_DIR, "weather_actuals.csv"), index=False)
+    print(f"  -> {len(actuals_df)} weather records for {actuals_df['city'].nunique()} cities")
+
+    print("\nSeed data generation complete!")
+    return prices_df, actuals_df
 
 
 if __name__ == "__main__":
-    seed_if_empty()
+    seed()

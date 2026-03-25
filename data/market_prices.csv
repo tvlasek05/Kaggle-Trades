@@ -1,0 +1,461 @@
+timestamp,source,market_id,question,outcome,price,volume,resolved,resolution
+2026-03-19T10:15:28.030961+00:00,polymarket,poly-nyc-heat-apr-2026,Will New York City reach 90°F in April 2026?,Yes,0.1399,23519,False,
+2026-03-19T10:15:28.030961+00:00,polymarket,poly-nyc-heat-apr-2026,Will New York City reach 90°F in April 2026?,No,0.8587,23519,False,
+2026-03-20T10:15:28.030961+00:00,polymarket,poly-nyc-heat-apr-2026,Will New York City reach 90°F in April 2026?,Yes,0.1416,27138,False,
+2026-03-20T10:15:28.030961+00:00,polymarket,poly-nyc-heat-apr-2026,Will New York City reach 90°F in April 2026?,No,0.8736,27138,False,
+2026-03-21T10:15:28.030961+00:00,polymarket,poly-nyc-heat-apr-2026,Will New York City reach 90°F in April 2026?,Yes,0.1138,30756,False,
+2026-03-21T10:15:28.030961+00:00,polymarket,poly-nyc-heat-apr-2026,Will New York City reach 90°F in April 2026?,No,0.8839,30756,False,
+2026-03-22T10:15:28.030961+00:00,polymarket,poly-nyc-heat-apr-2026,Will New York City reach 90°F in April 2026?,Yes,0.1516,34374,False,
+2026-03-22T10:15:28.030961+00:00,polymarket,poly-nyc-heat-apr-2026,Will New York City reach 90°F in April 2026?,No,0.8561,34374,False,
+2026-03-23T10:15:28.030961+00:00,polymarket,poly-nyc-heat-apr-2026,Will New York City reach 90°F in April 2026?,Yes,0.1137,37993,False,
+2026-03-23T10:15:28.030961+00:00,polymarket,poly-nyc-heat-apr-2026,Will New York City reach 90°F in April 2026?,No,0.8917,37993,False,
+2026-03-24T10:15:28.030961+00:00,polymarket,poly-nyc-heat-apr-2026,Will New York City reach 90°F in April 2026?,Yes,0.1169,41611,False,
+2026-03-24T10:15:28.030961+00:00,polymarket,poly-nyc-heat-apr-2026,Will New York City reach 90°F in April 2026?,No,0.8784,41611,False,
+2026-03-25T10:15:28.030961+00:00,polymarket,poly-nyc-heat-apr-2026,Will New York City reach 90°F in April 2026?,Yes,0.12,45230,False,
+2026-03-25T10:15:28.030961+00:00,polymarket,poly-nyc-heat-apr-2026,Will New York City reach 90°F in April 2026?,No,0.8609,45230,False,
+2026-03-19T10:15:28.030961+00:00,polymarket,poly-hurricane-cat3-2026,Will a Category 3+ hurricane make US landfall in 2026?,Yes,0.351,98540,False,
+2026-03-19T10:15:28.030961+00:00,polymarket,poly-hurricane-cat3-2026,Will a Category 3+ hurricane make US landfall in 2026?,No,0.6434,98540,False,
+2026-03-20T10:15:28.030961+00:00,polymarket,poly-hurricane-cat3-2026,Will a Category 3+ hurricane make US landfall in 2026?,Yes,0.3862,113700,False,
+2026-03-20T10:15:28.030961+00:00,polymarket,poly-hurricane-cat3-2026,Will a Category 3+ hurricane make US landfall in 2026?,No,0.6169,113700,False,
+2026-03-21T10:15:28.030961+00:00,polymarket,poly-hurricane-cat3-2026,Will a Category 3+ hurricane make US landfall in 2026?,Yes,0.3958,128859,False,
+2026-03-21T10:15:28.030961+00:00,polymarket,poly-hurricane-cat3-2026,Will a Category 3+ hurricane make US landfall in 2026?,No,0.5901,128859,False,
+2026-03-22T10:15:28.030961+00:00,polymarket,poly-hurricane-cat3-2026,Will a Category 3+ hurricane make US landfall in 2026?,Yes,0.4493,144020,False,
+2026-03-22T10:15:28.030961+00:00,polymarket,poly-hurricane-cat3-2026,Will a Category 3+ hurricane make US landfall in 2026?,No,0.5484,144020,False,
+2026-03-23T10:15:28.030961+00:00,polymarket,poly-hurricane-cat3-2026,Will a Category 3+ hurricane make US landfall in 2026?,Yes,0.4209,159180,False,
+2026-03-23T10:15:28.030961+00:00,polymarket,poly-hurricane-cat3-2026,Will a Category 3+ hurricane make US landfall in 2026?,No,0.5649,159180,False,
+2026-03-24T10:15:28.030961+00:00,polymarket,poly-hurricane-cat3-2026,Will a Category 3+ hurricane make US landfall in 2026?,Yes,0.4164,174340,False,
+2026-03-24T10:15:28.030961+00:00,polymarket,poly-hurricane-cat3-2026,Will a Category 3+ hurricane make US landfall in 2026?,No,0.5847,174340,False,
+2026-03-25T10:15:28.030961+00:00,polymarket,poly-hurricane-cat3-2026,Will a Category 3+ hurricane make US landfall in 2026?,Yes,0.42,189500,False,
+2026-03-25T10:15:28.030961+00:00,polymarket,poly-hurricane-cat3-2026,Will a Category 3+ hurricane make US landfall in 2026?,No,0.5838,189500,False,
+2026-03-19T10:15:28.030961+00:00,polymarket,poly-la-rain-apr-2026,Will Los Angeles April 2026 rainfall exceed historical average?,Yes,0.286,12012,False,
+2026-03-19T10:15:28.030961+00:00,polymarket,poly-la-rain-apr-2026,Will Los Angeles April 2026 rainfall exceed historical average?,No,0.7111,12012,False,
+2026-03-20T10:15:28.030961+00:00,polymarket,poly-la-rain-apr-2026,Will Los Angeles April 2026 rainfall exceed historical average?,Yes,0.2899,13860,False,
+2026-03-20T10:15:28.030961+00:00,polymarket,poly-la-rain-apr-2026,Will Los Angeles April 2026 rainfall exceed historical average?,No,0.7286,13860,False,
+2026-03-21T10:15:28.030961+00:00,polymarket,poly-la-rain-apr-2026,Will Los Angeles April 2026 rainfall exceed historical average?,Yes,0.3096,15707,False,
+2026-03-21T10:15:28.030961+00:00,polymarket,poly-la-rain-apr-2026,Will Los Angeles April 2026 rainfall exceed historical average?,No,0.6798,15707,False,
+2026-03-22T10:15:28.030961+00:00,polymarket,poly-la-rain-apr-2026,Will Los Angeles April 2026 rainfall exceed historical average?,Yes,0.3265,17556,False,
+2026-03-22T10:15:28.030961+00:00,polymarket,poly-la-rain-apr-2026,Will Los Angeles April 2026 rainfall exceed historical average?,No,0.6613,17556,False,
+2026-03-23T10:15:28.030961+00:00,polymarket,poly-la-rain-apr-2026,Will Los Angeles April 2026 rainfall exceed historical average?,Yes,0.3128,19404,False,
+2026-03-23T10:15:28.030961+00:00,polymarket,poly-la-rain-apr-2026,Will Los Angeles April 2026 rainfall exceed historical average?,No,0.6676,19404,False,
+2026-03-24T10:15:28.030961+00:00,polymarket,poly-la-rain-apr-2026,Will Los Angeles April 2026 rainfall exceed historical average?,Yes,0.3011,21252,False,
+2026-03-24T10:15:28.030961+00:00,polymarket,poly-la-rain-apr-2026,Will Los Angeles April 2026 rainfall exceed historical average?,No,0.7008,21252,False,
+2026-03-25T10:15:28.030961+00:00,polymarket,poly-la-rain-apr-2026,Will Los Angeles April 2026 rainfall exceed historical average?,Yes,0.31,23100,False,
+2026-03-25T10:15:28.030961+00:00,polymarket,poly-la-rain-apr-2026,Will Los Angeles April 2026 rainfall exceed historical average?,No,0.6917,23100,False,
+2026-03-19T10:15:28.030961+00:00,kalshi,KXHIGHNY-26MAR28-T75,"Will NYC high temperature reach 75°F on March 28, 2026?",Yes,0.0754,4550,False,
+2026-03-19T10:15:28.030961+00:00,kalshi,KXHIGHNY-26MAR28-T75,"Will NYC high temperature reach 75°F on March 28, 2026?",No,0.9216,4550,False,
+2026-03-20T10:15:28.030961+00:00,kalshi,KXHIGHNY-26MAR28-T75,"Will NYC high temperature reach 75°F on March 28, 2026?",Yes,0.0307,5250,False,
+2026-03-20T10:15:28.030961+00:00,kalshi,KXHIGHNY-26MAR28-T75,"Will NYC high temperature reach 75°F on March 28, 2026?",No,0.9621,5250,False,
+2026-03-21T10:15:28.030961+00:00,kalshi,KXHIGHNY-26MAR28-T75,"Will NYC high temperature reach 75°F on March 28, 2026?",Yes,0.0677,5949,False,
+2026-03-21T10:15:28.030961+00:00,kalshi,KXHIGHNY-26MAR28-T75,"Will NYC high temperature reach 75°F on March 28, 2026?",No,0.9429,5949,False,
+2026-03-22T10:15:28.030961+00:00,kalshi,KXHIGHNY-26MAR28-T75,"Will NYC high temperature reach 75°F on March 28, 2026?",Yes,0.0869,6650,False,
+2026-03-22T10:15:28.030961+00:00,kalshi,KXHIGHNY-26MAR28-T75,"Will NYC high temperature reach 75°F on March 28, 2026?",No,0.8955,6650,False,
+2026-03-23T10:15:28.030961+00:00,kalshi,KXHIGHNY-26MAR28-T75,"Will NYC high temperature reach 75°F on March 28, 2026?",Yes,0.0843,7350,False,
+2026-03-23T10:15:28.030961+00:00,kalshi,KXHIGHNY-26MAR28-T75,"Will NYC high temperature reach 75°F on March 28, 2026?",No,0.9118,7350,False,
+2026-03-24T10:15:28.030961+00:00,kalshi,KXHIGHNY-26MAR28-T75,"Will NYC high temperature reach 75°F on March 28, 2026?",Yes,0.0755,8050,False,
+2026-03-24T10:15:28.030961+00:00,kalshi,KXHIGHNY-26MAR28-T75,"Will NYC high temperature reach 75°F on March 28, 2026?",No,0.9306,8050,False,
+2026-03-25T10:15:28.030961+00:00,kalshi,KXHIGHNY-26MAR28-T75,"Will NYC high temperature reach 75°F on March 28, 2026?",Yes,0.08,8750,False,
+2026-03-25T10:15:28.030961+00:00,kalshi,KXHIGHNY-26MAR28-T75,"Will NYC high temperature reach 75°F on March 28, 2026?",No,0.9293,8750,False,
+2026-03-19T10:15:28.030961+00:00,kalshi,KXHIGHCHI-26MAR28-T60,"Will Chicago high temperature reach 60°F on March 28, 2026?",Yes,0.3164,2818,False,
+2026-03-19T10:15:28.030961+00:00,kalshi,KXHIGHCHI-26MAR28-T60,"Will Chicago high temperature reach 60°F on March 28, 2026?",No,0.6805,2818,False,
+2026-03-20T10:15:28.030961+00:00,kalshi,KXHIGHCHI-26MAR28-T60,"Will Chicago high temperature reach 60°F on March 28, 2026?",Yes,0.361,3252,False,
+2026-03-20T10:15:28.030961+00:00,kalshi,KXHIGHCHI-26MAR28-T60,"Will Chicago high temperature reach 60°F on March 28, 2026?",No,0.6487,3252,False,
+2026-03-21T10:15:28.030961+00:00,kalshi,KXHIGHCHI-26MAR28-T60,"Will Chicago high temperature reach 60°F on March 28, 2026?",Yes,0.3372,3685,False,
+2026-03-21T10:15:28.030961+00:00,kalshi,KXHIGHCHI-26MAR28-T60,"Will Chicago high temperature reach 60°F on March 28, 2026?",No,0.6609,3685,False,
+2026-03-22T10:15:28.030961+00:00,kalshi,KXHIGHCHI-26MAR28-T60,"Will Chicago high temperature reach 60°F on March 28, 2026?",Yes,0.3279,4119,False,
+2026-03-22T10:15:28.030961+00:00,kalshi,KXHIGHCHI-26MAR28-T60,"Will Chicago high temperature reach 60°F on March 28, 2026?",No,0.6602,4119,False,
+2026-03-23T10:15:28.030961+00:00,kalshi,KXHIGHCHI-26MAR28-T60,"Will Chicago high temperature reach 60°F on March 28, 2026?",Yes,0.3608,4552,False,
+2026-03-23T10:15:28.030961+00:00,kalshi,KXHIGHCHI-26MAR28-T60,"Will Chicago high temperature reach 60°F on March 28, 2026?",No,0.6527,4552,False,
+2026-03-24T10:15:28.030961+00:00,kalshi,KXHIGHCHI-26MAR28-T60,"Will Chicago high temperature reach 60°F on March 28, 2026?",Yes,0.3495,4986,False,
+2026-03-24T10:15:28.030961+00:00,kalshi,KXHIGHCHI-26MAR28-T60,"Will Chicago high temperature reach 60°F on March 28, 2026?",No,0.6605,4986,False,
+2026-03-25T10:15:28.030961+00:00,kalshi,KXHIGHCHI-26MAR28-T60,"Will Chicago high temperature reach 60°F on March 28, 2026?",Yes,0.35,5420,False,
+2026-03-25T10:15:28.030961+00:00,kalshi,KXHIGHCHI-26MAR28-T60,"Will Chicago high temperature reach 60°F on March 28, 2026?",No,0.6435,5420,False,
+2026-03-19T10:15:28.030961+00:00,kalshi,KXHIGHMIA-26MAR28-T85,"Will Miami high temperature reach 85°F on March 28, 2026?",Yes,0.6345,3172,False,
+2026-03-19T10:15:28.030961+00:00,kalshi,KXHIGHMIA-26MAR28-T85,"Will Miami high temperature reach 85°F on March 28, 2026?",No,0.3809,3172,False,
+2026-03-20T10:15:28.030961+00:00,kalshi,KXHIGHMIA-26MAR28-T85,"Will Miami high temperature reach 85°F on March 28, 2026?",Yes,0.6188,3660,False,
+2026-03-20T10:15:28.030961+00:00,kalshi,KXHIGHMIA-26MAR28-T85,"Will Miami high temperature reach 85°F on March 28, 2026?",No,0.3968,3660,False,
+2026-03-21T10:15:28.030961+00:00,kalshi,KXHIGHMIA-26MAR28-T85,"Will Miami high temperature reach 85°F on March 28, 2026?",Yes,0.5501,4148,False,
+2026-03-21T10:15:28.030961+00:00,kalshi,KXHIGHMIA-26MAR28-T85,"Will Miami high temperature reach 85°F on March 28, 2026?",No,0.4581,4148,False,
+2026-03-22T10:15:28.030961+00:00,kalshi,KXHIGHMIA-26MAR28-T85,"Will Miami high temperature reach 85°F on March 28, 2026?",Yes,0.6217,4636,False,
+2026-03-22T10:15:28.030961+00:00,kalshi,KXHIGHMIA-26MAR28-T85,"Will Miami high temperature reach 85°F on March 28, 2026?",No,0.3753,4636,False,
+2026-03-23T10:15:28.030961+00:00,kalshi,KXHIGHMIA-26MAR28-T85,"Will Miami high temperature reach 85°F on March 28, 2026?",Yes,0.6212,5124,False,
+2026-03-23T10:15:28.030961+00:00,kalshi,KXHIGHMIA-26MAR28-T85,"Will Miami high temperature reach 85°F on March 28, 2026?",No,0.3589,5124,False,
+2026-03-24T10:15:28.030961+00:00,kalshi,KXHIGHMIA-26MAR28-T85,"Will Miami high temperature reach 85°F on March 28, 2026?",Yes,0.6185,5612,False,
+2026-03-24T10:15:28.030961+00:00,kalshi,KXHIGHMIA-26MAR28-T85,"Will Miami high temperature reach 85°F on March 28, 2026?",No,0.385,5612,False,
+2026-03-25T10:15:28.030961+00:00,kalshi,KXHIGHMIA-26MAR28-T85,"Will Miami high temperature reach 85°F on March 28, 2026?",Yes,0.62,6100,False,
+2026-03-25T10:15:28.030961+00:00,kalshi,KXHIGHMIA-26MAR28-T85,"Will Miami high temperature reach 85°F on March 28, 2026?",No,0.3748,6100,False,
+2026-03-19T10:15:28.030961+00:00,kalshi,KXSNOWNY-26MAR-T1,Will NYC get 1+ inch of snow in March 2026?,Yes,0.5177,5824,False,
+2026-03-19T10:15:28.030961+00:00,kalshi,KXSNOWNY-26MAR-T1,Will NYC get 1+ inch of snow in March 2026?,No,0.4773,5824,False,
+2026-03-20T10:15:28.030961+00:00,kalshi,KXSNOWNY-26MAR-T1,Will NYC get 1+ inch of snow in March 2026?,Yes,0.5805,6720,False,
+2026-03-20T10:15:28.030961+00:00,kalshi,KXSNOWNY-26MAR-T1,Will NYC get 1+ inch of snow in March 2026?,No,0.4228,6720,False,
+2026-03-21T10:15:28.030961+00:00,kalshi,KXSNOWNY-26MAR-T1,Will NYC get 1+ inch of snow in March 2026?,Yes,0.5359,7615,False,
+2026-03-21T10:15:28.030961+00:00,kalshi,KXSNOWNY-26MAR-T1,Will NYC get 1+ inch of snow in March 2026?,No,0.4693,7615,False,
+2026-03-22T10:15:28.030961+00:00,kalshi,KXSNOWNY-26MAR-T1,Will NYC get 1+ inch of snow in March 2026?,Yes,0.5519,8512,False,
+2026-03-22T10:15:28.030961+00:00,kalshi,KXSNOWNY-26MAR-T1,Will NYC get 1+ inch of snow in March 2026?,No,0.4577,8512,False,
+2026-03-23T10:15:28.030961+00:00,kalshi,KXSNOWNY-26MAR-T1,Will NYC get 1+ inch of snow in March 2026?,Yes,0.5406,9408,False,
+2026-03-23T10:15:28.030961+00:00,kalshi,KXSNOWNY-26MAR-T1,Will NYC get 1+ inch of snow in March 2026?,No,0.4561,9408,False,
+2026-03-24T10:15:28.030961+00:00,kalshi,KXSNOWNY-26MAR-T1,Will NYC get 1+ inch of snow in March 2026?,Yes,0.5474,10304,False,
+2026-03-24T10:15:28.030961+00:00,kalshi,KXSNOWNY-26MAR-T1,Will NYC get 1+ inch of snow in March 2026?,No,0.438,10304,False,
+2026-03-25T10:15:28.030961+00:00,kalshi,KXSNOWNY-26MAR-T1,Will NYC get 1+ inch of snow in March 2026?,Yes,0.55,11200,False,
+2026-03-25T10:15:28.030961+00:00,kalshi,KXSNOWNY-26MAR-T1,Will NYC get 1+ inch of snow in March 2026?,No,0.4526,11200,False,
+2026-03-19T10:15:28.030961+00:00,polymarket,poly-el-nino-2026,Will NOAA declare El Niño conditions by summer 2026?,Yes,0.2802,41028,False,
+2026-03-19T10:15:28.030961+00:00,polymarket,poly-el-nino-2026,Will NOAA declare El Niño conditions by summer 2026?,No,0.7174,41028,False,
+2026-03-20T10:15:28.030961+00:00,polymarket,poly-el-nino-2026,Will NOAA declare El Niño conditions by summer 2026?,Yes,0.2328,47340,False,
+2026-03-20T10:15:28.030961+00:00,polymarket,poly-el-nino-2026,Will NOAA declare El Niño conditions by summer 2026?,No,0.763,47340,False,
+2026-03-21T10:15:28.030961+00:00,polymarket,poly-el-nino-2026,Will NOAA declare El Niño conditions by summer 2026?,Yes,0.2709,53651,False,
+2026-03-21T10:15:28.030961+00:00,polymarket,poly-el-nino-2026,Will NOAA declare El Niño conditions by summer 2026?,No,0.7211,53651,False,
+2026-03-22T10:15:28.030961+00:00,polymarket,poly-el-nino-2026,Will NOAA declare El Niño conditions by summer 2026?,Yes,0.2768,59964,False,
+2026-03-22T10:15:28.030961+00:00,polymarket,poly-el-nino-2026,Will NOAA declare El Niño conditions by summer 2026?,No,0.7273,59964,False,
+2026-03-23T10:15:28.030961+00:00,polymarket,poly-el-nino-2026,Will NOAA declare El Niño conditions by summer 2026?,Yes,0.3051,66276,False,
+2026-03-23T10:15:28.030961+00:00,polymarket,poly-el-nino-2026,Will NOAA declare El Niño conditions by summer 2026?,No,0.6966,66276,False,
+2026-03-24T10:15:28.030961+00:00,polymarket,poly-el-nino-2026,Will NOAA declare El Niño conditions by summer 2026?,Yes,0.2817,72588,False,
+2026-03-24T10:15:28.030961+00:00,polymarket,poly-el-nino-2026,Will NOAA declare El Niño conditions by summer 2026?,No,0.7175,72588,False,
+2026-03-25T10:15:28.030961+00:00,polymarket,poly-el-nino-2026,Will NOAA declare El Niño conditions by summer 2026?,Yes,0.28,78900,False,
+2026-03-25T10:15:28.030961+00:00,polymarket,poly-el-nino-2026,Will NOAA declare El Niño conditions by summer 2026?,No,0.7197,78900,False,
+2026-03-19T10:15:28.030961+00:00,polymarket,poly-hottest-summer-2026,Will 2026 be the hottest summer on record globally?,Yes,0.3824,81120,False,
+2026-03-19T10:15:28.030961+00:00,polymarket,poly-hottest-summer-2026,Will 2026 be the hottest summer on record globally?,No,0.6422,81120,False,
+2026-03-20T10:15:28.030961+00:00,polymarket,poly-hottest-summer-2026,Will 2026 be the hottest summer on record globally?,Yes,0.3736,93600,False,
+2026-03-20T10:15:28.030961+00:00,polymarket,poly-hottest-summer-2026,Will 2026 be the hottest summer on record globally?,No,0.6294,93600,False,
+2026-03-21T10:15:28.030961+00:00,polymarket,poly-hottest-summer-2026,Will 2026 be the hottest summer on record globally?,Yes,0.3791,106079,False,
+2026-03-21T10:15:28.030961+00:00,polymarket,poly-hottest-summer-2026,Will 2026 be the hottest summer on record globally?,No,0.6092,106079,False,
+2026-03-22T10:15:28.030961+00:00,polymarket,poly-hottest-summer-2026,Will 2026 be the hottest summer on record globally?,Yes,0.4029,118560,False,
+2026-03-22T10:15:28.030961+00:00,polymarket,poly-hottest-summer-2026,Will 2026 be the hottest summer on record globally?,No,0.6047,118560,False,
+2026-03-23T10:15:28.030961+00:00,polymarket,poly-hottest-summer-2026,Will 2026 be the hottest summer on record globally?,Yes,0.3905,131040,False,
+2026-03-23T10:15:28.030961+00:00,polymarket,poly-hottest-summer-2026,Will 2026 be the hottest summer on record globally?,No,0.6004,131040,False,
+2026-03-24T10:15:28.030961+00:00,polymarket,poly-hottest-summer-2026,Will 2026 be the hottest summer on record globally?,Yes,0.3894,143520,False,
+2026-03-24T10:15:28.030961+00:00,polymarket,poly-hottest-summer-2026,Will 2026 be the hottest summer on record globally?,No,0.5966,143520,False,
+2026-03-25T10:15:28.030961+00:00,polymarket,poly-hottest-summer-2026,Will 2026 be the hottest summer on record globally?,Yes,0.38,156000,False,
+2026-03-25T10:15:28.030961+00:00,polymarket,poly-hottest-summer-2026,Will 2026 be the hottest summer on record globally?,No,0.6419,156000,False,
+2026-03-19T10:15:28.030961+00:00,kalshi,KXHIGHLA-26MAR28-T80,"Will Los Angeles high temperature reach 80°F on March 28, 2026?",Yes,0.4104,2236,False,
+2026-03-19T10:15:28.030961+00:00,kalshi,KXHIGHLA-26MAR28-T80,"Will Los Angeles high temperature reach 80°F on March 28, 2026?",No,0.584,2236,False,
+2026-03-20T10:15:28.030961+00:00,kalshi,KXHIGHLA-26MAR28-T80,"Will Los Angeles high temperature reach 80°F on March 28, 2026?",Yes,0.4533,2580,False,
+2026-03-20T10:15:28.030961+00:00,kalshi,KXHIGHLA-26MAR28-T80,"Will Los Angeles high temperature reach 80°F on March 28, 2026?",No,0.5416,2580,False,
+2026-03-21T10:15:28.030961+00:00,kalshi,KXHIGHLA-26MAR28-T80,"Will Los Angeles high temperature reach 80°F on March 28, 2026?",Yes,0.4086,2923,False,
+2026-03-21T10:15:28.030961+00:00,kalshi,KXHIGHLA-26MAR28-T80,"Will Los Angeles high temperature reach 80°F on March 28, 2026?",No,0.592,2923,False,
+2026-03-22T10:15:28.030961+00:00,kalshi,KXHIGHLA-26MAR28-T80,"Will Los Angeles high temperature reach 80°F on March 28, 2026?",Yes,0.4288,3268,False,
+2026-03-22T10:15:28.030961+00:00,kalshi,KXHIGHLA-26MAR28-T80,"Will Los Angeles high temperature reach 80°F on March 28, 2026?",No,0.576,3268,False,
+2026-03-23T10:15:28.030961+00:00,kalshi,KXHIGHLA-26MAR28-T80,"Will Los Angeles high temperature reach 80°F on March 28, 2026?",Yes,0.4377,3612,False,
+2026-03-23T10:15:28.030961+00:00,kalshi,KXHIGHLA-26MAR28-T80,"Will Los Angeles high temperature reach 80°F on March 28, 2026?",No,0.5778,3612,False,
+2026-03-24T10:15:28.030961+00:00,kalshi,KXHIGHLA-26MAR28-T80,"Will Los Angeles high temperature reach 80°F on March 28, 2026?",Yes,0.4448,3956,False,
+2026-03-24T10:15:28.030961+00:00,kalshi,KXHIGHLA-26MAR28-T80,"Will Los Angeles high temperature reach 80°F on March 28, 2026?",No,0.552,3956,False,
+2026-03-25T10:15:28.030961+00:00,kalshi,KXHIGHLA-26MAR28-T80,"Will Los Angeles high temperature reach 80°F on March 28, 2026?",Yes,0.45,4300,False,
+2026-03-25T10:15:28.030961+00:00,kalshi,KXHIGHLA-26MAR28-T80,"Will Los Angeles high temperature reach 80°F on March 28, 2026?",No,0.5377,4300,False,
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",Yes,0.5281,10976,True,yes
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",No,0.4849,2324,True,no
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",Yes,0.5054,909,True,yes
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",No,0.4964,12649,True,no
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",Yes,0.5715,5006,True,yes
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",No,0.4364,4512,True,no
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",Yes,0.5657,4157,True,yes
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",No,0.4211,2786,True,no
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",Yes,0.6178,12566,True,yes
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",No,0.3851,2179,True,no
+2026-03-16T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",Yes,0.635,11587,True,yes
+2026-03-16T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",No,0.3685,12635,True,no
+2026-03-17T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",Yes,0.6479,9435,True,yes
+2026-03-17T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",No,0.3544,1924,True,no
+2026-03-18T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",Yes,0.6778,10174,True,yes
+2026-03-18T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",No,0.3151,7412,True,no
+2026-03-19T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",Yes,0.7036,1020,True,yes
+2026-03-19T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",No,0.3011,988,True,no
+2026-03-20T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",Yes,0.72,2035,True,yes
+2026-03-20T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T55,"Will NYC high temperature reach 55°F on March 20, 2026?",No,0.2866,4082,True,no
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",Yes,0.4487,4311,True,no
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",No,0.5592,8779,True,yes
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",Yes,0.4778,10363,True,no
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",No,0.514,934,True,yes
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",Yes,0.4452,9695,True,no
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",No,0.5589,3757,True,yes
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",Yes,0.4148,12231,True,no
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",No,0.6042,11147,True,yes
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",Yes,0.3713,11990,True,no
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",No,0.6211,9428,True,yes
+2026-03-16T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",Yes,0.3393,7373,True,no
+2026-03-16T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",No,0.6525,4111,True,yes
+2026-03-17T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",Yes,0.3243,7859,True,no
+2026-03-17T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",No,0.6791,10154,True,yes
+2026-03-18T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",Yes,0.3017,5057,True,no
+2026-03-18T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",No,0.7066,13761,True,yes
+2026-03-19T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",Yes,0.275,14742,True,no
+2026-03-19T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",No,0.7395,606,True,yes
+2026-03-20T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",Yes,0.25,12932,True,no
+2026-03-20T23:59:00+00:00,kalshi,KXHIGHNY-26MAR20-T65,"Will NYC high temperature reach 65°F on March 20, 2026?",No,0.7772,13702,True,yes
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",Yes,0.5249,3115,True,yes
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",No,0.4665,11938,True,no
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",Yes,0.4903,7424,True,yes
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",No,0.5145,6074,True,no
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",Yes,0.5193,5052,True,yes
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",No,0.4878,3047,True,no
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",Yes,0.5405,4027,True,yes
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",No,0.4588,13009,True,no
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",Yes,0.5273,6014,True,yes
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",No,0.4576,2174,True,no
+2026-03-16T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",Yes,0.5426,2019,True,yes
+2026-03-16T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",No,0.4659,6724,True,no
+2026-03-17T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",Yes,0.5579,2084,True,yes
+2026-03-17T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",No,0.4296,6381,True,no
+2026-03-18T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",Yes,0.565,14385,True,yes
+2026-03-18T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",No,0.4388,6135,True,no
+2026-03-19T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",Yes,0.5693,10391,True,yes
+2026-03-19T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",No,0.4322,4833,True,no
+2026-03-20T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",Yes,0.58,13723,True,yes
+2026-03-20T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR20-T50,"Will Chicago high temperature reach 50°F on March 20, 2026?",No,0.4086,1211,True,no
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",Yes,0.5447,12455,True,yes
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",No,0.4609,8027,True,no
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",Yes,0.596,9285,True,yes
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",No,0.4145,2545,True,no
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",Yes,0.5761,6701,True,yes
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",No,0.4146,1791,True,no
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",Yes,0.6493,9544,True,yes
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",No,0.3559,5303,True,no
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",Yes,0.6827,14088,True,yes
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",No,0.3558,10799,True,no
+2026-03-16T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",Yes,0.7169,10633,True,yes
+2026-03-16T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",No,0.2945,14618,True,no
+2026-03-17T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",Yes,0.7536,6425,True,yes
+2026-03-17T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",No,0.2529,9959,True,no
+2026-03-18T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",Yes,0.7781,3650,True,yes
+2026-03-18T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",No,0.2295,12043,True,no
+2026-03-19T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",Yes,0.8127,1639,True,yes
+2026-03-19T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",No,0.185,1250,True,no
+2026-03-20T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",Yes,0.85,11334,True,yes
+2026-03-20T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR20-T80,"Will Miami high temperature reach 80°F on March 20, 2026?",No,0.1508,4233,True,no
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",Yes,0.5525,13165,True,no
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",No,0.4288,5241,True,yes
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",Yes,0.4965,1807,True,no
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",No,0.4874,14513,True,yes
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",Yes,0.4601,4314,True,no
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",No,0.5508,14696,True,yes
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",Yes,0.4612,2154,True,no
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",No,0.5281,6727,True,yes
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",Yes,0.4393,5054,True,no
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",No,0.5675,7928,True,yes
+2026-03-16T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",Yes,0.4312,10915,True,no
+2026-03-16T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",No,0.5709,14166,True,yes
+2026-03-17T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",Yes,0.4304,6477,True,no
+2026-03-17T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",No,0.5631,3164,True,yes
+2026-03-18T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",Yes,0.4329,6565,True,no
+2026-03-18T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",No,0.5735,6320,True,yes
+2026-03-19T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",Yes,0.4039,3932,True,no
+2026-03-19T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",No,0.5979,11480,True,yes
+2026-03-20T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",Yes,0.4,4874,True,no
+2026-03-20T23:59:00+00:00,kalshi,KXHIGHLA-26MAR20-T75,"Will Los Angeles high temperature reach 75°F on March 20, 2026?",No,0.6085,11998,True,yes
+2026-02-19T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,Yes,0.4836,11699,True,yes
+2026-02-19T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,No,0.5153,11117,True,no
+2026-02-20T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,Yes,0.5221,1669,True,yes
+2026-02-20T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,No,0.4865,10480,True,no
+2026-02-21T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,Yes,0.4898,10903,True,yes
+2026-02-21T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,No,0.5069,3303,True,no
+2026-02-22T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,Yes,0.5115,9251,True,yes
+2026-02-22T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,No,0.482,12446,True,no
+2026-02-23T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,Yes,0.5515,4510,True,yes
+2026-02-23T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,No,0.4526,3177,True,no
+2026-02-24T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,Yes,0.5149,8073,True,yes
+2026-02-24T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,No,0.4943,6716,True,no
+2026-02-25T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,Yes,0.5541,4922,True,yes
+2026-02-25T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,No,0.4562,10985,True,no
+2026-02-26T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,Yes,0.5309,11774,True,yes
+2026-02-26T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,No,0.4643,9625,True,no
+2026-02-27T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,Yes,0.5488,4098,True,yes
+2026-02-27T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,No,0.4441,11716,True,no
+2026-02-28T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,Yes,0.55,5813,True,yes
+2026-02-28T23:59:00+00:00,polymarket,poly-feb-snow-nyc-2026,Will NYC get 6+ inches of snow in any single storm in February 2026?,No,0.4577,14309,True,no
+2026-03-06T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,Yes,0.455,13088,True,no
+2026-03-06T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,No,0.5444,13213,True,yes
+2026-03-07T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,Yes,0.3822,1416,True,no
+2026-03-07T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,No,0.6075,4252,True,yes
+2026-03-08T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,Yes,0.4347,13964,True,no
+2026-03-08T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,No,0.5528,1025,True,yes
+2026-03-09T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,Yes,0.4494,13689,True,no
+2026-03-09T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,No,0.5363,5668,True,yes
+2026-03-10T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,Yes,0.3934,7072,True,no
+2026-03-10T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,No,0.6079,4886,True,yes
+2026-03-11T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,Yes,0.3973,1584,True,no
+2026-03-11T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,No,0.5883,3956,True,yes
+2026-03-12T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,Yes,0.3705,9792,True,no
+2026-03-12T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,No,0.6296,14858,True,yes
+2026-03-13T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,Yes,0.3341,12262,True,no
+2026-03-13T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,No,0.6705,5655,True,yes
+2026-03-14T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,Yes,0.3206,3983,True,no
+2026-03-14T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,No,0.6734,11238,True,yes
+2026-03-15T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,Yes,0.3,8679,True,no
+2026-03-15T00:00:00+00:00,polymarket,poly-warmest-feb-2026,Will February 2026 be the warmest February on record globally?,No,0.6961,6982,True,yes
+2026-03-06T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",Yes,0.4881,14994,True,no
+2026-03-06T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",No,0.5186,11032,True,yes
+2026-03-07T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",Yes,0.5081,8017,True,no
+2026-03-07T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",No,0.4796,2840,True,yes
+2026-03-08T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",Yes,0.4998,4839,True,no
+2026-03-08T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",No,0.4807,2787,True,yes
+2026-03-09T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",Yes,0.4373,4540,True,no
+2026-03-09T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",No,0.5686,12705,True,yes
+2026-03-10T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",Yes,0.4292,9697,True,no
+2026-03-10T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",No,0.5646,9330,True,yes
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",Yes,0.4075,4804,True,no
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",No,0.5876,12739,True,yes
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",Yes,0.3897,10077,True,no
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",No,0.6188,7519,True,yes
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",Yes,0.3821,10060,True,no
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",No,0.6109,7043,True,yes
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",Yes,0.3677,6430,True,no
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",No,0.6354,4093,True,yes
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",Yes,0.35,2766,True,no
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T60,"Will NYC high temperature reach 60°F on March 15, 2026?",No,0.6563,8848,True,yes
+2026-03-06T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",Yes,0.5076,8585,True,yes
+2026-03-06T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",No,0.4868,1989,True,no
+2026-03-07T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",Yes,0.5779,12882,True,yes
+2026-03-07T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",No,0.4282,1271,True,no
+2026-03-08T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",Yes,0.5896,14608,True,yes
+2026-03-08T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",No,0.4116,2296,True,no
+2026-03-09T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",Yes,0.643,3004,True,yes
+2026-03-09T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",No,0.3511,10780,True,no
+2026-03-10T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",Yes,0.6582,3121,True,yes
+2026-03-10T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",No,0.3398,13477,True,no
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",Yes,0.6774,11649,True,yes
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",No,0.3336,7416,True,no
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",Yes,0.7174,10271,True,yes
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",No,0.2907,1540,True,no
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",Yes,0.7478,6804,True,yes
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",No,0.2524,6752,True,no
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",Yes,0.772,10263,True,yes
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",No,0.2249,8168,True,no
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",Yes,0.8,9169,True,yes
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHNY-26MAR15-T50,"Will NYC high temperature reach 50°F on March 15, 2026?",No,0.1987,4619,True,no
+2026-03-06T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",Yes,0.5176,9564,True,yes
+2026-03-06T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",No,0.4883,14603,True,no
+2026-03-07T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",Yes,0.5104,688,True,yes
+2026-03-07T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",No,0.5106,11645,True,no
+2026-03-08T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",Yes,0.5239,12308,True,yes
+2026-03-08T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",No,0.464,2376,True,no
+2026-03-09T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",Yes,0.5808,11669,True,yes
+2026-03-09T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",No,0.4271,14996,True,no
+2026-03-10T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",Yes,0.5844,9297,True,yes
+2026-03-10T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",No,0.4219,12802,True,no
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",Yes,0.5899,4871,True,yes
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",No,0.4012,13092,True,no
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",Yes,0.6057,11001,True,yes
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",No,0.3875,6073,True,no
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",Yes,0.6259,2327,True,yes
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",No,0.3727,5308,True,no
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",Yes,0.6325,7623,True,yes
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",No,0.3643,3091,True,no
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",Yes,0.65,7933,True,yes
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHCHI-26MAR15-T45,"Will Chicago high temperature reach 45°F on March 15, 2026?",No,0.3444,553,True,no
+2026-03-06T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",Yes,0.4978,12330,True,yes
+2026-03-06T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",No,0.5046,14849,True,no
+2026-03-07T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",Yes,0.5459,12291,True,yes
+2026-03-07T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",No,0.4491,4815,True,no
+2026-03-08T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",Yes,0.5501,8701,True,yes
+2026-03-08T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",No,0.4522,12983,True,no
+2026-03-09T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",Yes,0.5539,3427,True,yes
+2026-03-09T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",No,0.432,8817,True,no
+2026-03-10T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",Yes,0.5892,2243,True,yes
+2026-03-10T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",No,0.4086,14762,True,no
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",Yes,0.6237,10744,True,yes
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",No,0.391,5389,True,no
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",Yes,0.6477,14289,True,yes
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",No,0.3507,10968,True,no
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",Yes,0.6599,8817,True,yes
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",No,0.3301,10477,True,no
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",Yes,0.6799,3758,True,yes
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",No,0.3172,3004,True,no
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",Yes,0.7,6626,True,yes
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHMIA-26MAR15-T82,"Will Miami high temperature reach 82°F on March 15, 2026?",No,0.2917,12992,True,no
+2026-03-06T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",Yes,0.539,3146,True,yes
+2026-03-06T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",No,0.4763,9337,True,no
+2026-03-07T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",Yes,0.5474,13257,True,yes
+2026-03-07T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",No,0.4566,9189,True,no
+2026-03-08T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",Yes,0.5895,509,True,yes
+2026-03-08T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",No,0.4065,10313,True,no
+2026-03-09T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",Yes,0.604,5810,True,yes
+2026-03-09T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",No,0.3961,8505,True,no
+2026-03-10T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",Yes,0.6265,819,True,yes
+2026-03-10T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",No,0.3658,2332,True,no
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",Yes,0.6503,6447,True,yes
+2026-03-11T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",No,0.3547,14896,True,no
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",Yes,0.6881,14126,True,yes
+2026-03-12T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",No,0.3215,13718,True,no
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",Yes,0.7129,5538,True,yes
+2026-03-13T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",No,0.2794,4423,True,no
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",Yes,0.7276,1449,True,yes
+2026-03-14T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",No,0.2742,4446,True,no
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",Yes,0.75,14885,True,yes
+2026-03-15T23:59:00+00:00,kalshi,KXHIGHLA-26MAR15-T70,"Will Los Angeles high temperature reach 70°F on March 15, 2026?",No,0.2419,9795,True,no
+2026-02-19T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,Yes,0.4453,1790,True,yes
+2026-02-19T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,No,0.5487,1903,True,no
+2026-02-20T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,Yes,0.385,12491,True,yes
+2026-02-20T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,No,0.6097,8462,True,no
+2026-02-21T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,Yes,0.3881,13869,True,yes
+2026-02-21T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,No,0.6134,1633,True,no
+2026-02-22T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,Yes,0.3782,12961,True,yes
+2026-02-22T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,No,0.6406,9227,True,no
+2026-02-23T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,Yes,0.3543,13047,True,yes
+2026-02-23T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,No,0.64,2560,True,no
+2026-02-24T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,Yes,0.2972,2603,True,yes
+2026-02-24T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,No,0.7077,11309,True,no
+2026-02-25T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,Yes,0.2641,8287,True,yes
+2026-02-25T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,No,0.7542,9507,True,no
+2026-02-26T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,Yes,0.2511,3205,True,yes
+2026-02-26T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,No,0.7442,4842,True,no
+2026-02-27T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,Yes,0.2069,9145,True,yes
+2026-02-27T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,No,0.8067,14793,True,no
+2026-02-28T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,Yes,0.18,10438,True,yes
+2026-02-28T23:59:00+00:00,polymarket,poly-chicago-blizzard-feb-2026,Will Chicago experience a blizzard (8+ inches) in February 2026?,No,0.8324,7432,True,no
+2026-02-19T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,Yes,0.412,3970,True,no
+2026-02-19T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,No,0.5821,9335,True,yes
+2026-02-20T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,Yes,0.4101,12874,True,no
+2026-02-20T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,No,0.5903,12459,True,yes
+2026-02-21T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,Yes,0.3555,11802,True,no
+2026-02-21T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,No,0.6507,3795,True,yes
+2026-02-22T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,Yes,0.3008,12180,True,no
+2026-02-22T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,No,0.6978,5607,True,yes
+2026-02-23T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,Yes,0.2768,7037,True,no
+2026-02-23T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,No,0.7283,11504,True,yes
+2026-02-24T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,Yes,0.2385,11147,True,no
+2026-02-24T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,No,0.7502,6618,True,yes
+2026-02-25T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,Yes,0.1712,7677,True,no
+2026-02-25T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,No,0.8416,8979,True,yes
+2026-02-26T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,Yes,0.142,7897,True,no
+2026-02-26T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,No,0.8505,2482,True,yes
+2026-02-27T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,Yes,0.0997,4561,True,no
+2026-02-27T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,No,0.9015,4181,True,yes
+2026-02-28T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,Yes,0.05,1549,True,no
+2026-02-28T23:59:00+00:00,polymarket,poly-miami-freeze-feb-2026,Will Miami experience freezing temperatures in February 2026?,No,0.9507,6039,True,yes
+2026-03-01T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",Yes,0.5676,844,True,no
+2026-03-01T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",No,0.4499,10138,True,yes
+2026-03-02T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",Yes,0.518,9575,True,no
+2026-03-02T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",No,0.4917,4270,True,yes
+2026-03-03T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",Yes,0.5496,10141,True,no
+2026-03-03T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",No,0.4641,4108,True,yes
+2026-03-04T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",Yes,0.5306,617,True,no
+2026-03-04T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",No,0.4762,1663,True,yes
+2026-03-05T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",Yes,0.5759,12097,True,no
+2026-03-05T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",No,0.4065,10839,True,yes
+2026-03-06T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",Yes,0.5578,1464,True,no
+2026-03-06T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",No,0.4218,4250,True,yes
+2026-03-07T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",Yes,0.5816,1604,True,no
+2026-03-07T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",No,0.4256,1014,True,yes
+2026-03-08T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",Yes,0.605,14584,True,no
+2026-03-08T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",No,0.3957,5913,True,yes
+2026-03-09T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",Yes,0.6129,1660,True,no
+2026-03-09T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",No,0.3733,8923,True,yes
+2026-03-10T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",Yes,0.62,4399,True,no
+2026-03-10T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T55,"Will NYC high temperature reach 55°F on March 10, 2026?",No,0.3794,5062,True,yes
+2026-03-01T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",Yes,0.5484,11460,True,yes
+2026-03-01T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",No,0.4513,8453,True,no
+2026-03-02T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",Yes,0.5264,4010,True,yes
+2026-03-02T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",No,0.4727,9334,True,no
+2026-03-03T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",Yes,0.5866,2667,True,yes
+2026-03-03T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",No,0.4201,12351,True,no
+2026-03-04T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",Yes,0.6586,14956,True,yes
+2026-03-04T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",No,0.332,9855,True,no
+2026-03-05T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",Yes,0.6823,9940,True,yes
+2026-03-05T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",No,0.3071,8244,True,no
+2026-03-06T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",Yes,0.7272,4481,True,yes
+2026-03-06T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",No,0.2823,13355,True,no
+2026-03-07T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",Yes,0.7571,8249,True,yes
+2026-03-07T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",No,0.2479,13730,True,no
+2026-03-08T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",Yes,0.8008,7169,True,yes
+2026-03-08T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",No,0.1913,3619,True,no
+2026-03-09T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",Yes,0.8417,2045,True,yes
+2026-03-09T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",No,0.148,2088,True,no
+2026-03-10T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",Yes,0.88,11296,True,yes
+2026-03-10T23:59:00+00:00,kalshi,KXHIGHNY-26MAR10-T45,"Will NYC high temperature reach 45°F on March 10, 2026?",No,0.108,7562,True,no

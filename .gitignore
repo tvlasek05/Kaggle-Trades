@@ -2,8 +2,3 @@ __pycache__/
 *.pyc
 .env
 *.egg-info/
-dist/
-build/
-session.log
-.venv/
-venv/

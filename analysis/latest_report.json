@@ -1,0 +1,292 @@
+{
+  "generated_at": "2026-03-25T10:15:32.967818+00:00",
+  "data_summary": {
+    "total_price_snapshots": 460,
+    "unique_markets": 26,
+    "sources": [
+      "polymarket",
+      "kalshi"
+    ],
+    "resolved_markets": 16,
+    "weather_records": 210,
+    "cities_tracked": 14
+  },
+  "calibration": [
+    {
+      "bucket": "0-10%",
+      "mean_implied": 0.07485,
+      "actual_rate": 0.0,
+      "count": 2,
+      "calibration_error": 0.07485
+    },
+    {
+      "bucket": "10-20%",
+      "mean_implied": 0.1644,
+      "actual_rate": 0.3333333333333333,
+      "count": 3,
+      "calibration_error": -0.16893333333333332
+    },
+    {
+      "bucket": "20-30%",
+      "mean_implied": 0.2621777777777778,
+      "actual_rate": 0.4444444444444444,
+      "count": 9,
+      "calibration_error": -0.18226666666666663
+    },
+    {
+      "bucket": "30-40%",
+      "mean_implied": 0.36124285714285714,
+      "actual_rate": 0.19047619047619047,
+      "count": 21,
+      "calibration_error": 0.17076666666666668
+    },
+    {
+      "bucket": "40-50%",
+      "mean_implied": 0.45081111111111116,
+      "actual_rate": 0.18518518518518517,
+      "count": 27,
+      "calibration_error": 0.265625925925926
+    },
+    {
+      "bucket": "50-60%",
+      "mean_implied": 0.5499673076923076,
+      "actual_rate": 0.8269230769230769,
+      "count": 52,
+      "calibration_error": -0.27695576923076926
+    },
+    {
+      "bucket": "60-70%",
+      "mean_implied": 0.6467444444444445,
+      "actual_rate": 0.8888888888888888,
+      "count": 27,
+      "calibration_error": -0.24214444444444438
+    },
+    {
+      "bucket": "70-80%",
+      "mean_implied": 0.7417285714285714,
+      "actual_rate": 1.0,
+      "count": 14,
+      "calibration_error": -0.2582714285714286
+    },
+    {
+      "bucket": "80-90%",
+      "mean_implied": 0.83704,
+      "actual_rate": 1.0,
+      "count": 5,
+      "calibration_error": -0.16296
+    }
+  ],
+  "forecast_errors": [
+    {
+      "market_id": "poly-chicago-blizzard-feb-2026",
+      "question": "Will Chicago experience a blizzard (8+ inches) in February 2026?",
+      "source": "polymarket",
+      "last_price": 0.18,
+      "actual": 1.0,
+      "brier_score": 0.47616379000000003,
+      "log_loss": 1.1936954202783348,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "KXHIGHNY-26MAR10-T55",
+      "question": "Will NYC high temperature reach 55\u00b0F on March 10, 2026?",
+      "source": "kalshi",
+      "last_price": 0.62,
+      "actual": 0.0,
+      "brier_score": 0.32812219,
+      "log_loss": 0.8512756696903553,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "poly-feb-snow-nyc-2026",
+      "question": "Will NYC get 6+ inches of snow in any single storm in February 2026?",
+      "source": "polymarket",
+      "last_price": 0.55,
+      "actual": 1.0,
+      "brier_score": 0.225543098,
+      "log_loss": 0.6440905044907703,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "KXHIGHCHI-26MAR20-T50",
+      "question": "Will Chicago high temperature reach 50\u00b0F on March 20, 2026?",
+      "source": "kalshi",
+      "last_price": 0.58,
+      "actual": 1.0,
+      "brier_score": 0.21069667900000005,
+      "log_loss": 0.6141768032719712,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "KXHIGHLA-26MAR20-T75",
+      "question": "Will Los Angeles high temperature reach 75\u00b0F on March 20, 2026?",
+      "source": "kalshi",
+      "last_price": 0.4,
+      "actual": 0.0,
+      "brier_score": 0.205086566,
+      "log_loss": 0.602604116800896,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "KXHIGHNY-26MAR15-T60",
+      "question": "Will NYC high temperature reach 60\u00b0F on March 15, 2026?",
+      "source": "kalshi",
+      "last_price": 0.35,
+      "actual": 0.0,
+      "brier_score": 0.184327723,
+      "log_loss": 0.5595390049490185,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "KXHIGHCHI-26MAR15-T45",
+      "question": "Will Chicago high temperature reach 45\u00b0F on March 15, 2026?",
+      "source": "kalshi",
+      "last_price": 0.65,
+      "actual": 1.0,
+      "brier_score": 0.176870269,
+      "log_loss": 0.544468130238485,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "KXHIGHMIA-26MAR15-T82",
+      "question": "Will Miami high temperature reach 82\u00b0F on March 15, 2026?",
+      "source": "kalshi",
+      "last_price": 0.7,
+      "actual": 1.0,
+      "brier_score": 0.16024325099999998,
+      "log_loss": 0.5084857179905078,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "KXHIGHNY-26MAR20-T55",
+      "question": "Will NYC high temperature reach 55\u00b0F on March 20, 2026?",
+      "source": "kalshi",
+      "last_price": 0.72,
+      "actual": 1.0,
+      "brier_score": 0.151288956,
+      "log_loss": 0.4888748922690874,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "poly-warmest-feb-2026",
+      "question": "Will February 2026 be the warmest February on record globally?",
+      "source": "polymarket",
+      "last_price": 0.3,
+      "actual": 0.0,
+      "brier_score": 0.149831456,
+      "log_loss": 0.48745921491695476,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "KXHIGHNY-26MAR20-T65",
+      "question": "Will NYC high temperature reach 65\u00b0F on March 20, 2026?",
+      "source": "kalshi",
+      "last_price": 0.25,
+      "actual": 0.0,
+      "brier_score": 0.138719317,
+      "log_loss": 0.4609064714154053,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "KXHIGHLA-26MAR15-T70",
+      "question": "Will Los Angeles high temperature reach 70\u00b0F on March 15, 2026?",
+      "source": "kalshi",
+      "last_price": 0.75,
+      "actual": 1.0,
+      "brier_score": 0.132089613,
+      "log_loss": 0.4469125947675985,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "KXHIGHNY-26MAR15-T50",
+      "question": "Will NYC high temperature reach 50\u00b0F on March 15, 2026?",
+      "source": "kalshi",
+      "last_price": 0.8,
+      "actual": 1.0,
+      "brier_score": 0.11728529299999998,
+      "log_loss": 0.41087329633178493,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "KXHIGHNY-26MAR10-T45",
+      "question": "Will NYC high temperature reach 45\u00b0F on March 10, 2026?",
+      "source": "kalshi",
+      "last_price": 0.88,
+      "actual": 1.0,
+      "brier_score": 0.10291861100000002,
+      "log_loss": 0.3694903812151788,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "KXHIGHMIA-26MAR20-T80",
+      "question": "Will Miami high temperature reach 80\u00b0F on March 20, 2026?",
+      "source": "kalshi",
+      "last_price": 0.85,
+      "actual": 1.0,
+      "brier_score": 0.102155455,
+      "log_loss": 0.37265937757019935,
+      "n_snapshots": 10
+    },
+    {
+      "market_id": "poly-miami-freeze-feb-2026",
+      "question": "Will Miami experience freezing temperatures in February 2026?",
+      "source": "polymarket",
+      "last_price": 0.05,
+      "actual": 0.0,
+      "brier_score": 0.075020092,
+      "log_loss": 0.2949712186077764,
+      "n_snapshots": 10
+    }
+  ],
+  "mispriced_markets": [
+    {
+      "type": "volatility",
+      "market_id": "poly-miami-freeze-feb-2026",
+      "question": "Will Miami experience freezing temperatures in February 2026?",
+      "source": "polymarket",
+      "price_range": 0.1885,
+      "current_price": 0.05,
+      "detail": "Price range 0.189 in recent snapshots"
+    },
+    {
+      "type": "volatility",
+      "market_id": "KXHIGHNY-26MAR10-T45",
+      "question": "Will NYC high temperature reach 45\u00b0F on March 10, 2026?",
+      "source": "kalshi",
+      "price_range": 0.15280000000000005,
+      "current_price": 0.88,
+      "detail": "Price range 0.153 in recent snapshots"
+    }
+  ],
+  "biases": [
+    {
+      "type": "regional",
+      "region": "chicago",
+      "mean_error": -0.5203866666666668,
+      "n_markets": 30,
+      "detail": "chicago: probability underestimated by 52.0% (n=30)"
+    },
+    {
+      "type": "regional",
+      "region": "miami",
+      "mean_error": -0.15117333333333335,
+      "n_markets": 30,
+      "detail": "miami: probability underestimated by 15.1% (n=30)"
+    },
+    {
+      "type": "source",
+      "source": "kalshi",
+      "mean_error": -0.09425750000000001,
+      "n_markets": 120,
+      "detail": "kalshi: mean error -0.094 (n=120)"
+    },
+    {
+      "type": "source",
+      "source": "polymarket",
+      "mean_error": -0.13247,
+      "n_markets": 40,
+      "detail": "polymarket: mean error -0.132 (n=40)"
+    }
+  ],
+  "trading_opportunities": []
+}

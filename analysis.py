@@ -1,321 +1,415 @@
-"""Analysis module: calibration, mispricing, bias detection."""
+"""
+Analysis engine for weather prediction markets.
+
+Computes:
+- Implied probability vs actual outcome
+- Forecast error
+- Calibration by probability bucket
+- Identifies mispriced markets, slow reactions, seasonal/regional biases
+"""
 
 import json
-import logging
-import numpy as np
-import pandas as pd
+import os
 from datetime import datetime, timezone
 
-import config
+import numpy as np
+import pandas as pd
 
-logger = logging.getLogger(__name__)
+DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+ANALYSIS_DIR = os.path.join(os.path.dirname(__file__), "analysis")
+MARKET_PRICES_FILE = os.path.join(DATA_DIR, "market_prices.csv")
+ACTUALS_FILE = os.path.join(DATA_DIR, "weather_actuals.csv")
 
 
-def compute_calibration(markets_df: pd.DataFrame, outcomes_df: pd.DataFrame) -> dict:
+def load_prices():
+    if os.path.exists(MARKET_PRICES_FILE):
+        return pd.read_csv(MARKET_PRICES_FILE)
+    return pd.DataFrame()
+
+
+def load_actuals():
+    if os.path.exists(ACTUALS_FILE):
+        return pd.read_csv(ACTUALS_FILE)
+    return pd.DataFrame()
+
+
+# --- Calibration Analysis ---
+
+def compute_calibration(prices_df):
     """
-    Compute calibration by probability bucket.
-
-    For resolved markets with known outcomes, compare implied probability
-    to actual resolution rate.
+    Compute calibration: for resolved markets, group by probability bucket
+    and compare implied probability to actual resolution rate.
     """
-    resolved = markets_df[markets_df["resolved"] == True].copy()
-    if resolved.empty:
-        return {"buckets": [], "note": "No resolved markets available for calibration"}
-
-    # Map resolution to binary: 1 = yes, 0 = no
-    resolved["outcome_binary"] = resolved["resolution"].apply(_resolution_to_binary)
-    resolved = resolved.dropna(subset=["outcome_binary", "outcome_yes_price"])
-    resolved["implied_prob"] = resolved["outcome_yes_price"].astype(float)
-
-    if resolved.empty:
-        return {"buckets": [], "note": "No resolved markets with valid prices"}
-
-    buckets = []
-    for low, high in config.CALIBRATION_BUCKETS:
-        mask = (resolved["implied_prob"] >= low) & (resolved["implied_prob"] < high)
-        subset = resolved[mask]
-        if len(subset) > 0:
-            actual_rate = subset["outcome_binary"].mean()
-            midpoint = (low + high) / 2
-            buckets.append({
-                "range": f"{low:.1f}-{high:.1f}",
-                "midpoint": midpoint,
-                "count": int(len(subset)),
-                "implied_prob_avg": float(subset["implied_prob"].mean()),
-                "actual_rate": float(actual_rate),
-                "calibration_error": float(abs(actual_rate - subset["implied_prob"].mean())),
-            })
-
-    total_error = np.mean([b["calibration_error"] for b in buckets]) if buckets else 0
-    return {
-        "buckets": buckets,
-        "mean_calibration_error": float(total_error),
-        "total_resolved_markets": int(len(resolved)),
-    }
-
-
-def _resolution_to_binary(res) -> float | None:
-    """Convert resolution string to binary outcome."""
-    if pd.isna(res):
+    if prices_df.empty or "resolved" not in prices_df.columns:
         return None
-    res_str = str(res).lower().strip()
-    if res_str in ("yes", "1", "1.0", "true"):
-        return 1.0
-    if res_str in ("no", "0", "0.0", "false"):
-        return 0.0
-    return None
-
-
-def compute_forecast_errors(markets_df: pd.DataFrame) -> dict:
-    """
-    Compute forecast error metrics for resolved markets.
-    """
-    resolved = markets_df[markets_df["resolved"] == True].copy()
+    resolved = prices_df[prices_df["resolved"] == True].copy()
     if resolved.empty:
-        return {"note": "No resolved markets for error analysis"}
+        return None
 
-    resolved["outcome_binary"] = resolved["resolution"].apply(_resolution_to_binary)
-    resolved = resolved.dropna(subset=["outcome_binary", "outcome_yes_price"])
-    resolved["implied_prob"] = resolved["outcome_yes_price"].astype(float)
+    # For 'Yes' outcomes, the price IS the implied probability
+    yes_prices = resolved[resolved["outcome"].str.lower() == "yes"].copy()
+    if yes_prices.empty:
+        return None
 
+    # Determine actual outcome: resolution == "yes" means event happened
+    yes_prices["actual"] = yes_prices["resolution"].apply(
+        lambda r: 1.0 if str(r).lower() in ("yes", "1", "true", "y") else 0.0
+    )
+    yes_prices["implied_prob"] = yes_prices["price"].clip(0, 1)
+
+    # Bucket by implied probability (0-10%, 10-20%, ..., 90-100%)
+    bins = np.arange(0, 1.1, 0.1)
+    labels = [f"{int(b*100)}-{int((b+0.1)*100)}%" for b in bins[:-1]]
+    yes_prices["bucket"] = pd.cut(yes_prices["implied_prob"], bins=bins, labels=labels, include_lowest=True)
+
+    calibration = yes_prices.groupby("bucket", observed=True).agg(
+        mean_implied=("implied_prob", "mean"),
+        actual_rate=("actual", "mean"),
+        count=("actual", "count"),
+    ).reset_index()
+
+    calibration["calibration_error"] = calibration["mean_implied"] - calibration["actual_rate"]
+    return calibration
+
+
+# --- Forecast Error ---
+
+def compute_forecast_errors(prices_df):
+    """
+    For resolved markets, compute Brier score and log loss per market.
+    """
+    if prices_df.empty or "resolved" not in prices_df.columns:
+        return None
+    resolved = prices_df[prices_df["resolved"] == True].copy()
     if resolved.empty:
-        return {"note": "No resolved markets with valid data"}
+        return None
 
-    errors = resolved["implied_prob"] - resolved["outcome_binary"]
-    abs_errors = errors.abs()
+    yes_prices = resolved[resolved["outcome"].str.lower() == "yes"].copy()
+    if yes_prices.empty:
+        return None
 
-    return {
-        "count": int(len(resolved)),
-        "mean_absolute_error": float(abs_errors.mean()),
-        "mean_squared_error": float((errors ** 2).mean()),
-        "brier_score": float((errors ** 2).mean()),
-        "mean_bias": float(errors.mean()),  # positive = overconfident on yes
-        "median_absolute_error": float(abs_errors.median()),
-    }
+    yes_prices["actual"] = yes_prices["resolution"].apply(
+        lambda r: 1.0 if str(r).lower() in ("yes", "1", "true", "y") else 0.0
+    )
+    yes_prices["implied_prob"] = yes_prices["price"].clip(0.001, 0.999)
+
+    # Brier score per market (lower is better)
+    yes_prices["brier_score"] = (yes_prices["implied_prob"] - yes_prices["actual"]) ** 2
+
+    # Log loss per market (lower is better)
+    yes_prices["log_loss"] = -(
+        yes_prices["actual"] * np.log(yes_prices["implied_prob"])
+        + (1 - yes_prices["actual"]) * np.log(1 - yes_prices["implied_prob"])
+    )
+
+    # Aggregate by market
+    errors = yes_prices.groupby("market_id").agg(
+        question=("question", "first"),
+        source=("source", "first"),
+        last_price=("implied_prob", "last"),
+        actual=("actual", "first"),
+        brier_score=("brier_score", "mean"),
+        log_loss=("log_loss", "mean"),
+        n_snapshots=("implied_prob", "count"),
+    ).reset_index()
+
+    errors = errors.sort_values("brier_score", ascending=False)
+    return errors
 
 
-def identify_mispriced_markets(markets_df: pd.DataFrame, snapshots_df: pd.DataFrame) -> list[dict]:
+# --- Mispricing Detection ---
+
+def detect_mispriced_markets(prices_df):
     """
     Identify potentially mispriced markets based on:
-    - Extreme prices (very high/low implied probability on uncertain events)
-    - Large recent price moves (potential slow reactions)
-    - Low liquidity with high volume (potential arbitrage)
+    1. Yes + No prices not summing to ~1.0 (arbitrage opportunity)
+    2. Large price movements (may indicate slow reaction)
+    3. Extreme prices with low volume (thin markets)
     """
-    active = markets_df[markets_df["resolved"] != True].copy()
-    if active.empty:
-        return []
+    findings = []
+    if prices_df.empty:
+        return findings
+    latest = prices_df.sort_values("timestamp").groupby(
+        ["market_id", "outcome"]
+    ).last().reset_index()
 
-    mispriced = []
+    # Check for arbitrage: Yes + No should sum to ~1.0
+    for market_id in latest["market_id"].unique():
+        mkt = latest[latest["market_id"] == market_id]
+        yes_row = mkt[mkt["outcome"].str.lower() == "yes"]
+        no_row = mkt[mkt["outcome"].str.lower() == "no"]
 
-    for _, row in active.iterrows():
-        signals = []
-        yes_price = row.get("outcome_yes_price")
-        volume = row.get("volume", 0)
-        liquidity = row.get("liquidity", 0)
-
-        if yes_price is None or pd.isna(yes_price):
-            continue
-
-        yes_price = float(yes_price)
-
-        # Signal: extreme near-boundary prices with meaningful volume
-        if volume and float(volume) > 1000:
-            if 0.02 < yes_price < 0.10:
-                signals.append({"type": "low_price_high_volume", "detail": f"Yes={yes_price:.3f}, Vol={volume}"})
-            elif 0.90 < yes_price < 0.98:
-                signals.append({"type": "high_price_high_volume", "detail": f"Yes={yes_price:.3f}, Vol={volume}"})
-
-        # Signal: low liquidity relative to volume (thin orderbook)
-        if volume and liquidity and float(liquidity) > 0:
-            vol_liq_ratio = float(volume) / float(liquidity)
-            if vol_liq_ratio > 3:
-                signals.append({
-                    "type": "thin_liquidity",
-                    "detail": f"Volume/Liquidity={vol_liq_ratio:.1f}",
+        if not yes_row.empty and not no_row.empty:
+            yes_p = float(yes_row["price"].iloc[0])
+            no_p = float(no_row["price"].iloc[0])
+            total = yes_p + no_p
+            if abs(total - 1.0) > 0.05:  # >5% deviation
+                findings.append({
+                    "type": "arbitrage",
+                    "market_id": market_id,
+                    "question": yes_row["question"].iloc[0],
+                    "source": yes_row["source"].iloc[0],
+                    "yes_price": yes_p,
+                    "no_price": no_p,
+                    "total": total,
+                    "spread": abs(total - 1.0),
+                    "detail": f"Yes+No = {total:.3f} (deviation: {abs(total-1.0):.3f})",
                 })
 
-        # Signal: check for large price moves in snapshots
-        if not snapshots_df.empty:
-            market_snaps = snapshots_df[
-                (snapshots_df["source"] == row["source"]) &
-                (snapshots_df["market_id"] == row["market_id"])
-            ].sort_values("snapshot_time")
+    # Check for large recent price movements (slow market reactions)
+    if len(prices_df) > 1:
+        prices_df_sorted = prices_df.sort_values("timestamp")
+        for market_id in prices_df_sorted["market_id"].unique():
+            mkt = prices_df_sorted[
+                (prices_df_sorted["market_id"] == market_id)
+                & (prices_df_sorted["outcome"].str.lower() == "yes")
+            ]
+            if len(mkt) >= 2:
+                recent = mkt.tail(5)
+                price_range = recent["price"].max() - recent["price"].min()
+                if price_range > 0.15:  # >15% swing in recent snapshots
+                    findings.append({
+                        "type": "volatility",
+                        "market_id": market_id,
+                        "question": mkt["question"].iloc[0],
+                        "source": mkt["source"].iloc[0],
+                        "price_range": price_range,
+                        "current_price": float(mkt["price"].iloc[-1]),
+                        "detail": f"Price range {price_range:.3f} in recent snapshots",
+                    })
 
-            if len(market_snaps) >= 2:
-                prices = market_snaps["outcome_yes_price"].dropna().astype(float)
-                if len(prices) >= 2:
-                    recent_change = abs(prices.iloc[-1] - prices.iloc[-2])
-                    if recent_change > 0.15:
-                        signals.append({
-                            "type": "large_price_move",
-                            "detail": f"Change={recent_change:.3f} in last snapshot",
-                        })
-
-                    # Trend detection
-                    if len(prices) >= 3:
-                        diffs = prices.diff().dropna()
-                        if (diffs > 0).all():
-                            signals.append({"type": "consistent_uptrend", "detail": f"Trending up over {len(prices)} snapshots"})
-                        elif (diffs < 0).all():
-                            signals.append({"type": "consistent_downtrend", "detail": f"Trending down over {len(prices)} snapshots"})
-
-        if signals:
-            mispriced.append({
-                "source": row["source"],
-                "market_id": row["market_id"],
-                "question": row.get("question", ""),
-                "current_yes_price": yes_price,
-                "signals": signals,
-            })
-
-    return mispriced
-
-
-def detect_cross_platform_divergences(markets_df: pd.DataFrame) -> list[dict]:
-    """
-    Find markets covering the same event on different platforms with divergent prices.
-    This is the classic arbitrage signal.
-    """
-    if markets_df.empty or "source" not in markets_df.columns:
-        return []
-
-    active = markets_df[markets_df["resolved"] != True].copy()
-    if active.empty:
-        return []
-
-    # Group by similar questions (fuzzy match on city + date patterns)
-    import re
-    divergences = []
-
-    poly = active[active["source"] == "polymarket"]
-    kalshi = active[active["source"] == "kalshi"]
-
-    if poly.empty or kalshi.empty:
-        return []
-
-    # Extract city and threshold from questions for matching
-    def _extract_key(q):
-        q = q.lower()
-        cities = ["new york", "nyc", "chicago", "miami", "los angeles", "la", "denver", "seattle", "boston"]
-        city = None
-        for c in cities:
-            if c in q:
-                city = c
-                break
-        date_match = re.search(r'march\s+(\d+)', q)
-        date = date_match.group(1) if date_match else None
-        return (city, date) if city and date else None
-
-    poly_by_key = {}
-    for _, row in poly.iterrows():
-        key = _extract_key(row["question"])
-        if key:
-            poly_by_key[key] = row
-
-    for _, row in kalshi.iterrows():
-        key = _extract_key(row["question"])
-        if key and key in poly_by_key:
-            poly_row = poly_by_key[key]
-            poly_price = float(poly_row.get("outcome_yes_price", 0))
-            kalshi_price = float(row.get("outcome_yes_price", 0))
-            spread = abs(poly_price - kalshi_price)
-
-            if spread > 0.01:  # More than 1 cent divergence
-                divergences.append({
-                    "city": key[0],
-                    "date": key[1],
-                    "polymarket_yes": poly_price,
-                    "kalshi_yes": kalshi_price,
-                    "spread": round(spread, 3),
-                    "polymarket_question": poly_row["question"],
-                    "kalshi_question": row["question"],
-                    "direction": "Polymarket higher" if poly_price > kalshi_price else "Kalshi higher",
+    # Check for thin markets at extreme prices
+    for market_id in latest["market_id"].unique():
+        mkt = latest[latest["market_id"] == market_id]
+        yes_row = mkt[mkt["outcome"].str.lower() == "yes"]
+        if not yes_row.empty:
+            price = float(yes_row["price"].iloc[0])
+            vol = float(yes_row["volume"].iloc[0]) if "volume" in yes_row.columns else 0
+            if (price > 0.85 or price < 0.15) and vol < 1000:
+                findings.append({
+                    "type": "thin_extreme",
+                    "market_id": market_id,
+                    "question": yes_row["question"].iloc[0],
+                    "source": yes_row["source"].iloc[0],
+                    "price": price,
+                    "volume": vol,
+                    "detail": f"Extreme price {price:.3f} with low volume {vol}",
                 })
 
-    divergences.sort(key=lambda x: x["spread"], reverse=True)
-    return divergences
+    return findings
 
 
-def detect_biases(markets_df: pd.DataFrame) -> dict:
-    """Detect seasonal and regional biases in weather markets."""
-    resolved = markets_df[markets_df["resolved"] == True].copy()
+# --- Seasonal/Regional Bias ---
+
+def detect_biases(prices_df, actuals_df):
+    """
+    Identify systematic biases by region or season in resolved markets.
+    """
+    biases = []
+    if prices_df.empty or "resolved" not in prices_df.columns:
+        return biases
+    resolved = prices_df[prices_df["resolved"] == True].copy()
     if resolved.empty:
-        return {"note": "Insufficient resolved markets for bias detection"}
+        return biases
 
-    resolved["outcome_binary"] = resolved["resolution"].apply(_resolution_to_binary)
-    resolved = resolved.dropna(subset=["outcome_binary", "outcome_yes_price"])
-    resolved["implied_prob"] = resolved["outcome_yes_price"].astype(float)
-    resolved["error"] = resolved["implied_prob"] - resolved["outcome_binary"]
+    yes_prices = resolved[resolved["outcome"].str.lower() == "yes"].copy()
+    if yes_prices.empty:
+        return biases
 
-    biases = {}
+    yes_prices["actual"] = yes_prices["resolution"].apply(
+        lambda r: 1.0 if str(r).lower() in ("yes", "1", "true", "y") else 0.0
+    )
+    yes_prices["implied_prob"] = yes_prices["price"].clip(0, 1)
+    yes_prices["error"] = yes_prices["implied_prob"] - yes_prices["actual"]
 
-    # Regional bias (by detecting city names)
-    from fetch_weather import CITY_COORDS
-    for city in CITY_COORDS:
-        mask = resolved["question"].str.lower().str.contains(city, na=False)
-        subset = resolved[mask]
-        if len(subset) >= 3:
-            biases[f"region_{city}"] = {
-                "count": int(len(subset)),
-                "mean_error": float(subset["error"].mean()),
-                "direction": "overestimates yes" if subset["error"].mean() > 0 else "underestimates yes",
-            }
-
-    # Keyword-based category bias
-    categories = {
-        "temperature": ["temperature", "temp", "hot", "cold", "heat", "freeze", "warm"],
-        "precipitation": ["rain", "snow", "precipitation", "rainfall", "snowfall"],
-        "storms": ["hurricane", "tornado", "storm", "cyclone", "typhoon"],
+    # Regional bias: check if certain cities are systematically over/under predicted
+    city_keywords = {
+        "new_york": ["new york", "nyc", "ny"],
+        "los_angeles": ["los angeles", "la"],
+        "chicago": ["chicago"],
+        "miami": ["miami"],
+        "houston": ["houston"],
     }
 
-    for cat_name, keywords in categories.items():
-        mask = resolved["question"].str.lower().apply(
-            lambda q: any(kw in q for kw in keywords) if isinstance(q, str) else False
+    for city, keywords in city_keywords.items():
+        mask = yes_prices["question"].str.lower().apply(
+            lambda q: any(kw in q for kw in keywords)
         )
-        subset = resolved[mask]
-        if len(subset) >= 3:
-            biases[f"category_{cat_name}"] = {
-                "count": int(len(subset)),
-                "mean_error": float(subset["error"].mean()),
-                "brier_score": float((subset["error"] ** 2).mean()),
-            }
+        city_markets = yes_prices[mask]
+        if len(city_markets) >= 3:
+            mean_error = city_markets["error"].mean()
+            if abs(mean_error) > 0.05:
+                direction = "overestimated" if mean_error > 0 else "underestimated"
+                biases.append({
+                    "type": "regional",
+                    "region": city,
+                    "mean_error": mean_error,
+                    "n_markets": len(city_markets),
+                    "detail": f"{city}: probability {direction} by {abs(mean_error):.1%} (n={len(city_markets)})",
+                })
+
+    # Source bias: compare Polymarket vs Kalshi calibration
+    for source in yes_prices["source"].unique():
+        src_markets = yes_prices[yes_prices["source"] == source]
+        if len(src_markets) >= 5:
+            mean_error = src_markets["error"].mean()
+            if abs(mean_error) > 0.03:
+                biases.append({
+                    "type": "source",
+                    "source": source,
+                    "mean_error": mean_error,
+                    "n_markets": len(src_markets),
+                    "detail": f"{source}: mean error {mean_error:+.3f} (n={len(src_markets)})",
+                })
 
     return biases
 
 
-def run_full_analysis(markets_df: pd.DataFrame, snapshots_df: pd.DataFrame, outcomes_df: pd.DataFrame) -> dict:
-    """Run all analyses and save results."""
-    has_markets = not markets_df.empty and "resolved" in markets_df.columns
+# --- Summary Report ---
 
-    if has_markets:
-        total = int(len(markets_df))
-        active = int(len(markets_df[markets_df["resolved"] != True]))
-        resolved_count = int(len(markets_df[markets_df["resolved"] == True]))
-        by_source = markets_df["source"].value_counts().to_dict()
-    else:
-        total = active = resolved_count = 0
-        by_source = {}
-
-    results = {
-        "timestamp": datetime.now(timezone.utc).isoformat(),
-        "market_counts": {
-            "total": total,
-            "active": active,
-            "resolved": resolved_count,
-            "by_source": by_source,
-        },
-        "calibration": compute_calibration(markets_df, outcomes_df) if has_markets else {"note": "No market data"},
-        "forecast_errors": compute_forecast_errors(markets_df) if has_markets else {"note": "No market data"},
-        "mispriced_markets": identify_mispriced_markets(markets_df, snapshots_df) if has_markets else [],
-        "biases": detect_biases(markets_df) if has_markets else {"note": "No market data"},
-        "cross_platform_divergences": detect_cross_platform_divergences(markets_df) if has_markets else [],
-        "snapshot_count": int(len(snapshots_df)) if not snapshots_df.empty else 0,
-        "outcome_count": int(len(outcomes_df)) if not outcomes_df.empty else 0,
+def generate_analysis_report(prices_df, actuals_df):
+    """Generate a complete analysis report."""
+    report = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "data_summary": {},
+        "calibration": None,
+        "forecast_errors": None,
+        "mispriced_markets": [],
+        "biases": [],
+        "trading_opportunities": [],
     }
 
-    # Save results
-    with open(config.ANALYSIS_RESULTS, "w") as f:
-        json.dump(results, f, indent=2, default=str)
-    logger.info("Analysis results saved to %s", config.ANALYSIS_RESULTS)
+    # Data summary
+    report["data_summary"] = {
+        "total_price_snapshots": len(prices_df),
+        "unique_markets": prices_df["market_id"].nunique() if not prices_df.empty else 0,
+        "sources": prices_df["source"].unique().tolist() if not prices_df.empty else [],
+        "resolved_markets": int(prices_df[prices_df["resolved"] == True]["market_id"].nunique()) if not prices_df.empty else 0,
+        "weather_records": len(actuals_df),
+        "cities_tracked": actuals_df["city"].nunique() if not actuals_df.empty else 0,
+    }
 
-    return results
+    # Calibration
+    cal = compute_calibration(prices_df)
+    if cal is not None:
+        report["calibration"] = cal.to_dict(orient="records")
+
+    # Forecast errors
+    errors = compute_forecast_errors(prices_df)
+    if errors is not None:
+        report["forecast_errors"] = errors.head(20).to_dict(orient="records")
+
+    # Mispricing
+    mispriced = detect_mispriced_markets(prices_df)
+    report["mispriced_markets"] = mispriced
+
+    # Biases
+    biases = detect_biases(prices_df, actuals_df)
+    report["biases"] = biases
+
+    # Trading opportunities: combine mispricing signals
+    opportunities = []
+    for m in mispriced:
+        if m["type"] == "arbitrage" and m["spread"] > 0.08:
+            opportunities.append({
+                "signal": "arbitrage",
+                "market": m["question"][:100],
+                "detail": m["detail"],
+                "strength": "strong" if m["spread"] > 0.15 else "moderate",
+            })
+        elif m["type"] == "thin_extreme":
+            opportunities.append({
+                "signal": "thin_market",
+                "market": m["question"][:100],
+                "detail": m["detail"],
+                "strength": "speculative",
+            })
+
+    report["trading_opportunities"] = opportunities
+    return report
+
+
+def save_report(report):
+    """Save analysis report to JSON."""
+    os.makedirs(ANALYSIS_DIR, exist_ok=True)
+    filepath = os.path.join(ANALYSIS_DIR, "latest_report.json")
+    with open(filepath, "w") as f:
+        json.dump(report, f, indent=2, default=str)
+    return filepath
+
+
+def format_summary(report):
+    """Format a concise text summary of the analysis."""
+    lines = []
+    lines.append("=" * 60)
+    lines.append("WEATHER PREDICTION MARKET ANALYSIS")
+    lines.append(f"Generated: {report['generated_at']}")
+    lines.append("=" * 60)
+
+    ds = report["data_summary"]
+    lines.append(f"\n--- Data Summary ---")
+    lines.append(f"Price snapshots: {ds['total_price_snapshots']}")
+    lines.append(f"Unique markets:  {ds['unique_markets']}")
+    lines.append(f"Sources:         {', '.join(ds['sources'])}")
+    lines.append(f"Resolved:        {ds['resolved_markets']}")
+    lines.append(f"Weather records: {ds['weather_records']}")
+    lines.append(f"Cities tracked:  {ds['cities_tracked']}")
+
+    # Calibration
+    cal = report.get("calibration")
+    if cal:
+        lines.append(f"\n--- Calibration by Probability Bucket ---")
+        for row in cal:
+            lines.append(
+                f"  {row['bucket']:>10s}: implied={row['mean_implied']:.3f}  "
+                f"actual={row['actual_rate']:.3f}  "
+                f"error={row['calibration_error']:+.3f}  "
+                f"(n={row['count']})"
+            )
+
+    # Top forecast errors
+    errors = report.get("forecast_errors")
+    if errors:
+        lines.append(f"\n--- Worst Forecast Errors (by Brier Score) ---")
+        for row in errors[:5]:
+            lines.append(
+                f"  [{row['source']}] {row['question'][:60]}"
+                f"\n    Price={row['last_price']:.3f} Actual={row['actual']:.0f} "
+                f"Brier={row['brier_score']:.4f}"
+            )
+
+    # Mispriced markets
+    mispriced = report.get("mispriced_markets", [])
+    if mispriced:
+        lines.append(f"\n--- Mispriced Markets ({len(mispriced)} found) ---")
+        for m in mispriced[:10]:
+            lines.append(f"  [{m['type']}] {m['question'][:60]}")
+            lines.append(f"    {m['detail']}")
+
+    # Biases
+    biases = report.get("biases", [])
+    if biases:
+        lines.append(f"\n--- Detected Biases ---")
+        for b in biases:
+            lines.append(f"  [{b['type']}] {b['detail']}")
+
+    # Trading opportunities
+    opps = report.get("trading_opportunities", [])
+    if opps:
+        lines.append(f"\n--- Trading Opportunities ({len(opps)}) ---")
+        for o in opps:
+            lines.append(f"  [{o['strength'].upper()}] {o['signal']}: {o['market'][:60]}")
+            lines.append(f"    {o['detail']}")
+    else:
+        lines.append(f"\n--- No clear trading opportunities identified ---")
+
+    lines.append("\n" + "=" * 60)
+    return "\n".join(lines)
+
+
+if __name__ == "__main__":
+    prices = load_prices()
+    actuals = load_actuals()
+    report = generate_analysis_report(prices, actuals)
+    save_report(report)
+    print(format_summary(report))

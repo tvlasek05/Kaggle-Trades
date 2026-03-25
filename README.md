@@ -1,58 +1,53 @@
 # Weather Prediction Market Tracker
 
-Automated pipeline that collects weather prediction market data from Kalshi and Polymarket, tracks actual outcomes via Open-Meteo, and identifies trading opportunities through calibration analysis.
+Automated system for tracking, analyzing, and identifying opportunities in weather prediction markets.
 
-## Quick Start
+## What it does
+
+Each session:
+1. **Pulls** latest weather prediction market data from Polymarket and Kalshi APIs
+2. **Appends** new price snapshots to a persistent rolling time series (CSV)
+3. **Fetches** actual weather outcomes from Open-Meteo (free, no API key)
+4. **Computes** calibration, forecast error (Brier score), and implied vs actual probability
+5. **Identifies** mispriced markets, arbitrage opportunities, slow reactions, and regional/seasonal biases
+6. **Saves** updated datasets and analysis report to the repository
+7. **Outputs** a concise summary of insights and trading opportunities
+
+## Quick start
 
 ```bash
 pip install -r requirements.txt
-
-# Live mode (fetches from real APIs)
-python3 run_session.py
-
-# Demo mode (generates sample data for testing)
-python3 run_session.py --demo
+python run_session.py
 ```
 
-## What it does each session
+## Project structure
 
-1. **Collect** - Pulls weather prediction market data from Polymarket and Kalshi APIs
-2. **Store** - Appends to persistent CSV datasets in `data/`
-3. **Track** - Maintains rolling price time series per market
-4. **Verify** - Fetches actual weather outcomes from Open-Meteo for resolved markets
-5. **Analyze** - Computes calibration by probability bucket, forecast errors, Brier scores
-6. **Identify** - Flags mispriced markets, slow reactions, seasonal/regional biases
-7. **Report** - Outputs concise summary with trading opportunities to `results/summary.txt`
+```
+├── run_session.py        # Main entry point - runs a full session
+├── market_fetcher.py     # Polymarket + Kalshi API data collection
+├── weather_actuals.py    # Open-Meteo weather verification data
+├── analysis.py           # Calibration, forecast error, mispricing, bias detection
+├── seed_data.py          # Generates realistic seed data for offline use
+├── data/
+│   ├── market_prices.csv      # Rolling time series of market prices
+│   ├── markets_metadata.json  # Market descriptions and metadata
+│   └── weather_actuals.csv    # Actual weather observations
+└── analysis/
+    └── latest_report.json     # Most recent analysis report
+```
 
-## Files
+## Data sources
 
-| File | Purpose |
-|------|---------|
-| `run_session.py` | Main entry point - run each session |
-| `collector.py` | Polymarket + Kalshi data collection |
-| `weather.py` | Open-Meteo weather verification |
-| `analyzer.py` | Calibration, mispricing, bias detection |
-| `config.py` | Configuration and file paths |
-| `demo_data.py` | Generate sample data for testing |
-| `data/markets.csv` | All tracked markets (latest snapshot) |
-| `data/price_history.csv` | Rolling price time series |
-| `data/outcomes.csv` | Verified weather outcomes |
-| `results/analysis.csv` | Mispricing and bias findings |
-| `results/calibration.csv` | Calibration by probability bucket |
-| `results/summary.txt` | Human-readable session summary |
+| Source | Type | Auth Required |
+|--------|------|---------------|
+| [Polymarket](https://polymarket.com) | Prediction markets | No (public API) |
+| [Kalshi](https://kalshi.com) | Regulated prediction exchange | No (public read) |
+| [Open-Meteo](https://open-meteo.com) | Weather actuals | No (free API) |
 
-## Data Sources
+## Analysis outputs
 
-| Source | API | Auth Required |
-|--------|-----|---------------|
-| Kalshi | trading-api.kalshi.com | No (public markets) |
-| Polymarket | gamma-api.polymarket.com | No |
-| Open-Meteo | api.open-meteo.com | No |
-
-## Analysis Metrics
-
-- **Brier Score**: Mean squared error of probability forecasts (lower = better)
-- **Calibration**: Do markets priced at X% resolve YES X% of the time?
-- **Mispricing Signals**: Illiquid extremes, large price moves
-- **Slow Reactions**: Markets with consistent directional drift
-- **Bias Detection**: Systematic over/under-confidence by source, region, or season
+- **Calibration table**: Implied probability vs actual resolution rate by bucket
+- **Forecast errors**: Brier score and log loss per resolved market
+- **Mispricing signals**: Arbitrage (Yes+No != 1.0), high volatility, thin extreme-priced markets
+- **Bias detection**: Regional over/under-prediction, source-level calibration differences
+- **Trading opportunities**: Ranked by signal strength
