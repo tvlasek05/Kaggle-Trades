@@ -8,8 +8,18 @@ import os
 POLYMARKET_API = "https://clob.polymarket.com"
 POLYMARKET_GAMMA_API = "https://gamma-api.polymarket.com"
 
-# Kalshi API (public read endpoints)
-KALSHI_API = "https://api.elections.kalshi.com/trade-api/v2"
+# Kalshi API (no auth needed for read-only market data)
+KALSHI_API = "https://trading-api.kalshi.com/trade-api/v2"
+
+# Kalshi known weather series tickers (daily temperature by city)
+KALSHI_WEATHER_SERIES = [
+    "KXHIGHNY",   # NYC high temp (Central Park / KNYC)
+    "KXHIGHCHI",  # Chicago high temp
+    "KXHIGHMIA",  # Miami high temp
+    "KXHIGHLAX",  # Los Angeles high temp
+    "KXHIGHDEN",  # Denver high temp
+    "KXHIGHAUS",  # Austin high temp
+]
 
 # Open-Meteo (free, no auth)
 OPEN_METEO_API = "https://api.open-meteo.com/v1"

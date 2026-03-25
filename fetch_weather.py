@@ -1,4 +1,8 @@
-"""Fetch actual weather outcomes from Open-Meteo for resolved market verification."""
+"""Fetch actual weather outcomes for resolved market verification.
+
+Uses Open-Meteo Archive API (free, no auth) as primary source and
+NWS API (api.weather.gov, no auth) as settlement-matching source for Kalshi markets.
+"""
 
 import re
 import pandas as pd
@@ -31,6 +35,50 @@ CITY_COORDS = {
     "paris": (48.8566, 2.3522),
     "tokyo": (35.6762, 139.6503),
 }
+
+# NWS station IDs matching Kalshi settlement sources
+NWS_STATIONS = {
+    "new york": "KNYC",   # Central Park (Kalshi KXHIGHNY settlement)
+    "nyc": "KNYC",
+    "chicago": "KORD",
+    "miami": "KMIA",
+    "los angeles": "KLAX",
+    "la": "KLAX",
+    "denver": "KDEN",
+    "austin": "KAUS",
+    "houston": "KIAH",
+    "phoenix": "KPHX",
+    "seattle": "KSEA",
+    "boston": "KBOS",
+    "atlanta": "KATL",
+    "san francisco": "KSFO",
+    "sf": "KSFO",
+    "washington": "KDCA",
+    "dc": "KDCA",
+}
+
+
+def fetch_nws_observation(station_id):
+    """Fetch latest observation from NWS API (settlement source for Kalshi).
+
+    No auth required, but include User-Agent header.
+    """
+    headers = {"User-Agent": "(weather-market-tracker, contact@example.com)"}
+    data = _request_with_retry(
+        f"https://api.weather.gov/stations/{station_id}/observations/latest",
+        headers=headers,
+    )
+    if data and "properties" in data:
+        props = data["properties"]
+        temp_c = props.get("temperature", {}).get("value")
+        temp_f = (temp_c * 9 / 5 + 32) if temp_c is not None else None
+        return {
+            "station": station_id,
+            "temp_f": round(temp_f, 1) if temp_f else None,
+            "timestamp": props.get("timestamp"),
+            "description": props.get("textDescription"),
+        }
+    return None
 
 
 def extract_city_from_title(title):
