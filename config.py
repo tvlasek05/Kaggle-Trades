@@ -13,7 +13,7 @@ POLYMARKET_GAMMA_URL = "https://gamma-api.polymarket.com"
 POLYMARKET_CLOB_URL = "https://clob.polymarket.com"
 
 # Kalshi API (public read access)
-KALSHI_API_URL = "https://api.elections.kalshi.com/trade-api/v2"
+KALSHI_API_URL = "https://trading-api.kalshi.com/trade-api/v2"
 
 # Open-Meteo (free, no auth)
 OPEN_METEO_FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
