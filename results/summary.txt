@@ -1,0 +1,64 @@
+======================================================================
+WEATHER PREDICTION MARKET TRACKER - Session Summary
+Run: 2026-03-25 05:14 UTC
+======================================================================
+
+--- DATASET STATUS ---
+Total markets tracked: 55
+  Active: 30
+  Resolved: 25
+Price history snapshots: 287
+Verified outcomes: 25
+  polymarket: 31 markets
+  kalshi: 24 markets
+
+--- CALIBRATION ---
+  0.1-0.2: 4 markets, actual rate=0.0, error=-0.177
+  0.2-0.3: 1 markets, actual rate=0.0, error=-0.230
+  0.3-0.4: 2 markets, actual rate=0.5, error=+0.145
+  0.4-0.5: 5 markets, actual rate=0.8, error=+0.370
+  0.5-0.6: 3 markets, actual rate=0.6667, error=+0.123
+  0.6-0.7: 2 markets, actual rate=0.5, error=-0.185
+  0.7-0.8: 1 markets, actual rate=1.0, error=+0.290
+  0.8-0.9: 7 markets, actual rate=0.7143, error=-0.126
+  Overall Brier Score: 0.2017
+
+--- POTENTIAL MISPRICINGS (4) ---
+  [kalshi] KALS-WEATHER-A0007
+    Signal: Price moved down by 0.25 (0.66 -> 0.41)
+  [kalshi] KALS-WEATHER-A0027
+    Signal: Price moved down by 0.15 (0.83 -> 0.68)
+  [polymarket] POLY-WEATHER-0023
+    Signal: Price moved up by 0.18 (0.20 -> 0.38)
+  [polymarket] POLY-WEATHER-A0003
+    Signal: Price moved down by 0.16 (0.17 -> 0.01)
+
+--- SLOW MARKET REACTIONS (5) ---
+  [kalshi] KALS-WEATHER-0019
+    Consistent downward drift: -0.13 over 5 snapshots
+  [kalshi] KALS-WEATHER-A0007
+    Consistent downward drift: -0.25 over 8 snapshots
+  [polymarket] POLY-WEATHER-0023
+    Consistent upward drift: +0.18 over 8 snapshots
+  [polymarket] POLY-WEATHER-A0014
+    Consistent downward drift: -0.09 over 4 snapshots
+  [polymarket] POLY-WEATHER-A0022
+    Consistent upward drift: +0.13 over 8 snapshots
+
+--- BIASES DETECTED ---
+  [regional_bias] Boston: Market overestimates by 0.23 on avg (3 markets)
+  [regional_bias] New York: Market overestimates by 0.42 on avg (4 markets)
+  [regional_bias] Phoenix: Market underestimates by 0.25 on avg (4 markets)
+  [regional_bias] Seattle: Market underestimates by 0.25 on avg (4 markets)
+  [seasonal_bias] January: Market overestimates by 0.29 on avg (9 markets)
+  [seasonal_bias] March: Market underestimates by 0.36 on avg (8 markets)
+  [source_bias] kalshi: Mean error -0.102, Brier score 0.317 (8 markets)
+  [source_bias] polymarket: Mean error +0.012, Brier score 0.148 (17 markets)
+
+--- TRADING OPPORTUNITIES ---
+  4 markets with large recent price moves (momentum/reversal)
+  5 markets with consistent drift (may continue)
+  Markets in buckets ['0.1-0.2', '0.2-0.3', '0.6-0.7', '0.8-0.9'] are OVERPRICED (actual < implied)
+  Markets in buckets ['0.3-0.4', '0.4-0.5', '0.5-0.6', '0.7-0.8'] are UNDERPRICED (actual > implied)
+
+======================================================================

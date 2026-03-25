@@ -1,0 +1,26 @@
+source,market_id,question,implied_prob,actual_yes,forecast_error,abs_error,brier_score
+polymarket,POLY-WEATHER-0000,"Will the low temperature in Chicago drop below 25°F on February 11, 2026?",0.69,1.0,-0.31000000000000005,0.31000000000000005,0.09610000000000003
+polymarket,POLY-WEATHER-0001,"Will the high temperature in Houston exceed 85°F on March 15, 2026?",0.5,1.0,-0.5,0.5,0.25
+polymarket,POLY-WEATHER-0002,"Will Houston receive rain on January 20, 2026?",0.71,1.0,-0.29000000000000004,0.29000000000000004,0.08410000000000002
+polymarket,POLY-WEATHER-0003,"Will the high temperature in Miami exceed 95°F on February 03, 2026?",0.18,0.0,0.18,0.18,0.0324
+kalshi,KALS-WEATHER-0004,"Will New York reach 80°F or above on January 09, 2026?",0.54,0.0,0.54,0.54,0.2916
+polymarket,POLY-WEATHER-0005,"Will the high temperature in Denver exceed 90°F on March 10, 2026?",0.89,1.0,-0.10999999999999999,0.10999999999999999,0.012099999999999998
+kalshi,KALS-WEATHER-0006,"Will Seattle receive rain on December 27, 2025?",0.4,1.0,-0.6,0.6,0.36
+polymarket,POLY-WEATHER-0007,"Will the low temperature in Chicago drop below 32°F on January 09, 2026?",0.4,0.0,0.4,0.4,0.16000000000000003
+kalshi,KALS-WEATHER-0008,"Will the low temperature in Phoenix drop below 30°F on March 11, 2026?",0.42,1.0,-0.5800000000000001,0.5800000000000001,0.3364000000000001
+polymarket,POLY-WEATHER-0009,"Will Denver get snow on December 25, 2025?",0.81,1.0,-0.18999999999999995,0.18999999999999995,0.03609999999999998
+kalshi,KALS-WEATHER-0010,"Will Phoenix get snow on January 03, 2026?",0.39,0.0,0.39,0.39,0.1521
+polymarket,POLY-WEATHER-0011,"Will the low temperature in Chicago drop below 40°F on March 04, 2026?",0.44,1.0,-0.56,0.56,0.31360000000000005
+polymarket,POLY-WEATHER-0012,"Will there be measurable precipitation in Seattle on March 04, 2026?",0.19,0.0,0.19,0.19,0.0361
+polymarket,POLY-WEATHER-0013,"Will Seattle reach 100°F or above on January 13, 2026?",0.59,1.0,-0.41000000000000003,0.41000000000000003,0.16810000000000003
+kalshi,KALS-WEATHER-0014,"Will the high temperature in New York exceed 90°F on January 15, 2026?",0.8,0.0,0.8,0.8,0.6400000000000001
+polymarket,POLY-WEATHER-0015,"Will Phoenix get snow on March 08, 2026?",0.88,1.0,-0.12,0.12,0.0144
+polymarket,POLY-WEATHER-0016,"Will Boston get snow on February 13, 2026?",0.84,1.0,-0.16000000000000003,0.16000000000000003,0.02560000000000001
+kalshi,KALS-WEATHER-0017,"Will there be measurable precipitation in Seattle on December 25, 2025?",0.82,1.0,-0.18000000000000005,0.18000000000000005,0.03240000000000002
+polymarket,POLY-WEATHER-0018,"Will the low temperature in Denver drop below 20°F on January 02, 2026?",0.16,0.0,0.16,0.16,0.0256
+kalshi,KALS-WEATHER-0019,"Will the low temperature in New York drop below 40°F on March 09, 2026?",0.49,1.0,-0.51,0.51,0.2601
+polymarket,POLY-WEATHER-0020,"Will Boston get snow on January 17, 2026?",0.18,0.0,0.18,0.18,0.0324
+polymarket,POLY-WEATHER-0021,"Will the high temperature in Boston exceed 95°F on December 25, 2025?",0.68,0.0,0.68,0.68,0.4624000000000001
+kalshi,KALS-WEATHER-0022,"Will Phoenix get snow on March 01, 2026?",0.32,1.0,-0.6799999999999999,0.6799999999999999,0.4623999999999999
+polymarket,POLY-WEATHER-0023,"Will the high temperature in Chicago exceed 85°F on December 25, 2025?",0.23,0.0,0.23,0.23,0.0529
+polymarket,POLY-WEATHER-0024,"Will New York reach 90°F or above on January 29, 2026?",0.84,0.0,0.84,0.84,0.7055999999999999
