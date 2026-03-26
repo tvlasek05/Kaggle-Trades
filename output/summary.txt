@@ -1,0 +1,23 @@
+=== Weather Prediction Market Analysis ===
+Generated: 2026-03-26 08:05 UTC
+
+DATASET OVERVIEW
+  Total markets tracked: 0
+  Resolved with outcomes: 0
+  Currently open: 0
+
+CALIBRATION BY PROBABILITY BUCKET
+  No resolved markets with probability data yet.
+
+MISPRICED MARKETS (error > 15%)
+  None identified yet.
+
+BIAS ANALYSIS
+  Insufficient data for bias detection.
+
+SLOW MARKET REACTIONS
+  No slow reaction patterns detected (need multiple price snapshots).
+
+POTENTIAL TRADING OPPORTUNITIES
+  (Based on detected biases and mispricings)
+  No clear opportunities yet. More data needed.
