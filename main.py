@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+"""
+Weather Prediction Market Analysis Pipeline
+
+Pulls weather prediction market data from Kalshi, fetches actual weather
+outcomes from Open-Meteo, and runs calibration/mispricing analysis.
+
+Usage:
+    python main.py              # Run full pipeline
+    python main.py --fetch      # Only fetch new market data
+    python main.py --weather    # Only fetch weather outcomes
+    python main.py --analyze    # Only run analysis
+"""
+
+import argparse
+import sys
+
+import fetch_markets
+import fetch_weather
+import analyze
+
+
+def run_full_pipeline():
+    """Execute the complete pipeline: fetch markets, fetch weather, analyze."""
+    print("=" * 60)
+    print("STEP 1: Fetching weather prediction market data from Kalshi")
+    print("=" * 60)
+    markets = fetch_markets.run()
+
+    print()
+    print("=" * 60)
+    print("STEP 2: Fetching actual weather outcomes from Open-Meteo")
+    print("=" * 60)
+    outcomes = fetch_weather.run(markets)
+
+    print()
+    print("=" * 60)
+    print("STEP 3: Running analysis")
+    print("=" * 60)
+    summary = analyze.run(markets, outcomes)
+
+    return summary
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Weather Prediction Market Analysis")
+    parser.add_argument("--fetch", action="store_true", help="Only fetch market data")
+    parser.add_argument("--weather", action="store_true", help="Only fetch weather outcomes")
+    parser.add_argument("--analyze", action="store_true", help="Only run analysis")
+    args = parser.parse_args()
+
+    if not any([args.fetch, args.weather, args.analyze]):
+        run_full_pipeline()
+    else:
+        if args.fetch:
+            fetch_markets.run()
+        if args.weather:
+            fetch_weather.run()
+        if args.analyze:
+            analyze.run()
+
+
+if __name__ == "__main__":
+    main()
