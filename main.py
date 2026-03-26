@@ -64,7 +64,14 @@ def main():
     parser.add_argument("--fetch", action="store_true", help="Only fetch market data")
     parser.add_argument("--weather", action="store_true", help="Only fetch weather outcomes")
     parser.add_argument("--analyze", action="store_true", help="Only run analysis")
+    parser.add_argument("--seed", action="store_true", help="Generate seed data (when APIs unavailable)")
     args = parser.parse_args()
+
+    if args.seed:
+        import seed_data
+        seed_data.run()
+        analyze.run()
+        return
 
     if not any([args.fetch, args.weather, args.analyze]):
         run_full_pipeline()

@@ -1,23 +1,65 @@
 === Weather Prediction Market Analysis ===
-Generated: 2026-03-26 08:05 UTC
+Generated: 2026-03-26 12:06 UTC
 
 DATASET OVERVIEW
-  Total markets tracked: 0
-  Resolved with outcomes: 0
-  Currently open: 0
+  Total markets tracked: 5174
+  Resolved with outcomes: 4866
+  Currently open: 308
 
 CALIBRATION BY PROBABILITY BUCKET
-  No resolved markets with probability data yet.
+  Bucket      Count   Avg Prob   Hit Rate    Error
+  ----------------------------------------------
+  0.0-0.1      1674       3.5%      10.0%     6.5%
+  0.1-0.2       632      14.1%       7.0%     7.1%
+  0.2-0.3       382      24.3%       1.6%    22.8%
+  0.3-0.4       302      34.3%       3.0%    31.3%
+  0.4-0.5       178      44.0%      16.9%    27.1%
+  0.5-0.6       139      54.4%      68.3%    13.9%
+  0.6-0.7       151      64.7%      96.0%    31.3%
+  0.7-0.8       186      74.7%     100.0%    25.3%
+  0.8-0.9       319      85.3%     100.0%    14.7%
+  0.9-1.0       903      96.1%     100.0%     3.9%
 
 MISPRICED MARKETS (error > 15%)
-  None identified yet.
+  SNOWBOS-01FEB26-B0: implied=2.0%, actual=YES, error=98.0% (BOS 2026-02-01)
+  SNOWBOS-02FEB26-B0: implied=2.0%, actual=YES, error=98.0% (BOS 2026-02-02)
+  SNOWBOS-02JAN26-B0: implied=2.0%, actual=YES, error=98.0% (BOS 2026-01-02)
+  SNOWBOS-04FEB26-B0: implied=2.0%, actual=YES, error=98.0% (BOS 2026-02-04)
+  SNOWBOS-07FEB26-B0: implied=2.0%, actual=YES, error=98.0% (BOS 2026-02-07)
+  SNOWBOS-07MAR26-B0: implied=2.0%, actual=YES, error=98.0% (BOS 2026-03-07)
+  SNOWBOS-08FEB26-B0: implied=2.0%, actual=YES, error=98.0% (BOS 2026-02-08)
+  SNOWBOS-08JAN26-B0: implied=2.0%, actual=YES, error=98.0% (BOS 2026-01-08)
+  SNOWBOS-09FEB26-B0: implied=2.0%, actual=YES, error=98.0% (BOS 2026-02-09)
+  SNOWBOS-09JAN26-B0: implied=2.0%, actual=YES, error=98.0% (BOS 2026-01-09)
+  ... and 1895 more
 
 BIAS ANALYSIS
-  Insufficient data for bias detection.
+  By City:
+    BOS: n=425, avg_error=29.8%, bias=-3.8% (underprices YES)
+    CHI: n=890, avg_error=22.4%, bias=+0.0% (well-calibrated)
+    DAL: n=677, avg_error=12.4%, bias=-0.1% (well-calibrated)
+    DEN: n=572, avg_error=14.3%, bias=+0.4% (well-calibrated)
+    LA: n=685, avg_error=12.6%, bias=-0.6% (well-calibrated)
+    MIA: n=653, avg_error=12.8%, bias=-0.1% (well-calibrated)
+    NY: n=964, avg_error=21.4%, bias=-1.1% (well-calibrated)
+  By Month:
+    01: n=1718, avg_error=18.0%, bias=-0.0% (well-calibrated)
+    02: n=1594, avg_error=18.1%, bias=-0.9% (well-calibrated)
+    03: n=1222, avg_error=17.3%, bias=-1.1% (well-calibrated)
+    12: n=332, avg_error=18.3%, bias=-0.9% (well-calibrated)
+  By Series:
+    KXHIGHCHI: n=465, avg_error=14.9%, bias=+4.6% (overprices YES)
+    KXHIGHDAL: n=677, avg_error=12.4%, bias=-0.1% (well-calibrated)
+    KXHIGHDEN: n=572, avg_error=14.3%, bias=+0.4% (well-calibrated)
+    KXHIGHLA: n=685, avg_error=12.6%, bias=-0.6% (well-calibrated)
+    KXHIGHMIA: n=653, avg_error=12.8%, bias=-0.1% (well-calibrated)
+    KXHIGHNY: n=539, avg_error=14.1%, bias=+1.5% (well-calibrated)
+    KXSNOWBOS: n=425, avg_error=29.8%, bias=-3.8% (underprices YES)
+    KXSNOWCHI: n=425, avg_error=30.7%, bias=-5.0% (underprices YES)
+    KXSNOWNYC: n=425, avg_error=30.6%, bias=-4.5% (underprices YES)
 
 SLOW MARKET REACTIONS
   No slow reaction patterns detected (need multiple price snapshots).
 
 POTENTIAL TRADING OPPORTUNITIES
   (Based on detected biases and mispricings)
-  No clear opportunities yet. More data needed.
