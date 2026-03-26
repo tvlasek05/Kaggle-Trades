@@ -14,10 +14,12 @@ Usage:
 
 import argparse
 import sys
+from datetime import datetime, timezone
 
 import fetch_markets
 import fetch_weather
 import analyze
+import config
 
 
 def run_full_pipeline():
@@ -38,6 +40,14 @@ def run_full_pipeline():
     print("STEP 3: Running analysis")
     print("=" * 60)
     summary = analyze.run(markets, outcomes)
+
+    # Write a run log
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    log_path = config.OUTPUT_DIR / "last_run.txt"
+    with open(log_path, "w") as f:
+        f.write(f"Last run: {now}\n")
+        f.write(f"Markets tracked: {len(markets)}\n")
+        f.write(f"Outcomes recorded: {len(outcomes)}\n")
 
     return summary
 

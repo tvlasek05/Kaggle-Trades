@@ -10,6 +10,21 @@ import requests
 import config
 
 
+def _request_with_retry(url: str, params: dict, max_retries: int = 3) -> requests.Response:
+    """Make a GET request with exponential backoff retries."""
+    for attempt in range(max_retries):
+        resp = requests.get(url, params=params, timeout=15)
+        if resp.status_code == 429:
+            wait = 2 ** (attempt + 1)
+            print(f"  Rate limited, waiting {wait}s...")
+            time.sleep(wait)
+            continue
+        resp.raise_for_status()
+        return resp
+    resp.raise_for_status()
+    return resp
+
+
 def fetch_events_for_series(series_ticker: str) -> list[dict]:
     """Fetch all events for a given series ticker from Kalshi."""
     events = []
@@ -25,8 +40,7 @@ def fetch_events_for_series(series_ticker: str) -> list[dict]:
             params["cursor"] = cursor
 
         try:
-            resp = requests.get(url, params=params, timeout=15)
-            resp.raise_for_status()
+            resp = _request_with_retry(url, params)
             data = resp.json()
         except requests.RequestException as e:
             print(f"  Error fetching events for {series_ticker}: {e}")
@@ -56,8 +70,7 @@ def fetch_markets_for_event(event_ticker: str) -> list[dict]:
             params["cursor"] = cursor
 
         try:
-            resp = requests.get(url, params=params, timeout=15)
-            resp.raise_for_status()
+            resp = _request_with_retry(url, params)
             data = resp.json()
         except requests.RequestException as e:
             print(f"  Error fetching markets for {event_ticker}: {e}")
