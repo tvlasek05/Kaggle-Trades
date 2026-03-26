@@ -24,23 +24,45 @@ import config
 
 
 def run_full_pipeline():
-    """Execute the complete pipeline: fetch markets, fetch weather, analyze."""
+    """Execute the complete pipeline: fetch markets, fetch weather, analyze.
+
+    Gracefully degrades when APIs are unreachable — always runs analysis
+    on whatever data is available (freshly fetched or previously stored).
+    """
+    api_errors = []
+
     print("=" * 60)
     print("STEP 1: Fetching weather prediction market data from Kalshi")
     print("=" * 60)
-    markets = fetch_markets.run()
+    try:
+        markets = fetch_markets.run()
+    except Exception as e:
+        print(f"  [WARN] Kalshi fetch failed: {e}")
+        api_errors.append(f"Kalshi: {e}")
+        markets = fetch_markets.load_existing_markets()
+        print(f"  Loaded {len(markets)} markets from existing data")
 
     print()
     print("=" * 60)
     print("STEP 1b: Fetching supplementary markets (Polymarket, Manifold)")
     print("=" * 60)
-    supplementary = fetch_polymarket.run()
+    try:
+        supplementary = fetch_polymarket.run()
+    except Exception as e:
+        print(f"  [WARN] Supplementary fetch failed: {e}")
+        api_errors.append(f"Supplementary: {e}")
 
     print()
     print("=" * 60)
     print("STEP 2: Fetching actual weather outcomes from Open-Meteo")
     print("=" * 60)
-    outcomes = fetch_weather.run(markets)
+    try:
+        outcomes = fetch_weather.run(markets)
+    except Exception as e:
+        print(f"  [WARN] Weather fetch failed: {e}")
+        api_errors.append(f"Open-Meteo: {e}")
+        outcomes = fetch_weather.load_existing_outcomes()
+        print(f"  Loaded {len(outcomes)} outcomes from existing data")
 
     print()
     print("=" * 60)
@@ -55,6 +77,8 @@ def run_full_pipeline():
         f.write(f"Last run: {now}\n")
         f.write(f"Markets tracked: {len(markets)}\n")
         f.write(f"Outcomes recorded: {len(outcomes)}\n")
+        if api_errors:
+            f.write(f"API errors: {'; '.join(api_errors)}\n")
 
     return summary
 

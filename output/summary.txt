@@ -1,23 +1,74 @@
 === Weather Prediction Market Analysis ===
-Generated: 2026-03-26 08:05 UTC
+Generated: 2026-03-26 18:08 UTC
 
 DATASET OVERVIEW
-  Total markets tracked: 0
-  Resolved with outcomes: 0
-  Currently open: 0
+  Total markets tracked: 3007
+  Resolved with outcomes: 2962
+  Currently open: 45
 
 CALIBRATION BY PROBABILITY BUCKET
-  No resolved markets with probability data yet.
+  Bucket      Count   Avg Prob   Hit Rate    Error
+  ----------------------------------------------
+  0.0-0.1       113       4.9%       0.0%     4.9%
+  0.1-0.2       184      15.1%       0.0%    15.1%
+  0.2-0.3       342      25.1%       0.0%    25.1%
+  0.3-0.4       401      34.5%       0.5%    34.1%
+  0.4-0.5       363      44.4%       9.6%    34.7%
+  0.5-0.6       302      54.1%      50.7%     3.4%
+  0.6-0.7       330      64.5%      89.1%    24.6%
+  0.7-0.8       380      74.3%      98.7%    24.4%
+  0.8-0.9       328      84.4%      99.7%    15.3%
+  0.9-1.0       219      94.4%     100.0%     5.6%
 
 MISPRICED MARKETS (error > 15%)
-  None identified yet.
+  SNOWBOS-02JAN26-B1.0: implied=82.0%, actual=NO, error=82.0% (BOS 2026-01-02)
+  SNOWNY-15NOV25-B0.1: implied=77.0%, actual=NO, error=77.0% (NY 2025-11-15)
+  SNOWCHI-16DEC25-B4.0: implied=76.0%, actual=NO, error=76.0% (CHI 2025-12-16)
+  SNOWCHI-13JAN26-B4.0: implied=73.0%, actual=NO, error=73.0% (CHI 2026-01-13)
+  SNOWBOS-10FEB26-B2.0: implied=70.0%, actual=NO, error=70.0% (BOS 2026-02-10)
+  SNOWCHI-23FEB26-B0.1: implied=70.0%, actual=NO, error=70.0% (CHI 2026-02-23)
+  SNOWNY-11JAN26-B0.1: implied=69.0%, actual=NO, error=69.0% (NY 2026-01-11)
+  SNOWCHI-07FEB26-B0.1: implied=68.0%, actual=NO, error=68.0% (CHI 2026-02-07)
+  SNOWNY-18FEB26-B4.0: implied=68.0%, actual=NO, error=68.0% (NY 2026-02-18)
+  HIGHMIA-18OCT25-T82: implied=67.0%, actual=NO, error=67.0% (MIA 2025-10-18)
+  ... and 2399 more
 
 BIAS ANALYSIS
-  Insufficient data for bias detection.
+  By City:
+    BOS: n=128, avg_error=39.0%, bias=+27.7% (overprices YES)
+    CHI: n=555, avg_error=30.0%, bias=+6.7% (overprices YES)
+    DAL: n=430, avg_error=26.9%, bias=+1.0% (well-calibrated)
+    DEN: n=415, avg_error=26.5%, bias=-0.2% (well-calibrated)
+    LA: n=455, avg_error=27.9%, bias=+2.0% (overprices YES)
+    MIA: n=410, avg_error=27.8%, bias=+2.5% (overprices YES)
+    NY: n=569, avg_error=31.2%, bias=+10.6% (overprices YES)
+  By Month:
+    01: n=553, avg_error=28.5%, bias=+6.8% (overprices YES)
+    02: n=480, avg_error=30.2%, bias=+5.4% (overprices YES)
+    03: n=407, avg_error=28.6%, bias=+5.6% (overprices YES)
+    10: n=480, avg_error=28.1%, bias=+1.4% (well-calibrated)
+    11: n=525, avg_error=29.7%, bias=+6.6% (overprices YES)
+    12: n=517, avg_error=29.1%, bias=+5.4% (overprices YES)
+  By Series:
+    KXHIGHCHI: n=435, avg_error=27.5%, bias=+2.2% (overprices YES)
+    KXHIGHDAL: n=430, avg_error=26.9%, bias=+1.0% (well-calibrated)
+    KXHIGHDEN: n=415, avg_error=26.5%, bias=-0.2% (well-calibrated)
+    KXHIGHLA: n=455, avg_error=27.9%, bias=+2.0% (overprices YES)
+    KXHIGHMIA: n=410, avg_error=27.8%, bias=+2.5% (overprices YES)
+    KXHIGHNY: n=445, avg_error=28.0%, bias=+3.2% (overprices YES)
+    KXSNOWBOS: n=128, avg_error=39.0%, bias=+27.7% (overprices YES)
+    KXSNOWCHI: n=120, avg_error=38.7%, bias=+23.0% (overprices YES)
+    KXSNOWNYC: n=124, avg_error=42.8%, bias=+37.1% (overprices YES)
 
 SLOW MARKET REACTIONS
-  No slow reaction patterns detected (need multiple price snapshots).
+  HIGHCHI-14DEC25-T36: 52.0c -> 13.0c (resolved NO, 6 snapshots)
+  HIGHDAL-23NOV25-T66: 57.0c -> 87.0c (resolved YES, 5 snapshots)
+  HIGHDAL-12MAR26-T59: 38.0c -> 8.0c (resolved NO, 6 snapshots)
+  HIGHDAL-10OCT25-T79: 40.0c -> 12.0c (resolved NO, 4 snapshots)
+  HIGHDAL-10JAN26-T36: 66.0c -> 93.0c (resolved YES, 5 snapshots)
 
 POTENTIAL TRADING OPPORTUNITIES
   (Based on detected biases and mispricings)
-  No clear opportunities yet. More data needed.
+  -> BOS: Market tends to overprice YES by 27.7%. Consider selling YES.
+  -> CHI: Market tends to overprice YES by 6.7%. Consider selling YES.
+  -> NY: Market tends to overprice YES by 10.6%. Consider selling YES.
