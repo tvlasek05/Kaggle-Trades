@@ -17,8 +17,8 @@ OUTCOMES_CSV = DATA_DIR / "outcomes.csv"
 ANALYSIS_CSV = OUTPUT_DIR / "analysis.csv"
 SUMMARY_TXT = OUTPUT_DIR / "summary.txt"
 
-# Kalshi API (base URL updated — was trading-api.kalshi.com)
-KALSHI_BASE_URL = "https://api.elections.kalshi.com/trade-api/v2"
+# Kalshi API
+KALSHI_BASE_URL = "https://trading-api.kalshi.com/trade-api/v2"
 KALSHI_WEATHER_SERIES = [
     "KXHIGHNY",    # NYC high temperature
     "KXHIGHCHI",   # Chicago high temperature
