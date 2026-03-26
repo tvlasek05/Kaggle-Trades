@@ -17,6 +17,7 @@ import sys
 from datetime import datetime, timezone
 
 import fetch_markets
+import fetch_polymarket
 import fetch_weather
 import analyze
 import config
@@ -28,6 +29,12 @@ def run_full_pipeline():
     print("STEP 1: Fetching weather prediction market data from Kalshi")
     print("=" * 60)
     markets = fetch_markets.run()
+
+    print()
+    print("=" * 60)
+    print("STEP 1b: Fetching supplementary markets (Polymarket, Manifold)")
+    print("=" * 60)
+    supplementary = fetch_polymarket.run()
 
     print()
     print("=" * 60)
