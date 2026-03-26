@@ -13,6 +13,7 @@ Usage:
 """
 
 import argparse
+import csv
 import sys
 from datetime import datetime, timezone
 
@@ -21,6 +22,11 @@ import fetch_polymarket
 import fetch_weather
 import analyze
 import config
+
+
+def _have_existing_data():
+    """Check if data files already exist with content."""
+    return config.MARKETS_CSV.exists() and config.MARKETS_CSV.stat().st_size > 100
 
 
 def run_full_pipeline():
@@ -36,11 +42,29 @@ def run_full_pipeline():
     print("=" * 60)
     supplementary = fetch_polymarket.run()
 
+    # If no markets fetched from APIs, use seed data if available
+    if not markets and _have_existing_data():
+        print("\nNo live API data available. Using existing dataset.")
+        with open(config.MARKETS_CSV, "r") as f:
+            reader = csv.DictReader(f)
+            markets = {row["ticker"]: row for row in reader}
+    elif not markets:
+        print("\nNo live API data available. Generating seed data...")
+        import seed_data
+        markets_data, outcomes_data, price_snapshots = seed_data.generate_markets()
+        seed_data.save_all(markets_data, outcomes_data, price_snapshots)
+        markets = markets_data
+
     print()
     print("=" * 60)
     print("STEP 2: Fetching actual weather outcomes from Open-Meteo")
     print("=" * 60)
     outcomes = fetch_weather.run(markets)
+
+    # If no outcomes fetched, load from existing file
+    if not outcomes and config.OUTCOMES_CSV.exists():
+        print("Using existing weather outcomes.")
+        outcomes = fetch_weather.load_existing_outcomes()
 
     print()
     print("=" * 60)
