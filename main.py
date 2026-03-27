@@ -10,11 +10,9 @@ Usage:
     python main.py --fetch      # Only fetch new market data
     python main.py --weather    # Only fetch weather outcomes
     python main.py --analyze    # Only run analysis
-    python main.py --commit     # Run full pipeline and git commit results
 """
 
 import argparse
-import subprocess
 import sys
 from datetime import datetime, timezone
 
@@ -30,31 +28,19 @@ def run_full_pipeline():
     print("=" * 60)
     print("STEP 1: Fetching weather prediction market data from Kalshi")
     print("=" * 60)
-    try:
-        markets = fetch_markets.run()
-    except Exception as e:
-        print(f"  Kalshi fetch failed: {e}")
-        markets = fetch_markets.load_existing_markets()
+    markets = fetch_markets.run()
 
     print()
     print("=" * 60)
     print("STEP 1b: Fetching supplementary markets (Polymarket, Manifold)")
     print("=" * 60)
-    try:
-        supplementary = fetch_polymarket.run()
-    except Exception as e:
-        print(f"  Supplementary fetch failed: {e}")
-        supplementary = {}
+    supplementary = fetch_polymarket.run()
 
     print()
     print("=" * 60)
     print("STEP 2: Fetching actual weather outcomes from Open-Meteo")
     print("=" * 60)
-    try:
-        outcomes = fetch_weather.run(markets)
-    except Exception as e:
-        print(f"  Weather fetch failed: {e}")
-        outcomes = fetch_weather.load_existing_outcomes()
+    outcomes = fetch_weather.run(markets)
 
     print()
     print("=" * 60)
@@ -73,48 +59,15 @@ def run_full_pipeline():
     return summary
 
 
-def git_commit_results():
-    """Stage and commit data/output files if there are changes."""
-    files_to_add = [
-        "data/markets.csv", "data/prices.csv", "data/outcomes.csv",
-        "data/polymarket.csv", "data/manifold.csv",
-        "output/analysis.csv", "output/summary.txt", "output/last_run.txt",
-    ]
-    # Only add files that exist
-    existing = [f for f in files_to_add if (config.BASE_DIR / f).exists()]
-    if not existing:
-        print("\nNo data files to commit.")
-        return
-
-    subprocess.run(["git", "add"] + existing, cwd=config.BASE_DIR, check=True)
-
-    # Check if there are staged changes
-    result = subprocess.run(
-        ["git", "diff", "--cached", "--quiet"],
-        cwd=config.BASE_DIR,
-    )
-    if result.returncode == 0:
-        print("\nNo changes to commit.")
-        return
-
-    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    msg = f"data: update weather market data ({now})"
-    subprocess.run(["git", "commit", "-m", msg], cwd=config.BASE_DIR, check=True)
-    print(f"\nCommitted: {msg}")
-
-
 def main():
     parser = argparse.ArgumentParser(description="Weather Prediction Market Analysis")
     parser.add_argument("--fetch", action="store_true", help="Only fetch market data")
     parser.add_argument("--weather", action="store_true", help="Only fetch weather outcomes")
     parser.add_argument("--analyze", action="store_true", help="Only run analysis")
-    parser.add_argument("--commit", action="store_true", help="Run full pipeline and git commit results")
+    parser.add_argument("--commit", action="store_true", help="Git commit data after pipeline run")
     args = parser.parse_args()
 
-    if args.commit:
-        run_full_pipeline()
-        git_commit_results()
-    elif not any([args.fetch, args.weather, args.analyze]):
+    if not any([args.fetch, args.weather, args.analyze]):
         run_full_pipeline()
     else:
         if args.fetch:
@@ -123,6 +76,18 @@ def main():
             fetch_weather.run()
         if args.analyze:
             analyze.run()
+
+    if args.commit:
+        import subprocess
+        now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+        msg = f"data: update weather market data ({now})"
+        subprocess.run(["git", "add", "data/", "output/"], check=False)
+        result = subprocess.run(["git", "diff", "--cached", "--quiet"])
+        if result.returncode != 0:
+            subprocess.run(["git", "commit", "-m", msg], check=True)
+            print(f"\nCommitted: {msg}")
+        else:
+            print("\nNo data changes to commit.")
 
 
 if __name__ == "__main__":
