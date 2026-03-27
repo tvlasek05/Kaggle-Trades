@@ -10,9 +10,11 @@ Usage:
     python main.py --fetch      # Only fetch new market data
     python main.py --weather    # Only fetch weather outcomes
     python main.py --analyze    # Only run analysis
+    python main.py --commit     # Auto-commit data after run
 """
 
 import argparse
+import subprocess
 import sys
 from datetime import datetime, timezone
 
@@ -59,12 +61,25 @@ def run_full_pipeline():
     return summary
 
 
+def _auto_commit():
+    """Stage data/output changes and commit."""
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    msg = f"data: update weather market data ({now})"
+    subprocess.run(["git", "add", "data/", "output/"], check=True)
+    result = subprocess.run(["git", "diff", "--cached", "--quiet"])
+    if result.returncode != 0:
+        subprocess.run(["git", "commit", "-m", msg], check=True)
+        print(f"\nCommitted: {msg}")
+    else:
+        print("\nNo data changes to commit.")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Weather Prediction Market Analysis")
     parser.add_argument("--fetch", action="store_true", help="Only fetch market data")
     parser.add_argument("--weather", action="store_true", help="Only fetch weather outcomes")
     parser.add_argument("--analyze", action="store_true", help="Only run analysis")
-    parser.add_argument("--commit", action="store_true", help="Git commit data after pipeline run")
+    parser.add_argument("--commit", action="store_true", help="Auto-commit data after run")
     args = parser.parse_args()
 
     if not any([args.fetch, args.weather, args.analyze]):
@@ -78,16 +93,7 @@ def main():
             analyze.run()
 
     if args.commit:
-        import subprocess
-        now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-        msg = f"data: update weather market data ({now})"
-        subprocess.run(["git", "add", "data/", "output/"], check=False)
-        result = subprocess.run(["git", "diff", "--cached", "--quiet"])
-        if result.returncode != 0:
-            subprocess.run(["git", "commit", "-m", msg], check=True)
-            print(f"\nCommitted: {msg}")
-        else:
-            print("\nNo data changes to commit.")
+        _auto_commit()
 
 
 if __name__ == "__main__":
