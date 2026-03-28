@@ -1,5 +1,5 @@
 === Weather Prediction Market Analysis ===
-Generated: 2026-03-28 12:03 UTC
+Generated: 2026-03-28 13:14 UTC
 
 DATASET OVERVIEW
   Total markets tracked: 0
