@@ -83,7 +83,7 @@ def main():
     args = parser.parse_args()
 
     if not any([args.fetch, args.weather, args.analyze]):
-        summary = run_full_pipeline()
+        run_full_pipeline()
     else:
         if args.fetch:
             fetch_markets.run()
@@ -91,16 +91,6 @@ def main():
             fetch_weather.run()
         if args.analyze:
             analyze.run()
-        summary = None
-
-    if args.commit:
-        import subprocess
-        now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-        subprocess.run(["git", "add", "data/", "output/"], check=False)
-        subprocess.run(
-            ["git", "commit", "-m", f"data: update weather market data ({now})"],
-            check=False,
-        )
 
     if args.commit:
         _auto_commit()
